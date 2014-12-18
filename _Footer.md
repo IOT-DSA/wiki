@@ -1,1 +1,1 @@
-**Written by DGLogik and contributors**
+**Written by DGLogik and contributors.**
