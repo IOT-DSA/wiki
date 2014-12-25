@@ -1,19 +1,8 @@
 ##### Table of Contents  
-[Headers](#headers)  
-[Emphasis](#emphasis)  
-[Lists](#lists)  
-[Links](#links)  
-[Images](#images)  
-[Code and Syntax Highlighting](#code)  
-[Tables](#tables)  
-[Blockquotes](#blockquotes)  
-[Inline HTML](#html)  
-[Horizontal Rule](#hr)  
-[Line Breaks](#lines)  
-[Youtube videos](#videos)  
+[Node Structure](#nodeStructure)  
+ 
 
-<a name="headers"/>
-
+<a name="nodeStructure"/>
 # Node Structure
 
 | **Key** | **Value** |
