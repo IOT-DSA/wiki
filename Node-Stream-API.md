@@ -60,13 +60,50 @@
 
 # Every response is a stream
 Sample request:
-```{"reqId":2,"method":"list","path":"/connections/dslink1"}```
+```json
+{
+  "reqId":2,
+  "method":"list",
+  "path":"/connections/dslink1"
+}
+```
 - reqId can be a positive number or a unique string, corresponding response must returned with same value
 - method can be "set", "remove", "invoke", "list", "alias" , "subscribe", "unsubscribe" and "close"
   - DSA methods are defined in "/defs/method/" i.e. definition node of "list" method: /defs/method/list 
 
 Response:
-```{"reqId":2,"update":[["$is","node"],["$permission":"write"],["@city","San Francisco"],["point1",{"$is":"temperaturePoint", "@name":"Custom Name for Point1"}],["point2",{"$is":"numericPoint"}]]}```
+```json
+{
+  "reqId":2,
+  "update":[
+    [
+      "$is",
+      "node"
+    ],
+    [
+      "$permission",
+      "write"
+    ],
+    [
+      "@city",
+      "San Francisco"
+    ],
+    [
+      "point1",
+      {
+        "$is":"temperaturePoint",
+        "@name":"Custom Name for Point1"
+      }
+    ],
+    [
+      "point2",
+      {
+        "$is":"numericPoint"
+      }
+    ]
+  ]
+}
+```
 - Every response is a stream with table structure List of Rows
 - The structure of columns are defined in /defs/method/{methodName}, except the "invoke" method's column structure are defined in action node, or in the $is or $mixin of the action node.
 - Each row can be one of these 2 format
@@ -88,7 +125,14 @@ Response:
 # List Method
 
 ## Request
-```{"reqId":2,"method":"list","path":"/connections/dslink1"}```
+
+```json
+{
+  "reqId":2,
+  "method":"list",
+  "path":"/connections/dslink1"
+}
+```
 - path is the path to the node, it's a parameter defined in /defs/method/list
 definition node data of /defs/method/list :
 
