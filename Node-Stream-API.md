@@ -101,7 +101,59 @@ definition node data of /defs/method/list :
 
 ## Response
 this is a sample response of above requestFrame 1:
-```{"reqId":2,"update":[["$is","node"],["$permission":"write"],["@city","San Francisco"],["point1",{"$is":"temperaturePoint", "@name":"Custom Name for Point1"}],["point2",{"$is":"numericPoint"}]]}Frame2:{"reqId":2,"stream":"close","update":[["point3",{"$is":"temperaturePoint"}],{"name":"point2","change":"remove"},]}```
+
+```json
+{
+  "reqId":2,
+  "update":[
+    [
+      "$is",
+      "node"
+    ],
+    [
+      "$permission",
+      "write"
+    ],
+    [
+      "@city",
+      "San Francisco"
+    ],
+    [
+      "point1",
+      {
+        "$is":"temperaturePoint",
+        "@name":"Custom Name for Point1"
+      }
+    ],
+    [
+      "point2",
+      {
+        "$is":"numericPoint"
+      }
+    ]
+  ]
+}
+```
+
+Frame 2:
+```json
+{
+  "reqId":2,
+  "stream":"close",
+  "update":[
+    [
+      "point3",
+      {
+        "$is":"temperaturePoint"
+      }
+    ],
+    {
+      "name":"point2",
+      "change":"remove"
+    }
+  ]
+}
+```
 - during initialize phase, configs are sent first, then attributes, then nodes
   - if exists, $is must be the first row of a node, and $mixin must be the second, properties in $is and $mixin will be merged into the node structure and can be overwritten by other results in the response.
 
@@ -116,28 +168,89 @@ sample node data of /connections/dsLink/addMath :
 
 ## Request
 
-```{"reqId":3,"method":"invoke","path":"/connections/dslink/add","params":{"v1":2,"v2":1}}```
+```json
+{
+  "reqId":3,
+  "method":"invoke",
+  "path":"/connections/dslink/add",
+  "params":{
+    "v1":2,
+    "v2":1
+  }
+}
+```
 
 ## Response
 
-```{"reqId":3,"stream":"closed","update":[[3]]}```
+```json
+{
+  "reqId":3,
+  "stream":"closed",
+  "update":[
+    [
+      3
+    ]
+  ]
+}
+```
 
 # Subscribe Method
 
 ## Request
 
 subscribe and unsubscribe has same request and response structure except the method name.
-```{"reqId":5,"method":"subscribe","paths":["/node1/point1","/node1/point2","/node1/point3","/node2/point1","/node2/point2"]}```
+```json
+{
+  "reqId":5,
+  "method":"subscribe",
+  "paths":[
+    "/node1/point1",
+    "/node1/point2",
+    "/node1/point3",
+    "/node2/point1",
+    "/node2/point2"
+  ]
+}
+```
 
 ## Response
 
 subscribe response is always a blank stream, it's just a placeholder for errors.
 
-```{"reqId":5,"stream":"close"}```
+```json
+{
+  "reqId":5,
+  "stream":"close"
+}
+```
 
 ## Update
 
-```{"reqId":0,"updates":[["/node1/point1",12,"2014-11-27T09:11.000-08:00"],{"path":"/node1/point2","status":"disconnected"},{"path":"/node1/point3","value":10,"ts":"2014-11-27T09:11.000-08:00","count":5,"sum":75,"min":10,"max"20}]}```
+```json
+{
+  "reqId":0,
+  "updates":[
+    [
+      "/node1/point1",
+      12,
+      "2014-11-27T09:11.000-08:00"
+    ],
+    {
+      "path":"/node1/point2",
+      "status":"disconnected"
+    },
+    {
+      "path":"/node1/point3",
+      "value":10,
+      "ts":"2014-11-27T09:11.000-08:00",
+      "count":5,
+      "sum":75,
+      "min":10,
+      "max":20
+    }
+  ]
+}
+```
 
 definition node data of /defs/method/subscribe:
 
@@ -154,33 +267,108 @@ definition node data of /defs/method/subscribe:
 
 set method can be used to set any config, attribute or node value when data consumer has the permission.
 
-```{"reqId":3,"method":"set","path":"/connections/dslink/@myattribute","value":"hello dsa"}```
+```json
+{
+  "reqId":3,
+  "method":"set",
+  "path":"/connections/dslink/@myattribute",
+  "value":"hello dsa"
+}
+```
 
 ## Response
 
-```{"reqId":3,"stream":"close"}```
+```json
+{
+  "reqId":3,
+  "stream":"close"
+}
+```
 
 # Close Method
 close a stream, close request has no response
 
 ## Request
 
-```{"reqId":3,"method":"close"}```
+```json
+{
+  "reqId":3,
+  "method":"close"
+}
+```
 
 # Requests and Responses
 requests are merged in a wrapper JSON object
 
-```{"sessionId":"9D8F1ACCB","requests": [{"reqId":2,"method":"list","path":"/connections/dslink1"},{"reqId":3,"method":"list","path":"/connections/dslink2"}]}```
+```json
+{
+  "sessionId":"9D8F1ACCB",
+  "requests":[
+    {
+      "reqId":2,
+      "method":"list",
+      "path":"/connections/dslink1"
+    },
+    {
+      "reqId":3,
+      "method":"list",
+      "path":"/connections/dslink2"
+    }
+  ]
+}
+```
+
 - sessionId optional. Unique session id, if omitted, server should automatically create one based on the connection
 - requests a list of request methods
 responses
-```{"sessionId":"9D8F1ACCB","responses": [{"reqId":2,"update":[["$is","node"],["$permission":"Write"],["@city","San Francisco"],["point2",{"$is":"numericPoint"}]] }]}```
+```json
+{
+  "sessionId":"9D8F1ACCB",
+  "responses":[
+    {
+      "reqId":2,
+      "update":[
+        [
+          "$is",
+          "node"
+        ],
+        [
+          "$permission",
+          "Write"
+        ],
+        [
+          "@city",
+          "San Francisco"
+        ],
+        [
+          "point2",
+          {
+            "$is":"numericPoint"
+          }
+        ]
+      ]
+    }
+  ]
+}
+```
 - sessionId optional. Unique session id, only needed when request contains sessionId
 - responses a list of response objects
 
 # Errors
 every stream response can contain error.
-```{"reqId":1,"stream":"close","error": {"type":"PermissionDenied","phase":"request","path":"/connection/dslink1""meg":"permission denied","detail":"user Steve is not allowed to access data in '/connection/dslink1'"}}```
+```json
+{
+  "reqId":1,
+  "stream":"close",
+  "error":{
+    "type":"PermissionDenied",
+    "phase":"request",
+    "path":"/connection/dslink1",
+    "meg":"permission denied",
+    "detail":"user Steve is not allowed to access data in '/connection/dslink1'"
+  }
+}
+```
 - error error object
   - msg required, a short description of the error
   - type optional, a standard error code if the error type is known
