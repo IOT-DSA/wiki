@@ -14,22 +14,21 @@
 | point2 | ```{"$is":"point/numeric"}``` |
 | addNode | ```{"$is":"action/addNode"}``` |
 
-- config names start with "$"
+config names start with "$"
   - config values may affect how the system works
   - only data consumer with config permission can change configs
   - $is can never be changed
     - "$is":"node" reference to the node in /defs/profile/node
-
-  - $mixin has multiple ref nodes separated by "|" for predefined configs or attributes
+  * $mixin has multiple ref nodes separated by "|" for predefined configs or attributes
     - mixin start with "/" are reference node's path to the current broker
     - ther mixin path like "readonlyMixin" are in /defs/mixin/readonlyMixin
     - all configs/attributes from ref node or mixin node can be overwritten, but device or virtual driver doesn't have to react to the change
 
-- attribute names start with "@"
+attribute names start with "@"
   - any data consumer with Write permission can change attribute
 
-- node names start with anything else
-- name should not be blank or contain these characters: / \ ? % \* : | " < > .
+node names start with anything else
+name should not be blank or contain these characters: / \ ? % \* : | " < > .
   - this is basicly rules for file names, plus "." (dot) is not allowed either
 
 # Root Nodes of a Broker
