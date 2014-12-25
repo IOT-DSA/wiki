@@ -29,9 +29,7 @@
 
 # Root Nodes of a Broker
 
-1. defs: definition of common structures, things here should be same on all broker defined on
-
-[www.iot-dsa.org](http://www.iot-dsa.org), except things in local node
+1. defs: definition of common structures, things here should be same on all broker defined on [www.iot-dsa.org](http://www.iot-dsa.org), except things in local node
 
 - profile: definitions of node type, contains predefined configs attributes and nodes
   - local
@@ -97,9 +95,9 @@ definition node data of /defs/method/list :
 | Key | Value |
 | --- | --- |
 | $require | "Read" |
-| $params | [{"name":"path","type":"path"}] |
-| $columns | [{"name":"name","type":"name"}, {"name":"value","type":"object"}] |
-| $rowMeta | [{"name":"change","type":"enums/listMethodChange","default":"update"}] |
+| $params | ```[{"name":"path","type":"path"}]``` |
+| $columns | ```[{"name":"name","type":"name"}, {"name":"value","type":"object"}]``` |
+| $rowMeta | ```[{"name":"change","type":"enums/listMethodChange","default":"update"}]``` |
 
 ## Response
 this is a sample response of above requestFrame 1:
@@ -113,8 +111,8 @@ sample node data of /connections/dsLink/addMath :
 | Key | Value |
 | --- | --- |
 | $is | "action" |
-| $params | [{"name":"v1","type":"number"}, {"name":"v2","type":"number"}] |
-| $columns | [{"name":"result","type":"number"}] |
+| $params | ```[{"name":"v1","type":"number"}, {"name":"v2","type":"number"}]``` |
+| $columns | ```[{"name":"result","type":"number"}]``` |
 
 ## Request
 
@@ -146,9 +144,9 @@ definition node data of /defs/method/subscribe:
 | Key | Value |
 | --- | --- |
 | $require | "Read" |
-| $params | [{"name":"paths","type":"list/path"}] |
-| $columns | [{"name":"path","type":"path"}, {"name":"value","type":"object"}, {"name":"ts","type":"time"}] |
-| $rowMeta | [{"name":"status","type":"enums/valueStatus","default":"ok"}, {"name":"count","type":"int","default":1}, {"name":"sum","type":"number"}, {"name":"min","type":"number"}, {"name":"max","type":"number"}] |
+| $params | ```[{"name":"paths","type":"list/path"}]``` |
+| $columns | ```[{"name":"path","type":"path"}, {"name":"value","type":"object"}, {"name":"ts","type":"time"}]``` |
+| $rowMeta | ```[{"name":"status","type":"enums/valueStatus","default":"ok"}, {"name":"count","type":"int","default":1}, {"name":"sum","type":"number"}, {"name":"min","type":"number"}, {"name":"max","type":"number"}]``` |
 
 # Set Method
 
@@ -181,7 +179,8 @@ responses
 - responses a list of response objects
 
 # Errors
-every stream response can contain error{"reqId":1,"stream":"close","error": {"type":"PermissionDenied","phase":"request","path":"/connection/dslink1""meg":"permission denied","detail":"user Steve is not allowed to access data in '/connection/dslink1'"}}
+every stream response can contain error.
+```{"reqId":1,"stream":"close","error": {"type":"PermissionDenied","phase":"request","path":"/connection/dslink1""meg":"permission denied","detail":"user Steve is not allowed to access data in '/connection/dslink1'"}}```
 - error error object
   - msg required, a short description of the error
   - type optional, a standard error code if the error type is known
