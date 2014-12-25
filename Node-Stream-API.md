@@ -1,4 +1,4 @@
-# Node structure
+# Node Structure
 
 | **Key** | **Value** |
 | --- | --- |
@@ -11,7 +11,7 @@
 
 - config names start with "$"
   - config values may affect how the system works
-  - nly data consumer with config permission can change configs
+  - only data consumer with config permission can change configs
   - $is can never be changed
     - "$is":"node" reference to the node in /defs/profile/node
 
