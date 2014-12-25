@@ -47,9 +47,9 @@ Errors
 | $is | "node" |
 | $mixin | "readonlyMixin|/users/rick/myMixIn" |
 | @city | "San Francisco" |
-| point1 | {"$is":"point/temperature"} |
-| point2 | {"$is":"point/numeric",} |
-| addNode | {"$is":"action/addNode"} |
+| point1 | ```{"$is":"point/temperature"}``` |
+| point2 | ```{"$is":"point/numeric"}``` |
+| addNode | ```{"$is":"action/addNode"}``` |
 
 - config names start with "$"
   - config values may affect how the system works
@@ -112,7 +112,7 @@ Sample request:
 Response:
 ```{"reqId":2,"update":[["$is","node"],["$permission":"write"],["@city","San Francisco"],["point1",{"$is":"temperaturePoint", "@name":"Custom Name for Point1"}],["point2",{"$is":"numericPoint"}]]}```
 - Every response is a stream with table structure List of Rows
-- The structure of columns are defined in /defs/method/{methodName}Except the "invoke" method's column structure are defined in action node, or in the $is or $mixin of the action node.
+- The structure of columns are defined in /defs/method/{methodName}, except the "invoke" method's column structure are defined in action node, or in the $is or $mixin of the action node.
 - Each row can be one of these 2 format
   - a row/list with same number of items as columns structure
   - a map with key:value pairs
