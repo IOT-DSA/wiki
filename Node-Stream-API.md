@@ -8,7 +8,7 @@
 | **Key** | **Value** |
 | --- | --- |
 | $is | "node" |
-| $mixin | "readonlyMixin|/users/rick/myMixIn" |
+| $mixin | "readonlyMixin&#124;/users/rick/myMixIn" |
 | @city | "San Francisco" |
 | point1 | ```{"$is":"point/temperature"}``` |
 | point2 | ```{"$is":"point/numeric"}``` |
