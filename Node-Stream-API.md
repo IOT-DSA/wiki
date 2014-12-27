@@ -33,31 +33,34 @@ Attribute's names must start with "@". Any data consumer with the "Write" permis
 
 1. defs: definition of common structures, things here should be same on all broker defined on [www.iot-dsa.org](http://www.iot-dsa.org), except things in local node
 
-- profile: definitions of node type, contains predefined configs attributes and nodes
-  - local
+- profile: definitions of node type, contains predefined configurations, attributes, and nodes
+  - Location: local, dslink
+  - System defined
+  - Can implement interfaces that provide more configurations, attributes, and nodes
 
-- interface: interfaces for profile
-  - local
+- interface: Profiles can implement these
+  - Location: local, dslink
+  - System defined
 
-- mixin: definition of node mixin, contains predefined configs and attributes
-  - local
+- mixin: definition of node mixin, contains predefined configurations and attributes
+  - Location: local
+  - User defined
 
-- method: definition of node mixin, contains predefined configs and attributes
-  - local
+- type - TODO: elaborate on this
+  - Location: local
 
-- type
-  - local
+- error - TODO: elaborate on this
+  - Location: local
 
-- error
-  - local
+- settings: broker settings - TODO: elaborate on what settings are available
+  - Location: local
 
-- settings
-- users
-
+- users - TODO: elaborate on user management and device
+  - Location: local
   - user structures, can also contain device if it belongs to one user
 
 - connections
-
+  - Location: local
   - DSLink connections
 
 # Every response is a stream
