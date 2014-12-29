@@ -32,10 +32,56 @@ All attributes of the node are also provided in the response.
 - permission (array of strings, configuration)
 - mixin (array of strings, configuration)
   - Mixins can provide additional attributes to a node.
+- children (map)
+  - Children without read permission are not shown.
+  - Map fields
+    - name (string, attribute)
+      - Name of the node.
+    - permission (array of strings, configuration)
+      - Always has read permission at minimum.
+      - If omitted it is assumed to only have read permission.
 
 ### Required permission
 
 - Read
+
+### Example usage
+
+#### Request
+```
+{
+  "reqId": 0,
+  "method": "list",
+  "path": "/lights"
+}
+```
+
+#### Response
+```
+{
+  "reqId": 0,
+  "stream": "closed",
+  "updates": [
+    {
+      "@city": "San Franscisco",
+      "$permission": ["read"],
+      "children": [
+        {
+          "@name": "Lights A",
+          "$permission": ["read", "write"]
+        },
+        {
+          "@name": "Lights B",
+          "$permission": ["read"]
+        },
+        {
+          "@name": "Lights C"
+        }
+      ]
+    }
+  ]
+}
+```
 
 ## Set
 
@@ -54,6 +100,28 @@ No response fields sent.
 
 - Write
 
+### Example usage
+
+The value in this usage turns the lights on (true) or off (false).
+
+#### Request
+```
+{
+  "reqId": 0,
+  "method": "set",
+  "path": "/lights/Lights A",
+  "value": false
+}
+```
+
+#### Response
+```
+{
+  "reqId": 0,
+  "stream": "closed"
+}
+```
+
 ## Remove
 
 This method will remove attributes or mixins.
@@ -70,28 +138,75 @@ No response fields sent.
 
 - Write
 
+### Example usage
+
+#### Request
+```
+{
+  "reqId": 0,
+  "method": "remove",
+  "path": "/def/mixin/location"
+}
+```
+
+#### Response
+```
+{
+  "reqId": 0,
+  "stream": "closed"
+}
+```
+
 ## Invoke
 
 This method will invoke an action on a node.
 
 ### Request fields
 
-- params (map)
+- action (string)
+  - The action to invoke on the node.
+- params (map, optional)
   - The parameters in the map are to be specified by the action of the node.
+  - Can be omitted if the action takes no parameters
 
 ### Response fields
 
-- results (map)
+- results (map, optional)
   - The results in the map are to be specified by the action of the node.
+  - Can be omitted if the action has no results.
 
 ### Required permission
 
 - Invoke
 
+### Example usage
+
+#### Request
+```
+{
+  "reqId": 0,
+  "method": "invoke",
+  "path": "/lights/Lights A",
+  "params": {
+    "brightness": 250
+  }
+}
+```
+
+#### Response
+```
+{
+  "reqId": 0,
+  "stream": "closed",
+  "results": {}
+}
+```
+
 ## Subscribe
 
 This method will subscribe to a datapoint to receive a new value whenever the node updates its
-value. Subscriptions cannot subscribe to configuration or attribute points.
+value. Upon initial subscription, a value will be returned in the response. The stream will always
+remain open until the request id is unsubscribed.
 
 ### Request fields
 
@@ -99,20 +214,55 @@ No extra fields are required.
 
 ### Response fields
 
-No response fields sent.
+There are multiple elements in the updates field. Each element will contain:
+
+- name (string, attribute, optional)
+  - If name is omitted, then it is an update to the node value.
+  - If name starts with "@" it is an attribute
+  - If name starts with "$" it is a configuration
+- value (any type)
 
 ### Required permission
 
 - Read
 
+### Example usage
+
+#### Request
+```
+{
+  "reqId": 0,
+  "method": "subscribe",
+  "path": "/lights/Lights A"
+}
+```
+
+#### Response
+```
+{
+  "reqId": 0,
+  "stream": "open",
+  "updates": [
+    {
+      "value": false
+    },
+    {
+      "@name": "@brightness",
+      "value": 250
+    }
+  ]
+}
+```
+
 ## Unsubscribe
 
 This method will unsubscribe from a datapoint and stop receiving new values on a node. The stream
-on the request ID the subscription is holding will be closed.
+on the request ID the subscription is holding will be closed. The reqId must be the same ID used when
+subscribing.
 
 ### Request fields
 
-No extra fields are required.
+No extra fields are required. Path must be omitted, it is unused in this method.
 
 ### Response fields
 
@@ -121,3 +271,23 @@ No response fields sent.
 ### Required Permission
 
 - None
+
+### Example usage
+
+If the subscription reqId is 0, then the request must also be 0 to unsubscribe properly.
+
+#### Request
+```
+{
+  "reqId": 0,
+  "method": "unsubscribe",
+}
+```
+
+#### Response
+```
+{
+  "reqId": 0,
+  "stream": "closed"
+}
+```
