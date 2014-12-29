@@ -187,6 +187,7 @@ This method will invoke an action on a node.
   "reqId": 0,
   "method": "invoke",
   "path": "/lights/Lights A",
+  "action": "setBrightness"
   "params": {
     "brightness": 250
   }
