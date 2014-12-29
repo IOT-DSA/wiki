@@ -3,5 +3,6 @@ This is the means for which the Node API will communicate on. The broker must im
 There are 3 forms of communication:
 
 * HTTP
+ * Server Sent Events
 * WebSockets
 * Sockets
