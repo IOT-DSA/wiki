@@ -19,8 +19,8 @@ provider. The broker must track IDs for each individual client separately to avo
   - The request ID is how the request gets identified. All responses are asynchronous and this field
   is what is used to differentiate the requests.
   - IDs cannot be reused except in the special case to unsubscribe from data points.
-- [methods](methods)method (string)
-  - The method is used to determine what type of request you are making.
+- [methods](method) (string)
+  - The [methods](method) is used to determine what type of request you are making.
 - path (string)
   - The path is where the method should perform the operation on.
   - The path must be valid
