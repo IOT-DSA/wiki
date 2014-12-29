@@ -181,15 +181,18 @@ This method will invoke an action on a node.
 
 ### Example usage
 
+In this example we use a Philips Hue lighting bridge with a link action to connect the dslink to
+the bridge so it can be controlled.
+
 #### Request
 ```
 {
   "reqId": 0,
   "method": "invoke",
-  "path": "/lights/Lights A",
-  "action": "setBrightness"
+  "path": "/lights",
+  "action": "link"
   "params": {
-    "brightness": 250
+    "username": "dsaisawesome"
   }
 }
 ```
@@ -249,7 +252,7 @@ There are multiple elements in the updates field. Each element will contain:
     },
     {
       "@name": "@brightness",
-      "value": 250
+      "value": 50
     }
   ]
 }
