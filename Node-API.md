@@ -15,6 +15,9 @@ provider. The broker must track IDs for each individual client separately to avo
 
 ### Fields
 
+Path is a special case field. If the method does not require it then it is deemed as an optional
+field.
+
 - reqId (integer)
   - The request ID is how the request gets identified. All responses are asynchronous and this field
   is what is used to differentiate the requests.
@@ -49,3 +52,6 @@ partial responses. Responses can (and often will) provide more fields than those
   - Updates are data being returned from an invoked method.
   - The method specifies what updates are returned when invoked. If omitted, there is no data being
   returned from the method. A stream can still remain open regardless of empty updates or not.
+  - The node structure of element fields inside the array can contain a "$" or "@".
+      - $ - A configuration property node
+      - @ - An attribute property node
