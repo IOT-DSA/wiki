@@ -41,13 +41,14 @@ partial responses. Responses can (and often will) provide more fields than those
   - If the request ID is -1, then it is a subscription update.
 - stream (enum string, optional)
   - The stream determines whether data will keep flowing or not.
-  - Streams are used for partial responses or subscription updates. Subscription updates will never
-  close unless requested.
-  - If stream is omitted then it is assumed to be closed and the requester no longer has to track
-  the ID.
+  - If stream is omitted then it is assumed to be same value as previous stream response of same rid, default value is "initialize" if it's not shown in the first response
   - The following values are acceptable, any others will be rejected
+      - initialize
+          - server hasn’t finished sending existing/cached data, the values sent thus far are incomplete
       - open
+          - all existing/cached data are sent, there will still be new update
       - closed
+          - the stream will no longer have any update, data consumer can close the stream
 - updates (array, optional)
   - Updates are data being returned from an invoked method.
   - The method specifies what updates are returned when invoked. If omitted, there is no data being
