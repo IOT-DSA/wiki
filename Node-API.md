@@ -67,8 +67,7 @@ partial responses. Responses can (and often will) provide more fields than those
   - Each row can be one of these 2 format
     - a row/list with same number of items as columns structure
     - a map with key:value pairs
-      - key can be column name or a rowMeta value
-      - rowMeta is always optional
+      - key can be column name or a meta value
       - when required column is omitted, used the default value defined in column otherwise use null
 
 #### Example of stream that use list for row structure
