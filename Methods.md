@@ -71,7 +71,7 @@ not be displayed.
   "stream": "open",
   "update":[
     ["$is","point/light"],
-    ["$mixin","point/light"],
+    ["$mixin","myMixin"],
     ["$permission":"write"],
     ["@city","San Francisco"],
     ["point1",{"$is":"temperaturePoint", "@name":"Custom Name for Point1"}],
