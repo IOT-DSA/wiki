@@ -48,7 +48,7 @@ All attributes of the node are also provided in the response.
 ### Example usage
 
 #### Request
-```
+```javascript
 {
   "reqId": 0,
   "method": "list",
@@ -57,13 +57,13 @@ All attributes of the node are also provided in the response.
 ```
 
 #### Response
-```
+```javascript
 {
   "reqId": 0,
   "stream": "closed",
   "updates": [
     {
-      "@city": "San Franscisco",
+      "@city": "San Francisco",
       "$permission": ["read"],
       "children": [
         {
@@ -105,7 +105,7 @@ No response fields sent.
 The value in this usage turns the lights on (true) or off (false).
 
 #### Request
-```
+```javascript
 {
   "reqId": 0,
   "method": "set",
@@ -115,7 +115,7 @@ The value in this usage turns the lights on (true) or off (false).
 ```
 
 #### Response
-```
+```javascript
 {
   "reqId": 0,
   "stream": "closed"
@@ -141,7 +141,7 @@ No response fields sent.
 ### Example usage
 
 #### Request
-```
+```javascript
 {
   "reqId": 0,
   "method": "remove",
@@ -150,7 +150,7 @@ No response fields sent.
 ```
 
 #### Response
-```
+```javascript
 {
   "reqId": 0,
   "stream": "closed"
@@ -185,7 +185,7 @@ In this example we use a Philips Hue lighting bridge with a link action to conne
 the bridge so it can be controlled.
 
 #### Request
-```
+```javascript
 {
   "reqId": 0,
   "method": "invoke",
@@ -198,7 +198,7 @@ the bridge so it can be controlled.
 ```
 
 #### Response
-```
+```javascript
 {
   "reqId": 0,
   "stream": "closed",
@@ -233,7 +233,7 @@ There are multiple elements in the updates field. Each element will contain:
 ### Example usage
 
 #### Request
-```
+```javascript
 {
   "reqId": 0,
   "method": "subscribe",
@@ -242,7 +242,7 @@ There are multiple elements in the updates field. Each element will contain:
 ```
 
 #### Response
-```
+```javascript
 {
   "reqId": 0,
   "stream": "open",
@@ -281,7 +281,7 @@ No response fields sent.
 If the subscription reqId is 0, then the request must also be 0 to unsubscribe properly.
 
 #### Request
-```
+```javascript
 {
   "reqId": 0,
   "method": "unsubscribe",
@@ -289,7 +289,7 @@ If the subscription reqId is 0, then the request must also be 0 to unsubscribe p
 ```
 
 #### Response
-```
+```javascript
 {
   "reqId": 0,
   "stream": "closed"
