@@ -28,12 +28,16 @@ field.
   - The path is where the method should perform the operation on.
   - The path must be valid
 
-### Example
+#### Example
 ```javascript
 {
-  "rid":2,
-  "method":"list",
-  "path":"/connections/dslink1"
+  "requests":[
+  {
+    "rid":2,
+    "method":"list",
+    "path":"/connections/dslink1"
+  }
+  ]
 }
 ```
 
@@ -67,27 +71,66 @@ partial responses. Responses can (and often will) provide more fields than those
       - rowMeta is always optional
       - when required column is omitted, used the default value defined in column otherwise use null
 
-### Example of stream that use list for row structure
+#### Example of stream that use list for row structure
 ```javascript
 {
-  "rid":2,
-  "stream":"open",
-  "updates":[
-    ["$is","node"],
-    ["$permission":"write"],
-    ["@city","San Francisco"],
-    ["point1",{"$is":"temperaturePoint", "@name":"Custom Name for Point1"}],
-    ["point2",{"$is":"numericPoint"}]
+  "responses":[
+  {
+    "rid":2,
+    "stream":"open",
+    "updates":[
+      ["$is","node"],
+      ["$permission":"write"],
+      ["@city","San Francisco"],
+      ["point1",{"$is":"temperaturePoint", "@name":"Custom Name for Point1"}],
+      ["point2",{"$is":"numericPoint"}]
+    ]
+  }
   ]
 }
 ```
-### Example of stream that use map for row structure
+#### Example of stream that use map for row structure
 ```javascript
 {
-  "rid":2,
-  "stream":"open",
-  "updates":[
-    {"name":"point2","change":"removed"}
+  "responses":[
+  {
+    "rid":2,
+    "stream":"open",
+    "updates":[
+      {"name":"point2","change":"removed"}
+    ]
+  }
   ]
 }
 ```
+
+## Error
+If any error happened, stream response will have a error object showing the information about the error
+```javascript
+{
+  "responses":[
+  {
+    "rid": 1,
+    "stream":"closed",
+    "error": {
+      "type": "PermissionDenied",
+      "phase": "request",
+      "path":"/connection/dslink1"
+      "meg": "permission denied",
+      "detail": "user Steve is not allowed to access data in '/connection/dslink1'"
+    }
+  }
+  ]
+}
+```
+
+
+ - **error** error object
+   - **msg**  required, a short description of the error
+   - **type**  optional, a standard error code if the error type is known
+     - predefined error structure are in /defs/error
+   - **phase**  optional, indicate whether the error happen on request or response, if omitted it means "request" phase
+   - **path**  optional, on which path this error happened, can be omitted if it's same path as the path in request.
+   - **detail**  a detail message of the error, can be the stack trace or other message
+     - when /settings/$errorDetail = false, error won’t contain detail message
+   - anything else to describe the error
