@@ -54,6 +54,3 @@ partial responses. Responses can (and often will) provide more fields than those
   - Updates are data being returned from an invoked method.
   - The method specifies what updates are returned when invoked. If omitted, there is no data being
   returned from the method. A stream can still remain open regardless of empty updates or not.
-  - The node structure of element fields inside the array can contain a "$" or "@".
-      - $ - A configuration property node
-      - @ - An attribute property node
