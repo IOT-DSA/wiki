@@ -23,27 +23,35 @@ not be displayed.
 
 ### Request fields
 
-No extra fields are required.
+ - path (type:path)
+   -  path of the node to run the list api
 
-### Response fields
+### Response columns
+ - name
+  - name of the field
+  - names start with $ are configs that can affect how system works
+    - "$is"
+      - profile of the node, must be the first update of a list stream, otherwise it will be ignored
+      - profile node should also be loaded to get all predefined configs/attributes of a node
+      - profile nodes locate in /defs/profile/
+    - "$mixin"
+      - attributes and configs mixin of a node, multiple mixins are separated with "|"
+      - when mixin path starts with "/", it's a absolute node path
+      - when mixin path starts doesn't start with "/", it's a node path relative to the current node being listed
+    - "$permission"
+      - a enum of the following values
+        - **read** user has read access to the node, can be omitted
+        - **write** user has write access to the node, can read node and write to node and its attributes
+        - **config** user has full access to the node, can read/write and change configs 
+   - names start with @ are custom attributes
+   - other names are children nodes
+ - value
+  - updated value of the field
 
-All attributes of the node are also provided in the response.
-
-- permission (array of strings, configuration)
-- mixin (array of strings, configuration)
-  - Mixins can provide additional attributes to a node.
-- children (map)
-  - Children without read permission are not shown.
-  - Map fields
-    - name (string, attribute)
-      - Name of the node.
-    - permission (array of strings, configuration)
-      - Always has read permission at minimum.
-      - If omitted it is assumed to only have read permission.
-
-### Required permission
-
-- Read
+### Response meta
+ - change
+   - enum value, can be "remove" or "update"
+   - default value is "update"
 
 ### Example usage
 
@@ -52,7 +60,7 @@ All attributes of the node are also provided in the response.
 {
   "rid": 1,
   "method": "list",
-  "path": "/lights"
+  "path": "/light"
 }
 ```
 
@@ -60,9 +68,10 @@ All attributes of the node are also provided in the response.
 ```javascript
 {
   "rid":1,
-  "stream": "initialize",
+  "stream": "open",
   "update":[
-    ["$is","node"],
+    ["$is","point/light"],
+    ["$mixin","point/light"],
     ["$permission":"write"],
     ["@city","San Francisco"],
     ["point1",{"$is":"temperaturePoint", "@name":"Custom Name for Point1"}],
