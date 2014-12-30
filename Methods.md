@@ -50,7 +50,7 @@ All attributes of the node are also provided in the response.
 #### Request
 ```javascript
 {
-  "rid": 0,
+  "rid": 1,
   "method": "list",
   "path": "/lights"
 }
@@ -59,26 +59,14 @@ All attributes of the node are also provided in the response.
 #### Response
 ```javascript
 {
-  "rid": 0,
-  "stream": "closed",
-  "updates": [
-    {
-      "@city": "San Francisco",
-      "$permission": ["read"],
-      "children": [
-        {
-          "@name": "Lights A",
-          "$permission": ["read", "write"]
-        },
-        {
-          "@name": "Lights B",
-          "$permission": ["read"]
-        },
-        {
-          "@name": "Lights C"
-        }
-      ]
-    }
+  "rid":1,
+  "stream": "initialize",
+  "update":[
+    ["$is","node"],
+    ["$permission":"write"],
+    ["@city","San Francisco"],
+    ["point1",{"$is":"temperaturePoint", "@name":"Custom Name for Point1"}],
+    ["point2",{"$is":"numericPoint"}]
   ]
 }
 ```
