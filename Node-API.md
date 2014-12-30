@@ -116,7 +116,7 @@ If any error happened, stream response will have a error object showing the info
       "type": "PermissionDenied",
       "phase": "request",
       "path":"/connection/dslink1"
-      "meg": "permission denied",
+      "msg": "permission denied",
       "detail": "user Steve is not allowed to access data in '/connection/dslink1'"
     }
   }
