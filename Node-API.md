@@ -47,6 +47,7 @@ partial responses. Responses can (and often will) provide more fields than those
           - server hasn’t finished sending existing/cached data, the values sent thus far are incomplete
       - open
           - all existing/cached data are sent, there will still be new update
+          - if data provider receive a request but has nothing to send back, it still needs to send back a blank updates, with stream="open", so data consumer knows there are no cached data for the stream.
       - closed
           - the stream will no longer have any update, data consumer can close the stream
 - updates (array, optional)
