@@ -28,6 +28,15 @@ field.
   - The path is where the method should perform the operation on.
   - The path must be valid
 
+### Example
+```javascript
+{
+  "rid":2,
+  "method":"list",
+  "path":"/connections/dslink1"
+}
+```
+
 ## Responses
 
 Responses are asynchronously returned to the corresponding request. Data is provided through
@@ -51,6 +60,34 @@ partial responses. Responses can (and often will) provide more fields than those
       - closed
           - the stream will no longer have any update, data consumer can close the stream
 - updates (array, optional)
-  - Updates are data being returned from an invoked method.
-  - The method specifies what updates are returned when invoked. If omitted, there is no data being
-  returned from the method. A stream can still remain open regardless of empty updates or not.
+  - Each row can be one of these 2 format
+    - a row/list with same number of items as columns structure
+    - a map with key:value pairs
+      - key can be column name or a rowMeta value
+      - rowMeta is always optional
+      - when required column is omitted, used the default value defined in column otherwise use null
+
+### Example of stream that use list for row structure
+```javascript
+{
+  "rid":2,
+  "stream":"open",
+  "updates":[
+    ["$is","node"],
+    ["$permission":"write"],
+    ["@city","San Francisco"],
+    ["point1",{"$is":"temperaturePoint", "@name":"Custom Name for Point1"}],
+    ["point2",{"$is":"numericPoint"}]
+  ]
+}
+```
+### Example of stream that use map for row structure
+```javascript
+{
+  "rid":2,
+  "stream":"open",
+  "updates":[
+    {"name":"point2","change":"removed"}
+  ]
+}
+```
