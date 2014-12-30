@@ -18,7 +18,7 @@ provider. The broker must track IDs for each individual client separately to avo
 Path is a special case field. If the method does not require it then it is deemed as an optional
 field.
 
-- reqId (integer)
+- rid (integer)
   - The request ID is how the request gets identified. All responses are asynchronous and this field
   is what is used to differentiate the requests.
   - IDs cannot be reused except in the special case to unsubscribe from data points.
@@ -36,8 +36,8 @@ partial responses. Responses can (and often will) provide more fields than those
 
 ### Fields
 
-- reqId (integer)
-  - The reqId is the identifier to the corresponding request.
+- rid (integer)
+  - The rid is the identifier to the corresponding request.
   - If the request ID is -1, then it is a subscription update.
 - stream (enum string, optional)
   - The stream determines whether data will keep flowing or not.
