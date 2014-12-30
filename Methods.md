@@ -45,6 +45,8 @@ not be displayed.
         - **config** user has full access to the node, can read/write and change configs 
    - names start with @ are custom attributes
    - other names are children nodes
+   - name should not be blank or contain these characters: . / \ ? % * : | “ < >  this is basicly rules for file names, plus “.” (dot) is not allowed either
+
  - value
   - updated value of the field
 
