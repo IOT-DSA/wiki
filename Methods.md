@@ -50,7 +50,7 @@ All attributes of the node are also provided in the response.
 #### Request
 ```javascript
 {
-  "reqId": 0,
+  "rid": 0,
   "method": "list",
   "path": "/lights"
 }
@@ -59,7 +59,7 @@ All attributes of the node are also provided in the response.
 #### Response
 ```javascript
 {
-  "reqId": 0,
+  "rid": 0,
   "stream": "closed",
   "updates": [
     {
@@ -107,7 +107,7 @@ The value in this usage turns the lights on (true) or off (false).
 #### Request
 ```javascript
 {
-  "reqId": 0,
+  "rid": 0,
   "method": "set",
   "path": "/lights/Lights A",
   "value": false
@@ -117,7 +117,7 @@ The value in this usage turns the lights on (true) or off (false).
 #### Response
 ```javascript
 {
-  "reqId": 0,
+  "rid": 0,
   "stream": "closed"
 }
 ```
@@ -143,7 +143,7 @@ No response fields sent.
 #### Request
 ```javascript
 {
-  "reqId": 0,
+  "rid": 0,
   "method": "remove",
   "path": "/def/mixin/location"
 }
@@ -152,7 +152,7 @@ No response fields sent.
 #### Response
 ```javascript
 {
-  "reqId": 0,
+  "rid": 0,
   "stream": "closed"
 }
 ```
@@ -187,7 +187,7 @@ the bridge so it can be controlled.
 #### Request
 ```javascript
 {
-  "reqId": 0,
+  "rid": 0,
   "method": "invoke",
   "path": "/lights",
   "action": "link"
@@ -200,7 +200,7 @@ the bridge so it can be controlled.
 #### Response
 ```javascript
 {
-  "reqId": 0,
+  "rid": 0,
   "stream": "closed",
   "results": {}
 }
@@ -235,7 +235,7 @@ There are multiple elements in the updates field. Each element will contain:
 #### Request
 ```javascript
 {
-  "reqId": 0,
+  "rid": 0,
   "method": "subscribe",
   "path": "/lights/Lights A"
 }
@@ -244,7 +244,7 @@ There are multiple elements in the updates field. Each element will contain:
 #### Response
 ```javascript
 {
-  "reqId": 0,
+  "rid": 0,
   "stream": "open",
   "updates": [
     {
@@ -261,7 +261,7 @@ There are multiple elements in the updates field. Each element will contain:
 ## Unsubscribe
 
 This method will unsubscribe from a datapoint and stop receiving new values on a node. The stream
-on the request ID the subscription is holding will be closed. The reqId must be the same ID used when
+on the request ID the subscription is holding will be closed. The rid must be the same ID used when
 subscribing.
 
 ### Request fields
@@ -278,12 +278,12 @@ No response fields sent.
 
 ### Example usage
 
-If the subscription reqId is 0, then the request must also be 0 to unsubscribe properly.
+If the subscription rid is 0, then the request must also be 0 to unsubscribe properly.
 
 #### Request
 ```javascript
 {
-  "reqId": 0,
+  "rid": 0,
   "method": "unsubscribe",
 }
 ```
@@ -291,7 +291,7 @@ If the subscription reqId is 0, then the request must also be 0 to unsubscribe p
 #### Response
 ```javascript
 {
-  "reqId": 0,
+  "rid": 0,
   "stream": "closed"
 }
 ```
