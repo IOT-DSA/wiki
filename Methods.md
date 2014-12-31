@@ -69,15 +69,38 @@ not be displayed.
 ##### Response
 ```javascript
 {
-  "rid":1,
+  "rid": 1,
   "stream": "open",
-  "update":[
-    ["$is","point/light"],
-    ["$mixin","myMixin"],
-    ["$permission":"write"],
-    ["@city","San Francisco"],
-    ["point1",{"$is":"temperaturePoint", "@name":"Custom Name for Point1"}],
-    ["point2",{"$is":"numericPoint"}]
+  "update": [
+    [
+      "$is",
+      "point/light"
+    ],
+    [
+      "$mixin",
+      "myMixin"
+    ],
+    [
+      "$permission",
+      "write"
+    ],
+    [
+      "@city",
+      "San Francisco"
+    ],
+    [
+      "point1",
+      {
+        "$is": "temperaturePoint",
+        "@name": "Custom Name for Point1"
+      }
+    ],
+    [
+      "point2",
+      {
+        "$is": "numericPoint"
+      }
+    ]
   ]
 }
 ```
