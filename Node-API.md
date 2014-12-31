@@ -21,7 +21,8 @@ field.
 - rid (integer)
   - The request ID is how the request gets identified. All responses are asynchronous and this field
   is what is used to differentiate the requests.
-  - IDs cannot be reused except in the special case to unsubscribe from data points.
+  - rid cannot be reused by another request except when closing the stream
+  - request rid should always > 0 
 - [method](methods) (string)
   - The [method](methods) is used to determine what type of request you are making.
 - path (string)
@@ -51,7 +52,7 @@ partial responses. Responses can (and often will) provide more fields than those
 
 - rid (integer)
   - The rid is the identifier to the corresponding request.
-  - rid:0 is reserved for the subscription update, other request id should start from 1
+  - rid:0 is reserved for the subscription update
 - stream (enum string, optional)
   - The stream determines whether data will keep flowing or not.
   - If stream is omitted then it is assumed to be same value as previous stream response of same rid, default value is "initialize" if it's not shown in the first response
