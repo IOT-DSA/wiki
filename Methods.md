@@ -189,7 +189,7 @@ the bridge so it can be controlled.
 {
   "rid": 1,
   "stream": "closed",
-  "update":[
+  "updates":[
     {"result":1}
   ]
 }
@@ -318,7 +318,6 @@ This method will close a stream
 
 #### Response
 The response of the close method is optional.
-If the stream doesnt exist, the data consumer
 ```javascript
 {
   "rid": 1,
