@@ -169,15 +169,13 @@ params list and
 
 ### Example usage
 
-In this example we use a Philips Hue lighting bridge with a link action to connect the dslink to
-the bridge so it can be controlled.
 
 #### Request
 ```javascript
 {
   "rid": 1,
   "method": "invoke",
-  "path": "/lights",
+  "path": "/lights/testAction",
   "params": {
     "username": "dsaisawesome"
   }
@@ -190,7 +188,7 @@ the bridge so it can be controlled.
   "rid": 1,
   "stream": "closed",
   "updates":[
-    {"result":1}
+    {"result":"yeah"}
   ]
 }
 ```
