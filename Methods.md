@@ -67,7 +67,7 @@ not be displayed.
 ```
 
 ##### Response
-```javascript
+```json
 {
   "rid": 1,
   "stream": "open",
