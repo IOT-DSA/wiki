@@ -51,7 +51,7 @@ partial responses. Responses can (and often will) provide more fields than those
 
 - rid (integer)
   - The rid is the identifier to the corresponding request.
-  - If the request ID is -1, then it is a subscription update.
+  - rid:0 is reserved for the subscription update, other request id should start from 1
 - stream (enum string, optional)
   - The stream determines whether data will keep flowing or not.
   - If stream is omitted then it is assumed to be same value as previous stream response of same rid, default value is "initialize" if it's not shown in the first response
