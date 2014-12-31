@@ -29,7 +29,7 @@ not be displayed.
 #### Response columns
  - name
   - name of the field
-  - names start with $ are configs that can affect how system works
+  - names start with $ are [configs](Configs) that can affect how system works
     - "$is"
       - profile of the node, must be the first update of a list stream, otherwise it will be ignored
       - profile node should also be loaded to get all predefined configs/attributes of a node
