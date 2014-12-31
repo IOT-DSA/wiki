@@ -58,7 +58,7 @@ not be displayed.
 #### Example usage
 
 ##### Request
-```javascript
+```json
 {
   "rid": 1,
   "method": "list",
@@ -101,7 +101,7 @@ No response update.
 The value in this usage turns the lights on (true) or off (false).
 
 ##### Request
-```javascript
+```json
 {
   "rid": 1,
   "method": "set",
@@ -111,7 +111,7 @@ The value in this usage turns the lights on (true) or off (false).
 ```
 
 ##### Response
-```javascript
+```json
 {
   "rid": 1,
   "stream": "closed"
@@ -132,11 +132,10 @@ Remove a overridden config value will restore it to default value defined in pro
 
 No response update.
 
-
 #### Example usage
 
 ##### Request
-```javascript
+```json
 {
   "rid": 1,
   "method": "remove",
@@ -145,7 +144,7 @@ No response update.
 ```
 
 ##### Response
-```javascript
+```json
 {
   "rid": 1,
   "stream": "closed"
@@ -171,7 +170,7 @@ params list and
 
 
 ##### Request
-```javascript
+```json
 {
   "rid": 1,
   "method": "invoke",
@@ -183,12 +182,14 @@ params list and
 ```
 
 ##### Response
-```javascript
+```json
 {
   "rid": 1,
   "stream": "closed",
-  "updates":[
-    {"result":"yeah"}
+  "updates": [
+    {
+      "result": "yeah"
+    }
   ]
 }
 ```
@@ -232,7 +233,7 @@ There are multiple elements in the updates field. Each element will contain:
 #### Example usage
 
 ##### Request
-```javascript
+```json
 {
   "rid": 1,
   "method": "subscribe",
@@ -241,7 +242,7 @@ There are multiple elements in the updates field. Each element will contain:
 ```
 
 ##### Response
-```javascript
+```json
 {
   "rid": 1,
   "stream": "closed"
@@ -251,16 +252,27 @@ There are multiple elements in the updates field. Each element will contain:
 ##### Update
 "rid":0 is reserved for the subscription update and this stream will always be open
 
-```javascript
+```json
 {
-  "rid":0,
-  "updates":[
-    ["/node1/point1", 12, "2014-11-27T09:11.000-08:00"],
-    {"path":"/node1/point2", "status":"disconnected"},
+  "rid": 0,
+  "updates": [
+    [
+      "/node1/point1",
+      12,
+      "2014-11-27T09:11.000-08:00"
+    ],
     {
-      "path":"/node1/point3", "value":10, 
-      "ts":"2014-11-27T09:11.000-08:00", 
-      "count":5, "sum":75, "min":10, "max"20
+      "path": "/node1/point2",
+      "status": "disconnected"
+    },
+    {
+      "path": "/node1/point3",
+      "value": 10,
+      "ts": "2014-11-27T09:11.000-08:00",
+      "count": 5,
+      "sum": 75,
+      "min": 10,
+      "max": 20
     }
   ]
 }
@@ -283,7 +295,7 @@ No response fields sent.
 #### Example usage
 
 ##### Request
-```javascript
+```json
 {
   "rid": 1,
   "method": "unsubscribe",
@@ -292,7 +304,7 @@ No response fields sent.
 ```
 
 ##### Response
-```javascript
+```json
 {
   "rid": 1,
   "stream": "closed"
@@ -307,16 +319,16 @@ This method will close a stream
 #### Example usage
 
 ##### Request
-```javascript
+```json
 {
   "rid": 1,
-  "method": "close",
+  "method": "close"
 }
 ```
 
 ##### Response
 The response of the close method is optional.
-```javascript
+```json
 {
   "rid": 1,
   "stream": "closed"
