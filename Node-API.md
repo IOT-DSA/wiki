@@ -7,19 +7,19 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 Since JSON-RPC utilizes JSON, it has the same type system (see [JSON](http://www.json.org/)). JSON can represent four primitive types (Strings, Numbers, Booleans, and Null) and two structured types (Objects and Arrays). The term "Primitive" in this specification references any of those four primitive JSON types. The term "Structured" references either of the structured JSON types. Whenever this document refers to any JSON type, the first letter is always capitalized: Object, Array, String, Number, Boolean, Null. True and False are also capitalized.
 
-All member names exchanged between the Client and the Server that are considered for matching of any kind should be considered to be case-sensitive. The terms function, method, and procedure can be assumed to be interchangeable.
+All member names exchanged between the Requester and the Responser that are considered for matching of any kind should be considered to be case-sensitive. The terms function, method, and procedure can be assumed to be interchangeable.
 
-The Client is defined as the origin of Request objects and the handler of Response objects. 
-The Server is defined as the origin of Response objects and the handler of Request objects. 
+The Requester is defined as the origin of Request objects and the handler of Response objects. 
+The Responser is defined as the origin of Response objects and the handler of Request objects. 
 
-One implementation of this specification could easily fill both of those roles, even at the same time, to other different clients or the same client. This specification does not address that layer of complexity.
+One implementation of this specification could easily fill both of those roles, even at the same time, to other different requesters or the same requester. This specification does not address that layer of complexity.
 
 ## Requests
 
 Requests are used to retrieve data from a provider. A request always contains a method to execute
 and a request ID at minimum. The method being invoked may or may not require more fields when
 performing a request. Requests must be tracked by their ID until the stream is deemed closed by the
-provider. The broker must track IDs for each individual client separately to avoid any ID conflict.
+provider. The broker must track IDs for each individual requester separately to avoid any ID conflict.
 
 ### Fields
 
@@ -66,7 +66,7 @@ partial responses. Responses can (and often will) provide more fields than those
   - If stream is omitted then it is assumed to be same value as previous stream response of same rid, default value is "initialize" if it's not shown in the first response
   - The following values are acceptable, any others will be rejected
       - initialize
-          - server hasn’t finished sending existing/cached data, the values sent thus far are incomplete
+          - responser hasn’t finished sending existing/cached data, the values sent thus far are incomplete
       - open
           - all existing/cached data are sent, there will still be new update
           - if data provider receive a request but has nothing to send back, it still needs to send back a blank updates, with stream="open", so data consumer knows there are no cached data for the stream.
