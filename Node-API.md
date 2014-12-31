@@ -1,10 +1,18 @@
-# Node API
+## Overview
 
-The Node API is a protocol for which all implementing software must conform to. It provides a common
-data set to be provided for any software that needs data from multiple devices or software. This
-allows devices and software to interoperate with each other based on the data that is provided.
+nodeAPI is a state-full and light-weight streaming remote procedure call (RPC) protocol. Primarily this specification defines several data structures and the rules around their processing. It is transport agnostic in that the concepts can be used over various transport layers such as: the same process, http, web-sockets, sockets, or various other message passing environments. It uses [JSON](http://www.json.org/) ([RFC 4627](http://www.ietf.org/rfc/rfc4627.txt)) as data format.
 
-The protocol operates using the JSON format.
+## Conventions
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt).
+
+Since JSON-RPC utilizes JSON, it has the same type system (see [JSON](http://www.json.org/)). JSON can represent four primitive types (Strings, Numbers, Booleans, and Null) and two structured types (Objects and Arrays). The term "Primitive" in this specification references any of those four primitive JSON types. The term "Structured" references either of the structured JSON types. Whenever this document refers to any JSON type, the first letter is always capitalized: Object, Array, String, Number, Boolean, Null. True and False are also capitalized.
+
+All member names exchanged between the Client and the Server that are considered for matching of any kind should be considered to be case-sensitive. The terms function, method, and procedure can be assumed to be interchangeable.
+
+The Client is defined as the origin of Request objects and the handler of Response objects. 
+The Server is defined as the origin of Response objects and the handler of Request objects. 
+
+One implementation of this specification could easily fill both of those roles, even at the same time, to other different clients or the same client. This specification does not address that layer of complexity.
 
 ## Requests
 
