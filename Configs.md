@@ -110,5 +110,5 @@ low to high
    - requester can change configs or run actions that require config permission
    - used by configs: $permissions, $permission, $require, $settings, $writable
  - **never**
-   - a permission that will never happen on any requester
+   - highest permission that will never happen on any requester
    - used by configs: $settings, $writable
