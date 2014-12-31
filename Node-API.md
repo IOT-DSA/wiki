@@ -30,15 +30,15 @@ field.
   - The path must be valid
 
 #### Example
-```javascript
+```json
 {
-  "requests":[
-  {
-    "rid":2,
-    "method":"list",
-    "path":"/connections/dslink1"
-  }
-  ]
+   "requests":[
+      {
+         "rid": 2,
+         "method": "list",
+         "path": "/connections/dslink1"
+      }
+   ]
 }
 ```
 
@@ -72,54 +72,77 @@ partial responses. Responses can (and often will) provide more fields than those
       - when required column is omitted, used the default value defined in column otherwise use null
 
 #### Example of stream that use list for row structure
-```javascript
+```json
 {
-  "responses":[
-  {
-    "rid":2,
-    "stream":"open",
-    "updates":[
-      ["$is","node"],
-      ["$permission":"write"],
-      ["@city","San Francisco"],
-      ["point1",{"$is":"temperaturePoint", "@name":"Custom Name for Point1"}],
-      ["point2",{"$is":"numericPoint"}]
-    ]
-  }
+  "responses": [
+    {
+      "rid": 2,
+      "stream": "open",
+      "updates": [
+        [
+          "$is",
+          "node"
+        ],
+        [
+          "$permission",
+          "write"
+        ],
+        [
+          "@city",
+          "San Francisco"
+        ],
+        [
+          "point1",
+          {
+            "$is": "temperaturePoint",
+            "@name": "Custom Name for Point1"
+          }
+        ],
+        [
+          "point2",
+          {
+            "$is": "numericPoint"
+          }
+        ]
+      ]
+    }
   ]
 }
 ```
 #### Example of stream that use map for row structure
-```javascript
+```json
 {
-  "responses":[
-  {
-    "rid":2,
-    "stream":"open",
-    "updates":[
-      {"name":"point2","change":"removed"}
-    ]
-  }
+  "responses": [
+    {
+      "rid": 2,
+      "stream": "open",
+      "updates": [
+        {
+          "name": "point2",
+          "change": "removed"
+        }
+      ]
+    }
   ]
 }
 ```
 
 ## Error
 If any error happened, stream response will have a error object showing the information about the error
-```javascript
+```json
 {
-  "responses":[
-  {
-    "rid": 1,
-    "stream":"closed",
-    "error": {
-      "type": "PermissionDenied",
-      "phase": "request",
-      "path":"/connection/dslink1"
-      "msg": "permission denied",
-      "detail": "user Steve is not allowed to access data in '/connection/dslink1'"
+  "responses": [
+    {
+      "rid": 1,
+      "stream": "closed",
+      "error": {
+        "type": "PermissionDenied",
+        "phase": "request",
+        "path": "/connection/dslink1",
+        "msg": "permission denied",
+        "detail": "user Steve is not allowed to access data in '/connection/dslink1'"
+      }
     }
-  }
   ]
 }
 ```
