@@ -51,7 +51,7 @@ not be displayed.
   - updated value of the field
 
 ### Response meta
- - change
+ - change (optional enum)
    - enum value, can be "remove" or "update"
    - default value is "update"
 
@@ -87,17 +87,14 @@ not be displayed.
 This method will set values on a node.
 
 ### Request fields
-
-- value (any type)
+ - path (type:path)
+   -  path of the node to set, can be a node path or attribute/config path
+ - value (any primitive type)
   - The type of the value must be acceptable to the type of the node.
 
-### Response fields
+### Response columns
 
-No response fields sent.
-
-### Required permission
-
-- Write
+No response update.
 
 ### Example usage
 
@@ -106,7 +103,7 @@ The value in this usage turns the lights on (true) or off (false).
 #### Request
 ```javascript
 {
-  "rid": 0,
+  "rid": 1,
   "method": "set",
   "path": "/lights/Lights A",
   "value": false
@@ -116,42 +113,41 @@ The value in this usage turns the lights on (true) or off (false).
 #### Response
 ```javascript
 {
-  "rid": 0,
+  "rid": 1,
   "stream": "closed"
 }
 ```
 
 ## Remove
 
-This method will remove attributes or mixins.
+This method will remove attributes or configs.
+Remove a overridden config value will restore it to default value defined in profile
 
 ### Request fields
 
-No extra fields are required.
+ - path (type:path)
+   -  attribute/config path to remove
 
-### Response fields
+### Response columns
 
-No response fields sent.
+No response update.
 
-### Required permission
-
-- Write
 
 ### Example usage
 
 #### Request
 ```javascript
 {
-  "rid": 0,
+  "rid": 1,
   "method": "remove",
-  "path": "/def/mixin/location"
+  "path": "/light/@city"
 }
 ```
 
 #### Response
 ```javascript
 {
-  "rid": 0,
+  "rid": 1,
   "stream": "closed"
 }
 ```
@@ -159,24 +155,17 @@ No response fields sent.
 ## Invoke
 
 This method will invoke an action on a node.
+params list and
 
 ### Request fields
 
-- action (string)
-  - The action to invoke on the node.
 - params (map, optional)
-  - The parameters in the map are to be specified by the action of the node.
+  - The parameters are defined in the action node
   - Can be omitted if the action takes no parameters
 
-### Response fields
+### Response columns
 
-- results (map, optional)
-  - The results in the map are to be specified by the action of the node.
-  - Can be omitted if the action has no results.
-
-### Required permission
-
-- Invoke
+ columns list is defined in the action node.
 
 ### Example usage
 
@@ -186,10 +175,9 @@ the bridge so it can be controlled.
 #### Request
 ```javascript
 {
-  "rid": 0,
+  "rid": 1,
   "method": "invoke",
   "path": "/lights",
-  "action": "link"
   "params": {
     "username": "dsaisawesome"
   }
@@ -199,42 +187,56 @@ the bridge so it can be controlled.
 #### Response
 ```javascript
 {
-  "rid": 0,
+  "rid": 1,
   "stream": "closed",
-  "results": {}
+  "update":[
+    {"result":1}
+  ]
 }
 ```
 
 ## Subscribe
 
-This method will subscribe to a datapoint to receive a new value whenever the node updates its
-value. Upon initial subscription, a value will be returned in the response. The stream will always
-remain open until the request id is unsubscribed.
+This method will subscribe to a datapoint node to receive its value and value updatea.
+
 
 ### Request fields
 
-No extra fields are required.
+ - paths (type:list)
+   -  a list of node path to subscribe
 
-### Response fields
+### Response columns
+
+No response update to the direct response.
+the value update will be sent in the main subscription stream, which has the following columns
 
 There are multiple elements in the updates field. Each element will contain:
 
-- name (string, attribute, optional)
-  - If name is omitted, then it is an update to the node value.
-  - If name starts with "@" it is an attribute
-  - If name starts with "$" it is a configuration
-- value (any type)
+- path 
+  - path of the node
+- value
+  - updated value
+- ts (time string in iso8601 format)
+  - last update time of the value
 
-### Required permission
-
-- Read
-
+### Response meta
+ - status (option string)
+   - status of the value
+ - count (optional int)
+   - if the response skip some value, this shows how many updates have happened since last response 
+   - (count-1) of the previous updates are skipped. so count is always greater than 1 when specified
+ - sum (optional number)
+   - the sum value if one or more numeric value is skipped
+ - max (optional number)
+   - the max value if one or more numeric value is skipped
+ - min (optional number)
+   - the min value if one or more numeric value is skipped
 ### Example usage
 
 #### Request
 ```javascript
 {
-  "rid": 0,
+  "rid": 1,
   "method": "subscribe",
   "path": "/lights/Lights A"
 }
@@ -243,15 +245,24 @@ There are multiple elements in the updates field. Each element will contain:
 #### Response
 ```javascript
 {
-  "rid": 0,
-  "stream": "open",
-  "updates": [
+  "rid": 1,
+  "stream": "closed"
+}
+```
+
+#### Update
+"rid":0 is reserved for the subscription update and this stream will always be open
+
+```javascript
+{
+  "rid":0,
+  "updates":[
+    ["/node1/point1", 12, "2014-11-27T09:11.000-08:00"],
+    {"path":"/node1/point2", "status":"disconnected"},
     {
-      "value": false
-    },
-    {
-      "@name": "@brightness",
-      "value": 50
+      "path":"/node1/point3", "value":10, 
+      "ts":"2014-11-27T09:11.000-08:00", 
+      "count":5, "sum":75, "min":10, "max"20
     }
   ]
 }
@@ -259,38 +270,58 @@ There are multiple elements in the updates field. Each element will contain:
 
 ## Unsubscribe
 
-This method will unsubscribe from a datapoint and stop receiving new values on a node. The stream
-on the request ID the subscription is holding will be closed. The rid must be the same ID used when
-subscribing.
+This method will unsubscribe from a datapoint and stop receiving new values on a node. 
 
 ### Request fields
 
-No extra fields are required. Path must be omitted, it is unused in this method.
+ - paths (type:list)
+   -  a list of node path to subscribe
 
-### Response fields
+### Response columns
 
 No response fields sent.
 
-### Required Permission
-
-- None
 
 ### Example usage
-
-If the subscription rid is 0, then the request must also be 0 to unsubscribe properly.
 
 #### Request
 ```javascript
 {
-  "rid": 0,
+  "rid": 1,
   "method": "unsubscribe",
+  "path": "/lights/Lights A"
 }
 ```
 
 #### Response
 ```javascript
 {
-  "rid": 0,
+  "rid": 1,
+  "stream": "closed"
+}
+```
+
+
+## Close
+
+This method will close a stream
+
+### Example usage
+
+#### Request
+```javascript
+{
+  "rid": 1,
+  "method": "close",
+}
+```
+
+#### Response
+The response of the close method is optional.
+If the stream doesnt exist, the data consumer
+```javascript
+{
+  "rid": 1,
   "stream": "closed"
 }
 ```
