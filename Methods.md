@@ -7,7 +7,7 @@ Request fields are sent in the top level JSON request. Response fields return in
 methods will go into more detail on how updates are received. All responses are a map in the first
 element of the update field unless otherwise specified by the method.
 
-### List of methods
+#### List of methods
 
 - list
 - set
@@ -21,12 +21,12 @@ element of the update field unless otherwise specified by the method.
 This method will retrieve a list of children. However, children without the read permission will
 not be displayed.
 
-### Request fields
+#### Request fields
 
  - path (type:path)
    -  path of the node to run the list api
 
-### Response columns
+#### Response columns
  - name
   - name of the field
   - names start with $ are configs that can affect how system works
@@ -50,14 +50,14 @@ not be displayed.
  - value
   - updated value of the field
 
-### Response meta
+#### Response meta
  - change (optional enum)
    - enum value, can be "remove" or "update"
    - default value is "update"
 
-### Example usage
+#### Example usage
 
-#### Request
+##### Request
 ```javascript
 {
   "rid": 1,
@@ -66,7 +66,7 @@ not be displayed.
 }
 ```
 
-#### Response
+##### Response
 ```javascript
 {
   "rid":1,
@@ -86,21 +86,21 @@ not be displayed.
 
 This method will set values on a node.
 
-### Request fields
+#### Request fields
  - path (type:path)
    -  path of the node to set, can be a node path or attribute/config path
  - value (any primitive type)
   - The type of the value must be acceptable to the type of the node.
 
-### Response columns
+#### Response columns
 
 No response update.
 
-### Example usage
+#### Example usage
 
 The value in this usage turns the lights on (true) or off (false).
 
-#### Request
+##### Request
 ```javascript
 {
   "rid": 1,
@@ -110,7 +110,7 @@ The value in this usage turns the lights on (true) or off (false).
 }
 ```
 
-#### Response
+##### Response
 ```javascript
 {
   "rid": 1,
@@ -123,19 +123,19 @@ The value in this usage turns the lights on (true) or off (false).
 This method will remove attributes or configs.
 Remove a overridden config value will restore it to default value defined in profile
 
-### Request fields
+#### Request fields
 
  - path (type:path)
    -  attribute/config path to remove
 
-### Response columns
+#### Response columns
 
 No response update.
 
 
-### Example usage
+#### Example usage
 
-#### Request
+##### Request
 ```javascript
 {
   "rid": 1,
@@ -144,7 +144,7 @@ No response update.
 }
 ```
 
-#### Response
+##### Response
 ```javascript
 {
   "rid": 1,
@@ -157,20 +157,20 @@ No response update.
 This method will invoke an action on a node.
 params list and
 
-### Request fields
+#### Request fields
 
 - params (map, optional)
   - The parameters are defined in the action node
   - Can be omitted if the action takes no parameters
 
-### Response columns
+#### Response columns
 
  columns list is defined in the action node.
 
-### Example usage
+#### Example usage
 
 
-#### Request
+##### Request
 ```javascript
 {
   "rid": 1,
@@ -182,7 +182,7 @@ params list and
 }
 ```
 
-#### Response
+##### Response
 ```javascript
 {
   "rid": 1,
@@ -198,12 +198,12 @@ params list and
 This method will subscribe to a datapoint node to receive its value and value updatea.
 
 
-### Request fields
+#### Request fields
 
  - paths (type:list)
    -  a list of node path to subscribe
 
-### Response columns
+#### Response columns
 
 No response update to the direct response.
 the value update will be sent in the main subscription stream, which has the following columns
@@ -217,7 +217,7 @@ There are multiple elements in the updates field. Each element will contain:
 - ts (time string in iso8601 format)
   - last update time of the value
 
-### Response meta
+#### Response meta
  - status (option string)
    - status of the value
  - count (optional int)
@@ -229,9 +229,9 @@ There are multiple elements in the updates field. Each element will contain:
    - the max value if one or more numeric value is skipped
  - min (optional number)
    - the min value if one or more numeric value is skipped
-### Example usage
+#### Example usage
 
-#### Request
+##### Request
 ```javascript
 {
   "rid": 1,
@@ -240,7 +240,7 @@ There are multiple elements in the updates field. Each element will contain:
 }
 ```
 
-#### Response
+##### Response
 ```javascript
 {
   "rid": 1,
@@ -248,7 +248,7 @@ There are multiple elements in the updates field. Each element will contain:
 }
 ```
 
-#### Update
+##### Update
 "rid":0 is reserved for the subscription update and this stream will always be open
 
 ```javascript
@@ -270,19 +270,19 @@ There are multiple elements in the updates field. Each element will contain:
 
 This method will unsubscribe from a datapoint and stop receiving new values on a node. 
 
-### Request fields
+#### Request fields
 
  - paths (type:list)
    -  a list of node path to subscribe
 
-### Response columns
+#### Response columns
 
 No response fields sent.
 
 
-### Example usage
+#### Example usage
 
-#### Request
+##### Request
 ```javascript
 {
   "rid": 1,
@@ -291,7 +291,7 @@ No response fields sent.
 }
 ```
 
-#### Response
+##### Response
 ```javascript
 {
   "rid": 1,
@@ -304,9 +304,9 @@ No response fields sent.
 
 This method will close a stream
 
-### Example usage
+#### Example usage
 
-#### Request
+##### Request
 ```javascript
 {
   "rid": 1,
@@ -314,7 +314,7 @@ This method will close a stream
 }
 ```
 
-#### Response
+##### Response
 The response of the close method is optional.
 ```javascript
 {
