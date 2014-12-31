@@ -90,10 +90,10 @@
     - value can be "read" "write" "config" or "never"
     - "read" is the default value if not specified
     
-## Permissions
+## Permission Values
 low to high
  - **none**
-   - requester is not allowed to do anything.
+   - lowest permission, means requester is not allowed to do anything.
    - used by config: $permissions
  - **read**
    - requester can read a node with list request
