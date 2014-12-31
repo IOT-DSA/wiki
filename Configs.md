@@ -4,8 +4,9 @@
    - profiles start with "/" are absolute path
    - other profile paths are path relative to the /defs/profile/
  - **$mixin** (require:read, writable:config)
-   - attributes mixins of a node, multiple profile are separated by "|"
-   - mixins start with "/" are absolute path
+   - attributes/configs mixins of a node, multiple profile are separated by "|"
+   - mixin can not modify readonly configs
+   - mixin paths start with "/" are absolute path
    - other mixin paths are path relative to the current node
  - **$permission** (require:read, writable:never, type:enum[read,write,config])
    - not store in node data, generated for list response based on the permission of current requester
@@ -89,7 +90,14 @@
     - permission needed to invoke a action node
     - value can be "read" "write" "config" or "never"
     - "read" is the default value if not specified
-    
+
+## Config Overwrite
+ - configs directly defined in profile can not be overwritten.
+ - configs defined in profile $settings must be implemented by mixin or by the node itself
+   - if both mixin and node defined same config, the config value in node overwrite the mixin
+   - if multiple mixins contain duplicated configs, the latter one overwrite the previous mixin
+   - these rules applied to attribute overwrite too
+
 ## Permission Values
 low to high
  - **none**
