@@ -40,7 +40,7 @@ field.
 #### Example
 ```json
 {
-   "requests":[
+   "requests": [
       {
          "rid": 2,
          "method": "list",
