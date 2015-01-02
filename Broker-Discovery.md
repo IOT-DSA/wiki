@@ -1,1 +1,1 @@
-Brokers should broadcast themselves using mDNS and the domain `dsa_broker.local`.
+Brokers should broadcast themselves using [SSDP](https://en.wikipedia.org/wiki/Simple_Service_Discovery_Protocol).
