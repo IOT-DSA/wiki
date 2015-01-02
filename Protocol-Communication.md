@@ -17,7 +17,7 @@ when dslink works as server in http and websocket mode, lobby.json is needed
   "wsUpdateUri":"/ws_update",
   "httpDataUri":"../http/data",
   "httpUpdateUri":"../http/update",
-  "minCachingTimeMs":200
+  "minUpdateIntervalMs":200
 }
 ```
  - publicKey
@@ -33,6 +33,6 @@ when dslink works as server in http and websocket mode, lobby.json is needed
      - a endpoint which client send http dsa requests to and get responses from
    - httpUpdateUri
      - a endpoint which client send http dsa responses to and get requests from
- - minWsCachingTimeMs
+ - minUpdateIntervalMs
    - used by clients that connect to wsUpdateUri or httpUpdateUri
    - when specified, client shouldn't send stream update to server more often than the min interval, value subscription in the client side should get cached or merged.
