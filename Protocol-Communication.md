@@ -11,8 +11,8 @@ There are 3 forms of communication:
 when dslink works as server in http and websocket mode, lobby.json is needed
 ```javascript
 {
-  "dsaId":"broker-dglogik-s1zKNGuYJCnNapu2A9kJDuzB6yWlL5mSgbd69cs1HiPuKXMeK8mnipXxcslnFHBt",
-  "publicKey":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA9j0HLTm9SUQEv12mJ/4DkdpKRZaz8lo0KCWmBFeQmf709o7gpqQ/9xWqUf4klHz+M0pQpsrNobRKjQEGMDgbRMwt+rIAmPjeJg9BcguqbUkVTqBxUt1cAKNfxbs+J0NQhPAxihD4tSHedCTEZjrmgQ3opvatrNHTPdjOxzDcwh+cUGmGt4+GoPH6uIH/1aLdOjLJwSPxJyx/O2ednXhmcIOaB7q955tA0Acz6YdVjbpy7iKGP/xh9Hl1MVh+uVvypEI8LvZjj+M44au0fDvTMffnCKHV0OjM1M4EHCbJjgPKt1L4h9EToyVANGVS/7Mt6herO3SL44iyVFj3q2r+2QIDAQAB",
+  "dsaId":"broker-dglogik-5PjTP4kGLqxAAykKBU1MDUb0diZNOUpk_Au8MWxtCYa2YE_hOFaC8eAO6zz6FC0e",
+  "publicKey":"AIHYvVkY5M_uMsRI4XmTH6nkngf2lMLXOOX4rfhliEYhv4Hw1wlb_I39Q5cw6a9zHSvonI8ZuG73HWLGKVlDmHGbYHWsWsXgrAouWt5H3AMGZl3hPoftvs0rktVsq0L_pz2Cp1h_7XGot87cLah5IV-AJ5bKBBFkXHOqOsIiDXNFhHjSI_emuRh01LmaN9_aBwfkyNq73zP8kY-hpb5mEG-sIcLvMecxsVS-guMFRCk_V77AzVCwOU52dmpfT5oNwiWhLf2n9A5GVyFxxzhKRc8NrfSdTFzKn0LvDPM29UDfzGOyWpfJCwrYisrftC3QbBD7e0liGbMCN5UgZsSssOk=",
   "wsDataUri":"/ws_data",
   "wsUpdateUri":"/ws_update",
   "httpDataUri":"../http/data",
@@ -20,8 +20,9 @@ when dslink works as server in http and websocket mode, lobby.json is needed
   "minUpdateIntervalMs":200
 }
 ```
+all base64 encoding use URL and Filename Safe Alphabet of [rfc4648](https://tools.ietf.org/html/rfc4648)
  - publicKey
-   - public key of the server
+   - base64 encoded public key of the server
  - dsaId
    - a string with {type}-{name}-{base64(SHA384(publicKey))}
  - xxxxUri, URI of dsa api endpoint, absolute uri to a different host or port is not allowed
