@@ -14,7 +14,7 @@ One implementation of this specification could easily fill both of those roles, 
 Requests are used to retrieve data from a provider. A request always contains a method to execute
 and a request ID at minimum. The method being invoked may or may not require more fields when
 performing a request. Requests must be tracked by their ID until the stream is deemed closed by the
-provider. The broker must track IDs for each individual requester separately to avoid any ID conflict.
+responder. The responder must track IDs for each individual requester separately to avoid any ID conflict.
 
 ### Fields
 
