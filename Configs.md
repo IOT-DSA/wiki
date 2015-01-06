@@ -36,6 +36,8 @@
    - type of subscription value
    - node is not subscribable if $type is not specified
  - **$writable** (require:read, writable:never)
+   - whether the set method can be called to this node
+   - only valid on a node with value type ($type)
    - value can be "write" "config" or "never"
    - "never" is the default value if not specified
  - **$settings** (require:read, writable:never)
