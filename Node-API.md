@@ -73,7 +73,10 @@ partial responses. Responses can (and often will) provide more fields than those
     - a map with key:value pairs
       - key can be column name or a meta value
       - when required column is omitted, used the default value defined in column otherwise use null
-
+ - columns (array, optional)
+   - columns structure of the response, only needed by response of "invoke" method
+   - when action node or its profile already defined columns structure, the columns in response is not needed
+   - columns structure only need to be returned once unless it changes at runtime
 #### Example of stream that use list for row structure
 ```json
 {
@@ -129,7 +132,24 @@ partial responses. Responses can (and often will) provide more fields than those
   ]
 }
 ```
-
+#### Example with custom columns in the response
+```json
+{
+  "responses": [
+    {
+      "rid": 2,
+      "stream": "open",
+      "columns":[
+        {"name":"ts","type":"time"},
+        {"name":"value","type":"number"}
+      ]
+      "updates": [
+        ["2014-01-01T11:21:23.00-08:00", 45]
+      ]
+    }
+  ]
+}
+```
 ## Error
 If any error happened, stream response will have a error object showing the information about the error
 ```json
