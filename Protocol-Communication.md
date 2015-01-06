@@ -19,16 +19,17 @@ all base64 encoded strings used in dslink hand shake are url and filename safe b
  - ds-is-responder, whether the client is a responder
  - ds-zone, optional, which quarantine zone the client wants to be in.
  - dsa-encrypted-nonce, base64 encoded encrypted nonce
-	 - server generate a secret nonce and encrypt the nonce with client's public key
-	 - new nonce shouldn't overwrite the existing nonce until the client verifies its public key with ds-auth
+    - server generate a secret nonce and encrypt the nonce with client's public key
+    - new nonce shouldn't overwrite the existing nonce until the client verifies its public key with ds-auth
  - ds-req-salt, a salt string to protect connection from replay attack, only used when ds-is-requester=true
-	 - server should make sure the salt is never reused unless connection is reset and nonse is regenerated
-	 - by default req-salt will be "req0", "req1", "req2"  etc...
+    - server should make sure the salt is never reused unless connection is reset and nonse is regenerated
+    - by default req-salt will be "req0", "req1", "req2"  etc...
  - ds-resp-salt, a salt string to protect connection from replay attack, only used when ds-is-responder=true
-	 - by default resp-salt will be "resp0", "resp1", "resp2"  etc...
+    - by default resp-salt will be "resp0", "resp1", "resp2"  etc...
  - ds-auth, authentication string encoded in base64 to prove client is valid owner of the ds-id and public-key
-	 - SHA256(UTF8Bytes(salt)+NonceBytes),   "+" here means concatenating of byte buffer
-	 - ds-auth is required by all http request from client, and either ds-req-salt or sa-resp-salt is required for all http response from the server
+    - SHA256(UTF8Bytes(salt)+NonceBytes),   "+" here means concatenating of byte buffer
+      - NonceBytes is decrypted from the dsa-encrypted-nonce with the client's private key
+    - ds-auth is required by all http request from client, and either ds-req-salt or sa-resp-salt is required for all http response from the server
 
 #### server-configuration content
 	 
