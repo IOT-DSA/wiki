@@ -77,6 +77,7 @@ partial responses. Responses can (and often will) provide more fields than those
    - columns structure of the response, only needed by response of "invoke" method
    - when action node or its profile already defined columns structure, the columns in response is not needed
    - columns structure only need to be returned once unless it changes at runtime
+
 #### Example of stream that use list for row structure
 ```json
 {
