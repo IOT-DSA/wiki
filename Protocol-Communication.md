@@ -8,7 +8,7 @@ There are 3 forms of communication:
 
 
 ## handshake for http and websocket 
-http 
+### http handshake 
 ![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/http_handshake.png)
 
 all base64 encoded strings used in dslink hand shake are url and filename safe base64 alphabet [rfc4648](https://tools.ietf.org/html/rfc4648)
@@ -59,6 +59,6 @@ all base64 encoded strings used in dslink hand shake are url and filename safe b
    - used by clients that connect to wsUpdateUri or httpUpdateUri
    - when specified, client shouldn't send stream update to server more often than the min interval, value subscription in the client side should get cached or merged.
 
-#### websocket mode
+### websocket handshake
 weksocket connection is very similiar to http mode except the headers and authantication only need to be done once
 ![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/ws_handshake.png)
