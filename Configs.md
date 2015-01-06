@@ -1,10 +1,19 @@
 ## Core Configs
  - **$is** (require:read, writable:never)
    - defines the profile of a node
-   - profiles start with "/" are absolute path
+   - profile can define configs, attributes and children nodes
+   - profile paths start with "/" are absolute path
    - other profile paths are path relative to the /defs/profile/
+ - **$interface** (require:read, writable:never)
+   - defines the interfaces of a node or a profile, multiple mixins are separated by "|"
+   - interface can define configs, attributes and children nodes
+   - interface paths start with "/" are absolute path
+   - other interface paths are path relative to the /defs/interface/
+   - interfaces defined for a profile must be fully implemented in the profile
+   - interfaces defined for a node profile must be implemented by either the node or the profile
  - **$mixin** (require:read, writable:config)
-   - attributes/configs mixins of a node, multiple profile are separated by "|"
+   - attributes/configs mixins of a node, multiple mixins are separated by "|"
+   - attributes can define configs, attributes but NOT children nodes
    - mixin can not modify readonly configs
    - mixin paths start with "/" are absolute path
    - other mixin paths are path relative to the current node
