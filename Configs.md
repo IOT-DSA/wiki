@@ -31,6 +31,7 @@
 ```
  - **$name** (require:read, writable:config)
    - custom display name for a node
+   - change $name won't affect node's path or its name in parent node
  - **$type** (require:read, writable:never)
    - type of subscription value
    - node is not subscribable if $type is not specified
