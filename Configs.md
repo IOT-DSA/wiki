@@ -5,7 +5,7 @@
    - profile paths start with "/" are absolute path
    - other profile paths are path relative to the /defs/profile/
  - **$interface** (require:read, writable:never)
-   - defines the interfaces of a node or a profile, multiple mixins are separated by "|"
+   - defines the interfaces of a node or a profile, multiple interfaces are separated by "|"
    - interface can define configs, attributes and children nodes
    - interface paths start with "/" are absolute path
    - other interface paths are path relative to the /defs/interface/
