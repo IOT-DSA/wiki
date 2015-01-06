@@ -19,7 +19,7 @@ all base64 encoded strings used in dslink hand shake are url and filename safe b
  - ds-is-responder, whether the client is a responder
  - ds-zone, optional, which quarantine zone the client wants to be in.
  - dsa-encrypted-nonce, base64 encoded encrypted nonce
-    - server generate a secret nonce and encrypt the nonce with client's public key
+    - server generate a 128bits secret nonce and encrypt the nonce with client's public key
     - new nonce shouldn't overwrite the existing nonce until the client verifies its public key with ds-auth
  - ds-req-salt, a salt string to protect connection from replay attack, only used when ds-is-requester=true
     - server should make sure the salt is never reused unless connection is reset and nonse is regenerated
