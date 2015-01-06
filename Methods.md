@@ -21,6 +21,8 @@ element of the update field unless otherwise specified by the method.
 This method will retrieve a list of children. However, children without the read permission will
 not be displayed.
 
+The response of list will update on any node change available to the current requester, there is no need to list on same node twice in same requester because second stream will return same state as the previous list stream's final state.
+
 #### Request fields
 
  - path (type:path)
