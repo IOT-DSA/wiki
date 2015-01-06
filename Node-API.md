@@ -143,7 +143,7 @@ partial responses. Responses can (and often will) provide more fields than those
       "columns":[
         {"name":"ts","type":"time"},
         {"name":"value","type":"number"}
-      ]
+      ],
       "updates": [
         ["2014-01-01T11:21:23.00-08:00", 45]
       ]
