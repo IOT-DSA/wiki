@@ -10,7 +10,7 @@
    - interface paths start with "/" are absolute path
    - other interface paths are path relative to the /defs/interface/
    - interfaces defined for a profile must be fully implemented in the profile
-   - interfaces defined for a node profile must be implemented by either the node or the profile
+   - interfaces defined for a node must be implemented by either the node or the profile
  - **$mixin** (require:read, writable:config)
    - attributes/configs mixins of a node, multiple mixins are separated by "|"
    - attributes can define configs, attributes but NOT children nodes
