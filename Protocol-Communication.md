@@ -61,5 +61,5 @@ all base64 encoded strings used in dslink hand shake are url and filename safe b
    - when specified, client shouldn't send stream update to server more often than the min interval, value subscription in the client side should get cached or merged.
 
 ### websocket handshake
-weksocket connection is very similiar to http mode except the headers and authantication only need to be done once
+weksocket connection is very similiar to http mode except the headers and authentication only need to be done once
 ![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/ws_handshake.png)
