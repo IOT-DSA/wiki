@@ -29,6 +29,8 @@
     {"group":"guest", "allow":"none"}
   ]
 ```
+ - **$name** (require:read, config)
+   - custom display name for a node
  - **$type** (require:read, writable:never)
    - type of subscription value
    - node is not subscribable if $type is not specified
