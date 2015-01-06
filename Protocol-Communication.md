@@ -7,8 +7,10 @@ There are 3 forms of communication:
 * Socket
 
 
-## handshake for websocket and 
+## handshake for http and websocket 
+http 
 ![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/http_handshake.png)
+
 all base64 encoded strings used in dslink hand shake are url and filename safe base64 alphabet [rfc4648](https://tools.ietf.org/html/rfc4648)
 #### http headers 
  - ds-id, a id string of 64-128 characters, the last 64 characters are base64 encoded SHA384 hash of the public-key
@@ -27,7 +29,7 @@ all base64 encoded strings used in dslink hand shake are url and filename safe b
  - ds-auth, authentication string encoded in base64 to prove client is valid owner of the ds-id and public-key
 	 - SHA256(UTF8Bytes(salt)+NonceBytes),   "+" here means concatenating of byte buffer
 	 - ds-auth is required by all http request from client, and either ds-req-salt or sa-resp-salt is required for all http response from the server
-	 - 
+
 #### server-configuration content
 	 
 ```javascript
@@ -56,3 +58,7 @@ all base64 encoded strings used in dslink hand shake are url and filename safe b
  - min-update-interval-ms
    - used by clients that connect to wsUpdateUri or httpUpdateUri
    - when specified, client shouldn't send stream update to server more often than the min interval, value subscription in the client side should get cached or merged.
+
+#### websocket mode
+weksocket connection is very similiar to http mode except the headers and authantication only need to be done once
+![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/ws_handshake.png)
