@@ -146,7 +146,7 @@ The value in this usage turns the lights on (true) or off (false).
 ## Remove
 
 This method will remove attributes or configs.
-Remove a overridden config value will restore it to default value defined in profile
+Remove a overwritten config/attribute value will restore it to default value defined in profile or mixin
 
 #### Request fields
 
