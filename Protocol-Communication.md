@@ -14,7 +14,7 @@ There are 3 forms of communication:
 all base64 encoded strings used in dslink hand shake are url and filename safe base64 alphabet [rfc4648](https://tools.ietf.org/html/rfc4648)
 #### http headers 
  - ds-id, a id string of 64-128 characters, the last 64 characters are base64 encoded SHA384 hash of the public-key
- - ds-public-key, base64 encoded modulus int of a 2048 bit rsa public key, (the exponent of the public key is always 2048)
+ - ds-public-key, base64 encoded modulus integer of a 2048 bit rsa public key, (the exponent of the public key is always 65537)
  - ds-is-requester, whether the client is a requester
  - ds-is-responder, whether the client is a responder
  - ds-zone, optional, which quarantine zone the client wants to be in.
