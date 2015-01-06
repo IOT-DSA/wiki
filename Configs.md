@@ -29,7 +29,7 @@
     {"group":"guest", "allow":"none"}
   ]
 ```
- - **$name** (require:read, config)
+ - **$name** (require:read, writable:config)
    - custom display name for a node
  - **$type** (require:read, writable:never)
    - type of subscription value
