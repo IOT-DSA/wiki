@@ -69,10 +69,9 @@ When client connect to server's /conn end point, sever should return its configu
 	- ds-id of the server
  - public-key
 	- Base64 encoded public key of the server
- - xxxx-uri
-	- URI of DSA API endpoint, absolute URI to a different host or port is not allowed
  - ws-data-uri
 	- An endpoint to which a client sends WebSocket nodeAPI requests to and gets responses from
+	- absolute URI to a different host or port is not allowed
  - ws-update-uri
 	- An endpoint to which a client sends WebSocket nodeAPI responses to and gets requests from
  - http-data-uri
