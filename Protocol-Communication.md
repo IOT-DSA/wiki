@@ -66,19 +66,19 @@ This is an example configuration of a DSA node.
 When client connect to server's /conn end point, sever should return its configuration JSON in the http response body
 
  - id
-	 - ds-id of the server
+	- ds-id of the server
  - public-key
-	 - Base64 encoded public key of the server
+	- Base64 encoded public key of the server
  - xxxx-uri
-	 - URI of DSA API endpoint, absolute URI to a different host or port is not allowed
-   - ws-data-uri
-     - An endpoint to which a client sends WebSocket nodeAPI requests to and gets responses from
-   - ws-update-uri
-     - An endpoint to which a client sends WebSocket nodeAPI responses to and gets requests from
-   - http-data-uri
-     - An endpoint to which a client sends HTTP nodeAPI requests to and gets responses from
-   - http-update-uri
-     - An endpoint t which client sends HTTP nodeAPI responses to and gets requests from
+	- URI of DSA API endpoint, absolute URI to a different host or port is not allowed
+ - ws-data-uri
+	- An endpoint to which a client sends WebSocket nodeAPI requests to and gets responses from
+ - ws-update-uri
+	- An endpoint to which a client sends WebSocket nodeAPI responses to and gets requests from
+ - http-data-uri
+	- An endpoint to which a client sends HTTP nodeAPI requests to and gets responses from
+ - http-update-uri
+	- An endpoint to which a client sends HTTP nodeAPI responses to and gets requests from
  - min-update-interval-ms
-   - Used by clients that connect to wsUpdateUri or httpUpdateUri
-   - When specified, a client shouldn't send stream updates to server more often than the minimum interval in milliseconds, value subscription in the client side should get cached or merged.
+	- Used by clients that connect to wsUpdateUri or httpUpdateUri
+	- When specified, a client shouldn't send stream updates to server more often than the minimum interval in milliseconds, value subscription in the client side should get cached or merged.
