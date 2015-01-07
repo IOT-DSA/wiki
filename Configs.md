@@ -17,6 +17,7 @@
    - mixin can not modify readonly configs
    - mixin paths start with "/" are absolute path
    - other mixin paths are path relative to the current node
+   - when merging properties from a mixin node, profile and mixins inside the mixin are ignored
  - **$permission** (require:read, writable:never, type:enum[read,write,config])
    - not store in node data, generated for list response based on the permission of current requester
  - **$permissions** (require:config, writable:config)
