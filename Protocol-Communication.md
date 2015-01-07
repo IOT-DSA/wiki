@@ -1,10 +1,10 @@
-Security is at the core of DSA. Inter-node connections in DSA are typically initiated by the Responder to the Requestor. This achieves deployment flexibility as an added benefit allows for nodes on a LAN to establish secure, full-duplex connections to nodes on a WAN.
+Security is at the core of DSA. Inter-node connections in DSA are typically initiated by the Responder to the Requester. This achieves deployment flexibility as an added benefit allows for nodes on a LAN to establish secure, full-duplex connections to nodes on a WAN.
 
 There are 3 inter-node connection types in DSA:
 
 * Requester - Requester is able to browse and interact with the model of a Responder
 * Responder - Responder is able to expose its model structure, stream model updates and receive commands from Requesters
-* Requestor + Responder - A DSBroker implements this pattern in an effort to route requests and responses between connected nodes
+* Requester + Responder - A DSBroker implements this pattern in an effort to route requests and responses between connected nodes
 
 Currently there are 3 forms of transport channel bindings:
 
