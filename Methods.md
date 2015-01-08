@@ -262,7 +262,7 @@ There are multiple elements in the updates field. Each element will contain:
 {
   "rid": 1,
   "method": "subscribe",
-  "path": "/lights/Lights A"
+  "paths": ["/lights/Lights A"]
 }
 ```
 
@@ -324,7 +324,7 @@ No response fields sent.
 {
   "rid": 1,
   "method": "unsubscribe",
-  "path": "/lights/Lights A"
+  "paths": ["/lights/Lights A"]
 }
 ```
 
