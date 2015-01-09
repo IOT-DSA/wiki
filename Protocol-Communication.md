@@ -50,7 +50,7 @@ All Base64 encoded strings used in DSLink handshake are url and filename safe Ba
  - ds-req-salt-s and ds-resp-salt-s
 	- salt string for short polling
  - ds-auth-s
-	- short polling version of ds-auth, using same algorithm of ds-auth, but use ds-req-salt-s and ds-resp-salt-s as salt string
+	- short polling version of ds-auth, same algorithm as ds-auth, but uses ds-req-salt-s and ds-resp-salt-s as salt string
 	- a short polling can only happen in http mode
 	- when receives a short polling, server won't return any request/response, they will be merged into the request/response of the long polling
 
