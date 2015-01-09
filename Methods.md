@@ -33,7 +33,7 @@ The response of list will update on any node change available to the current req
   - name of the field
   - names start with $ are [configs](Configs) that can affect how system works
     - "$is"
-      - profile of the node, must be the first update of a list stream, otherwise it will be ignored
+      - profile of the node, must be the first update of a list stream, otherwise requester will treat it as a new node and clear other existing data
       - profile node should also be loaded to get all predefined configs/attributes of a node
       - profile nodes locate in /defs/profile/
     - "$mixin"
