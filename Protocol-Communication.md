@@ -40,15 +40,19 @@ All Base64 encoded strings used in DSLink handshake are url and filename safe Ba
  - ds-req-salt
 	- A salt string to protect connection from replay attack, only used when ds-is-requester=true
 	- Server should make sure that the salt is never reused unless connection is reset and nonce is regenerated
-	- By default req-salt will be "req0", "req1", "req2"  etc...
  - ds-resp-salt
 	- A salt string to protect connection from replay attack, only used when ds-is-responder=true
-	- By default resp-salt will be "resp0", "resp1", "resp2"  etc...
  - ds-auth
 	- Authentication string encoded in Base64 to prove client is a valid owner of the ds-id and public-key
 	- SHA256 (UTF8Bytes (salt) + NonceBytes) *("+" here means concatenating of byte buffer)*
 	- NonceBytes is decrypted from the dsa-encrypted-nonce with the client's private key
 	- ds-auth is required by all http requests from client, and either ds-req-salt or sa-resp-salt is required for all http responses from the server
+ - ds-req-salt-s and ds-resp-salt-s
+	- salt string for short polling
+ - ds-auth-s
+	- short polling version of ds-auth, using same algorithm of ds-auth, but use ds-req-salt-s and ds-resp-salt-s as salt string
+	- a short polling can only happen in http mode
+	- when receives a short polling, server won't return any request/response, they will be merged into the request/response of the long polling
 
 #### server-configuration content
 This is an example configuration of a DSA node.	 
