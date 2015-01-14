@@ -14,9 +14,14 @@ Currently there are 3 forms of transport channel bindings:
 
 
 ## Handshake for HTTP and WebSocket
+### HTTP handshake 
+![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/http_handshake.png)
+
+### WebSocket handshake
+WebSocket connection is very similar to http mode except the headers and authentication only need to be done once.
+![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/ws_handshake.png)
 
 All Base64 encoded strings used in DSLink handshake are url and filename safe Base64 alphabet [rfc-4648](https://tools.ietf.org/html/rfc4648)
-
 #### connection-request-json
 A json request data is posted to the server's connection end point:
 ```javascript
@@ -45,15 +50,11 @@ This is an example configuration of a DSA node.
 {
   "dsId":"broker-dsa-5PjTP4kGLqxAAykKBU1MDUb0diZNOUpk_Au8MWxtCYa2YE_hOFaC8eAO6zz6FC0e",
   "publicKey":"AIHYvVkY5M_uMsRI4XmTH6nkngf2lMLXOOX4rfhliEYhv4Hw1wlb_I39Q5cw6a9zHSvonI8ZuG73HWLGKVlDmHGbYHWsWsXgrAouWt5H3AMGZl3hPoftvs0rktVsq0L_pz2Cp1h_7XGot87cLah5IV-AJ5bKBBFkXHOqOsIiDXNFhHjSI_emuRh01LmaN9_aBwfkyNq73zP8kY-hpb5mEG-sIcLvMecxsVS-guMFRCk_V77AzVCwOU52dmpfT5oNwiWhLf2n9A5GVyFxxzhKRc8NrfSdTFzKn0LvDPM29UDfzGOyWpfJCwrYisrftC3QbBD7e0liGbMCN5UgZsSssOk=",
-  "wsDataUri":"../ws/data",
-  "wsUpdateUri":"../ws/update",
-  "httpDataUri":"/http/data",
-  "httpUpdateUri":"/http/update",
+  "wsUri":"../ws",
+  "httpUri":"/http",
   "encryptedNonce":"MLbkJdw-eXdJe4zOEwwriEgNWuOtvsOIoBoTqW3kAx4iWMycVbn04zYSyKLtY6NeRaMY1I09-v2E_gDjRyMNSe04YCWp7KWmuWIGYRiFHwmNF9qSMI99NqxB0HJ768Rj_tLVbtbouUPiWn5oscpJTxbf7QklWsBZ6p0vC745sQbzwgBDsdXhiyiXek3FHQPJBEHBlkmiDEo5_j7_Y2FYvSeENyyoSfH2NmVgrKU5y1TGrLW6lz_5UfSH0PIEGhkNHzzBnDzR5Cka0-Rhqalvh2ygObYVXHlNihe7cZECYYSXqUkkO88y9MTr_aZYtGERjEzfsvDFtdE55gSahHM2Cw==",
-  "reqSalt":"0x205",
-  "reqSaltS": "1x218",
-  "respSalt": "2x135",
-  "respSaltS": "3x63",
+  "salt":"0x205",
+  "saltS": "1x218",
   "updateInterval":200
 }
 ```
@@ -63,35 +64,24 @@ When client connect to server's /conn end point, sever should return its configu
     - dsId of the server
  - publicKey
     - Base64 encoded public key of the server
- - wsDataUri
-    - An endpoint to which a client sends WebSocket nodeAPI requests to and gets responses from
-    - absolute URI to a different host or port is not allowed
- - wsUpdateUri
-    - An endpoint to which a client sends WebSocket nodeAPI responses to and gets requests from
- - httpDataUri
-    - An endpoint to which a client sends HTTP nodeAPI requests to and gets responses from
- - httpUpdateUri
-    - An endpoint to which a client sends HTTP nodeAPI responses to and gets requests from
- - reqSalt
-    - A salt string to protect connection from replay attack, only used when isRequester=true
+ - wsUri
+    - An endpoint for web socket connection
+    - Absolute URI to a different host or port is not allowed
+ - httpUri
+    - An endpoint for http connection
+    - Absolute URI to a different host or port is not allowed
+ - salt
+    - A salt string to protect connection from replay attack
     - Server should make sure that the salt is never reused unless connection is reset and nonce is regenerated
- - respSalt
-    - A salt string to protect connection from replay attack, only used when isResponder=true
- - reqSaltS and respSaltS
+ - rsaltS
     - salt string for short polling
- - nonce
+ - encryptedNonce
     - Encrypted nonce that is Base64 encoded
-    - Server generates a 128-bit secret session key and encrypts it with the client's public key
- - updateInterval
-    - Used by clients that connect to wsUpdateUri or httpUpdateUri
+    - Server generates a 128bit secret nonce and encrypt the nonce with client's public key
+    - New nonce shouldn't overwrite the existing nonce until the client verifies its public key with ds-auth
+ - udateInterval
+    - Used by clients works as responder
     - When specified, a client shouldn't send stream updates to server more often than the minimum interval in milliseconds, value subscription in the client side should get cached or merged.
-
-### HTTP handshake 
-![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/http_handshake.png)
-
-### WebSocket handshake
-WebSocket connection is very similar to http mode except the headers and authentication only need to be done once.
-![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/ws_handshake.png)
 
 #### http queries
 After receiving server configuration, client should send authentication data in http query string on every connection
