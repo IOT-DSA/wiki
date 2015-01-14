@@ -79,10 +79,13 @@ When client connect to server's /conn end point, sever should return its configu
     - Encrypted nonce that is Base64 encoded
     - Server generates a 128bit secret nonce and encrypt the nonce with client's public key
     - New nonce shouldn't overwrite the existing nonce until the client verifies its public key with ds-auth
- - udateInterval
-    - Used by clients works as responder
-    - When specified, a client shouldn't send stream updates to server more often than the minimum interval in milliseconds, value subscription in the client side should get cached or merged.
-    - This value only affect the time between 2 updates of same stream.
+ - updateInterval
+    - Only affects the responder
+    - When specified, a responder shouldn't send stream updates to server more often than the minimum interval in milliseconds, value subscriptions in the responder should be cached.
+       - If a value subscription update is already cached then it should update the cache with the new value to prevent useless updates or updating an incorrect value.
+    - This value only affects the time between 2 updates of same stream.
+    - If the responder does not respect the interval the requestor may close the connection due to flooding.
+    
 
 #### http queries
 After receiving server configuration, client should send authentication data in http query string on every connection
