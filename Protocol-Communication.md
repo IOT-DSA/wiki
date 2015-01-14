@@ -26,15 +26,19 @@ All Base64 encoded strings used in DSLink handshake are url and filename safe Ba
 A json request data is posted to the server's connection end point:
 ```javascript
 {
-  "dsId":"link-dataflow-5PjTP4kGLqxAAykKBU1MDUb0diZNOUpk_Au8MWxtCYa2YE_hOFaC8eAO6zz6FC0e",
   "publicKey":"AIHYvVkY5M_uMsRI4XmTH6nkngf2lMLXOOX4rfhliEYhv4Hw1wlb_I39Q5cw6a9zHSvonI8ZuG73HWLGKVlDmHGbYHWsWsXgrAouWt5H3AMGZl3hPoftvs0rktVsq0L_pz2Cp1h_7XGot87cLah5IV-AJ5bKBBFkXHOqOsIiDXNFhHjSI_emuRh01LmaN9_aBwfkyNq73zP8kY-hpb5mEG-sIcLvMecxsVS-guMFRCk_V77AzVCwOU52dmpfT5oNwiWhLf2n9A5GVyFxxzhKRc8NrfSdTFzKn0LvDPM29UDfzGOyWpfJCwrYisrftC3QbBD7e0liGbMCN5UgZsSssOk=",
   "zone":"default",
   "isRequester":true,
   "isResponder":true,
 }
 ```
+
+Query parameters:
  - dsId
      - A unique string of 64-128 characters, the last 64 characters are Base64 encoded SHA384 hash of the public-key binary
+     - example: "link-dataflow-5PjTP4kGLqxAAykKBU1MDUb0diZNOUpk_Au8MWxtCYa2YE_hOFaC8eAO6zz6FC0e"
+ 
+ Json parameters:
  - publicKey
      - Base64 encoded modulus integer of a 2048 bit RSA public key of the client link. *(the exponent of the public key is always 65537)*
  - isRequester
