@@ -38,7 +38,7 @@ Query parameters:
      - A unique string of 64-128 characters, the last 64 characters are Base64 encoded SHA384 hash of the public-key binary
      - example: "link-dataflow-5PjTP4kGLqxAAykKBU1MDUb0diZNOUpk_Au8MWxtCYa2YE_hOFaC8eAO6zz6FC0e"
  
- Json parameters:
+Json parameters:
  - publicKey
      - Base64 encoded modulus integer of a 2048 bit RSA public key of the client link. *(the exponent of the public key is always 65537)*
  - isRequester
