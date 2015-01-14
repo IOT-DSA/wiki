@@ -14,12 +14,6 @@ Currently there are 3 forms of transport channel bindings:
 
 
 ## Handshake for HTTP and WebSocket
-### HTTP handshake 
-![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/http_handshake.png)
-
-### WebSocket handshake
-WebSocket connection is very similar to http mode except the headers and authentication only need to be done once.
-![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/ws_handshake.png)
 
 All Base64 encoded strings used in DSLink handshake are url and filename safe Base64 alphabet [rfc-4648](https://tools.ietf.org/html/rfc4648)
 #### connection-request-json
@@ -89,6 +83,13 @@ When client connect to server's /conn end point, sever should return its configu
        - If a value subscription update is already cached then it should update the cache with the new value to prevent useless updates or updating an incorrect value.
     - This value only affects the time between 2 updates of same stream.
     - If the responder does not respect the interval the requestor may close the connection due to flooding.
+
+### HTTP handshake
+![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/http_handshake.png)
+
+### WebSocket handshake
+WebSocket connection is very similar to http mode except the headers and authentication only need to be done once.
+![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/ws_handshake.png)
     
 
 #### http queries
