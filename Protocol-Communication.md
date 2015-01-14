@@ -82,6 +82,7 @@ When client connect to server's /conn end point, sever should return its configu
  - udateInterval
     - Used by clients works as responder
     - When specified, a client shouldn't send stream updates to server more often than the minimum interval in milliseconds, value subscription in the client side should get cached or merged.
+    - This value only affect the time between 2 updates of same stream.
 
 #### http queries
 After receiving server configuration, client should send authentication data in http query string on every connection
