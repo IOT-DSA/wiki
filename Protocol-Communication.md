@@ -56,7 +56,7 @@ This is an example configuration of a DSA node.
   "updateInterval":200
 }
 ```
-When client connect to server's /conn end point, sever should return its configuration JSON in the http response body
+When client connect to server's connection end point, sever should return its configuration JSON in the http response body
 
  - dsId
     - dsId of the server
@@ -84,15 +84,11 @@ When client connect to server's /conn end point, sever should return its configu
     - This value only affects the time between 2 updates of same stream.
     - If the responder does not respect the interval the requestor may close the connection due to flooding.
 
-### HTTP handshake
+### HTTP
+
 ![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/http_handshake.png)
 
-### WebSocket handshake
-WebSocket connection is very similar to http mode except the headers and authentication only need to be done once.
-![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/ws_handshake.png)
-    
-
-#### http queries
+#### HTTP Queries
 After receiving server configuration, client should send authentication data in http query string on every connection
  - dsId
     - dsId of the client
@@ -105,3 +101,8 @@ After receiving server configuration, client should send authentication data in 
     - short polling version of auth, same algorithm as auth, but uses reqSaltS and respSaltS as salt string
     - a short polling can only happen in http mode
     - when receives a short polling, server won't return any request/response except a new reqSaltS/respSaltS string, other data will be merged into the request/response of the long polling
+
+### WebSockets
+
+WebSocket connection is very similar to HTTP mode except authentication only needs to be done once.
+![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/ws_handshake.png)
