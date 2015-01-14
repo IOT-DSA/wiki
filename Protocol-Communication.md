@@ -55,11 +55,11 @@ This is an example configuration of a DSA node.
   "httpDataUri":"/http/data",
   "httpUpdateUri":"/http/update",
   "encryptedNonce":"MLbkJdw-eXdJe4zOEwwriEgNWuOtvsOIoBoTqW3kAx4iWMycVbn04zYSyKLtY6NeRaMY1I09-v2E_gDjRyMNSe04YCWp7KWmuWIGYRiFHwmNF9qSMI99NqxB0HJ768Rj_tLVbtbouUPiWn5oscpJTxbf7QklWsBZ6p0vC745sQbzwgBDsdXhiyiXek3FHQPJBEHBlkmiDEo5_j7_Y2FYvSeENyyoSfH2NmVgrKU5y1TGrLW6lz_5UfSH0PIEGhkNHzzBnDzR5Cka0-Rhqalvh2ygObYVXHlNihe7cZECYYSXqUkkO88y9MTr_aZYtGERjEzfsvDFtdE55gSahHM2Cw==",
-  "reqSalt":"0x205"
-  "reqSaltS": "1x218"
-  "respSalt": "2x135"
-  "respSaltS": "3x63"
-  "minUpdateIntervalMs":200
+  "reqSalt":"0x205",
+  "reqSaltS": "1x218",
+  "respSalt": "2x135",
+  "respSaltS": "3x63",
+  "updateInterval":200
 }
 ```
 When client connect to server's /conn end point, sever should return its configuration JSON in the http response body
@@ -84,11 +84,10 @@ When client connect to server's /conn end point, sever should return its configu
     - A salt string to protect connection from replay attack, only used when isResponder=true
  - reqSaltS and respSaltS
     - salt string for short polling
- - encryptedNonce
+ - nonce
     - Encrypted nonce that is Base64 encoded
-    - Server generates a 128bit secret nonce and encrypt the nonce with client's public key
-    - New nonce shouldn't overwrite the existing nonce until the client verifies its public key with ds-auth
- - minUpdateIntervalMs
+    - Server generates a 128-bit secret session key and encrypts it with the client's public key
+ - updateInterval
     - Used by clients that connect to wsUpdateUri or httpUpdateUri
     - When specified, a client shouldn't send stream updates to server more often than the minimum interval in milliseconds, value subscription in the client side should get cached or merged.
 
