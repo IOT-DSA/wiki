@@ -14,14 +14,7 @@ Currently there are 3 forms of transport channel bindings:
 
 
 ## Handshake for HTTP and WebSocket
-### HTTP handshake 
-![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/http_handshake.png)
 
-### WebSocket handshake
-WebSocket connection is very similar to http mode except the headers and authentication only need to be done once.
-![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/ws_handshake.png)
-
-All Base64 encoded strings used in DSLink handshake are url and filename safe Base64 alphabet [rfc-4648](https://tools.ietf.org/html/rfc4648)
 #### connection-request-json
 A json request data is posted to the server's connection end point:
 ```javascript
@@ -90,6 +83,15 @@ When client connect to server's /conn end point, sever should return its configu
  - updateInterval
     - Used by clients that connect to wsUpdateUri or httpUpdateUri
     - When specified, a client shouldn't send stream updates to server more often than the minimum interval in milliseconds, value subscription in the client side should get cached or merged.
+
+### HTTP handshake 
+![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/http_handshake.png)
+
+### WebSocket handshake
+WebSocket connection is very similar to http mode except the headers and authentication only need to be done once.
+![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/ws_handshake.png)
+
+All Base64 encoded strings used in DSLink handshake are url and filename safe Base64 alphabet [rfc-4648](https://tools.ietf.org/html/rfc4648)
 
 #### http queries
 After receiving server configuration, client should send authentication data in http query string on every connection
