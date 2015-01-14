@@ -105,4 +105,5 @@ After receiving server configuration, client should send authentication data in 
 ### WebSockets
 
 WebSocket connection is very similar to HTTP mode except authentication only needs to be done once.
+
 ![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/ws_handshake.png)
