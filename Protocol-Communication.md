@@ -94,7 +94,7 @@ When client connect to server's connection end point, sever should return its co
 ##### HTTP Queries
 After receiving server configuration, client should send authentication data in http query string on every connection
 
-####### Sending queries
+###### Sending queries
  - dsId
     - dsId of the client
  - auth
@@ -102,7 +102,7 @@ After receiving server configuration, client should send authentication data in 
     - SHA256 (UTF8Bytes (salt) + NonceBytes) *("+" here means concatenating of byte buffer)*
     - NonceBytes is decrypted from the encryptedNonce with the client's private key received from the server configuration
 
-####### Receiving queries
+###### Receiving queries
 - salt
     - The server creates a new salt every time for the client to hash the decrypted nonce bytes.
     - This is used for sending another query when creating the "auth" token.
