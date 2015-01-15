@@ -67,8 +67,8 @@ When client connect to server's connection end point, sever should return its co
     - Absolute URI to a different host or port is not allowed
     - Requires a query parameter of "auth"
       - SHA256 (UTF8Bytes (salt) + NonceBytes) *("+" here means concatenating of byte buffer)*
+      - The salt is already provided within the JSON response
  - httpUri
-      - The salt is already provided in the JSON response
     - An endpoint for http connection
     - Absolute URI to a different host or port is not allowed
     - See [HTTP Queries](#http-queries)
