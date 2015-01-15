@@ -71,7 +71,7 @@ When client connect to server's connection end point, sever should return its co
  - salt
     - A salt string to protect connection from replay attack
     - Server should make sure that the salt is never reused unless connection is reset and nonce is regenerated
- - rsaltS
+ - saltS
     - salt string for short polling
  - encryptedNonce
     - Encrypted nonce that is Base64 encoded
