@@ -65,9 +65,12 @@ When client connect to server's connection end point, sever should return its co
  - wsUri
     - An endpoint for web socket connection
     - Absolute URI to a different host or port is not allowed
+    - Requires a query parameter of "auth"
+      - SHA256 (UTF8Bytes (salt) + NonceBytes) *("+" here means concatenating of byte buffer)*
  - httpUri
     - An endpoint for http connection
     - Absolute URI to a different host or port is not allowed
+    - See [queries]
  - salt
     - A salt string to protect connection from replay attack
     - Server should make sure that the salt is never reused unless connection is reset and nonce is regenerated
