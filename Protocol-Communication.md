@@ -100,10 +100,6 @@ After receiving server configuration, client should send authentication data in 
     - SHA256 (UTF8Bytes (salt) + NonceBytes) *("+" here means concatenating of byte buffer)*
     - NonceBytes is decrypted from the encryptedNonce with the client's private key
     - auth is required by all http requests from client, and either reqSalt or respSalt is required for all http responses from the server
- - authS
-    - short polling version of auth, same algorithm as auth, but uses reqSaltS and respSaltS as salt string
-    - a short polling can only happen in http mode
-    - when receives a short polling, server won't return any request/response except a new reqSaltS/respSaltS string, other data will be merged into the request/response of the long polling
 
 ### WebSockets
 
