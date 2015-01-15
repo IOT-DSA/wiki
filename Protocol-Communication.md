@@ -95,6 +95,7 @@ When client connect to server's connection end point, sever should return its co
 After receiving server configuration, client should send authentication data in http query string on every connection
 
 ###### Sending queries
+The client must send the following url parameters:
  - dsId
     - dsId of the client
  - auth
@@ -103,6 +104,7 @@ After receiving server configuration, client should send authentication data in 
     - NonceBytes is decrypted from the encryptedNonce with the client's private key received from the server configuration
 
 ###### Receiving queries
+The server sends the following headers:
 - salt
     - The server creates a new salt every time for the client to hash the decrypted nonce bytes.
     - This is used for sending another query when creating the "auth" token.
