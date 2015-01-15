@@ -93,13 +93,19 @@ When client connect to server's connection end point, sever should return its co
 
 ##### HTTP Queries
 After receiving server configuration, client should send authentication data in http query string on every connection
+
+####### Sending queries
  - dsId
     - dsId of the client
  - auth
     - Authentication string encoded in Base64 to prove client is a valid owner of the dsId and publicKey
     - SHA256 (UTF8Bytes (salt) + NonceBytes) *("+" here means concatenating of byte buffer)*
-    - NonceBytes is decrypted from the encryptedNonce with the client's private key
-    - auth is required by all http requests from client, and either reqSalt or respSalt is required for all http responses from the server
+    - NonceBytes is decrypted from the encryptedNonce with the client's private key received from the server configuration
+
+####### Receiving queries
+- salt
+    - The server creates a new salt every time for the client to hash the decrypted nonce bytes.
+    - This is used for sending another query when creating the "auth" token.
 
 ### WebSockets
 
