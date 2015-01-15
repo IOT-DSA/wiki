@@ -70,7 +70,7 @@ When client connect to server's connection end point, sever should return its co
  - httpUri
     - An endpoint for http connection
     - Absolute URI to a different host or port is not allowed
-    - See (HTTP Queries)[#http-queries]
+    - See [HTTP Queries](#http-queries)
  - salt
     - A salt string to protect connection from replay attack
     - Server should make sure that the salt is never reused unless connection is reset and nonce is regenerated
