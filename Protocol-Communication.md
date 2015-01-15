@@ -76,7 +76,6 @@ When client connect to server's connection end point, sever should return its co
  - encryptedNonce
     - Encrypted nonce that is Base64 encoded
     - Server generates a 128bit secret nonce and encrypt the nonce with client's public key
-    - New nonce shouldn't overwrite the existing nonce until the client verifies its public key with ds-auth
  - updateInterval
     - Only affects the responder
     - When specified, a responder shouldn't send stream updates to server more often than the minimum interval in milliseconds, value subscriptions in the responder should be cached.
