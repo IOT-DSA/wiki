@@ -15,6 +15,7 @@ element of the update field unless otherwise specified by the method.
 - invoke
 - subscribe
 - unsubscribe
+- close
 
 ## List
 
