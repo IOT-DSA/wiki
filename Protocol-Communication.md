@@ -17,6 +17,7 @@ Currently there are 3 forms of transport channel bindings:
 
 All Base64 encoded strings used in DSLink handshake are url and filename safe Base64 alphabet [rfc-4648](https://tools.ietf.org/html/rfc4648)
 #### connection-request-json
+The request uses an HTTP POST method to perform the request.
 A json request data is posted to the server's connection end point:
 ```javascript
 {
