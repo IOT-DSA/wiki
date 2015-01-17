@@ -53,8 +53,10 @@ The response of list will update on any node change available to the current req
  - value
   - updated value of the field
   - If the name is a child node then the following parameters are used
-    - name (optional configuration string) - Display name of the child node
+    - name (optional string configuration) - Display name of the child node
     - invokable (bool configuration) - Whether the node can be invoked or not
+    - is (string configuration) - Profile of the node
+    - interface (optional string configuration) - Interfaces the node belongs to, if any
 
 #### Response meta
  - change (optional enum)
