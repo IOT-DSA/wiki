@@ -53,8 +53,8 @@ The response of list will update on any node change available to the current req
  - value
   - updated value of the field
   - If the name is a child node then the following parameters are used
-    - name (optional string) - Display name of the child node
-    - invokable (bool) - Whether the node can be invoked or not
+    - name (optional configuration string) - Display name of the child node
+    - invokable (bool configuration) - Whether the node can be invoked or not
 
 #### Response meta
  - change (optional enum)
@@ -97,7 +97,7 @@ The response of list will update on any node change available to the current req
     [
       "point1",
       {
-        "@name": "Custom Name for Point1",
+        "$name": "Custom Name for Point1",
         "$invokable": false
       }
     ],
