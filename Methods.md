@@ -99,13 +99,16 @@ The response of list will update on any node change available to the current req
     [
       "point1",
       {
+        "$is": "temperaturePoint",
         "$name": "Custom Name for Point1",
-        "$invokable": false
+        "$invokable": false,
+        "$interface": "tempUnit"
       }
     ],
     [
       "point2",
       {
+        "$is": "numericPoint",
         "$invokable": true
       }
     ]
