@@ -28,8 +28,9 @@ The response of list will update on any node change available to the current req
 
 - path (string)
   - Path of the node to retrieve a list on
-- continuous (boolean)
+- continuous (boolean optional)
   - Whether a stream should remain open to send list updates or not
+  - Defaults to true
 
 #### Response columns
  - name
