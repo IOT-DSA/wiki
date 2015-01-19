@@ -253,8 +253,11 @@ There are multiple elements in the updates field. Each element will contain:
   - last update time of the value
 
 #### Response meta
- - status (option string)
+ - status (optional enum)
    - status of the value
+     - ok - No issues with the node value (default is status is omitted)
+     - stale - The value could potentially be out of date
+     - disconnected - Never set by a dslink. The broker sets this if a connection is lost between the dslink and the broker.
  - count (optional int)
    - if the response skip some value, this shows how many updates have happened since last response 
    - (count-1) of the previous updates are skipped. so count is always greater than 1 when specified
