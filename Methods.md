@@ -260,9 +260,10 @@ There are multiple elements in the updates field. Each element will contain:
      - disconnected - Never set by a dslink. The broker sets this if a connection is lost between the dslink and the broker.
  - count (optional int)
    - if the response skip some value, this shows how many updates have happened since last response 
-   - (count-1) of the previous updates are skipped. so count is always greater than 1 when specified
+   - only valid value is counted
  - sum (optional number)
    - the sum value if one or more numeric value is skipped
+   - only valid numeric value is added to sum
  - max (optional number)
    - the max value if one or more numeric value is skipped
  - min (optional number)
