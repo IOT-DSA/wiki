@@ -59,7 +59,7 @@ The response of list will update on any node change available to the current req
     - interface (optional string configuration) - Interfaces the node belongs to, if any
 
 #### Response meta
- - change (optional enum)
+ - change (optional enum configuration)
    - enum value, can be "remove" or "update"
    - default value is "update"
 
@@ -109,7 +109,8 @@ The response of list will update on any node change available to the current req
       "point2",
       {
         "$is": "numericPoint",
-        "$invokable": true
+        "$invokable": true,
+        "change": "remove"
       }
     ]
   ]
