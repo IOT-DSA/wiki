@@ -30,8 +30,9 @@ A json request data is posted to the server's connection end point:
 
 Query parameters:
  - dsId
-     - A unique string of 64-128 characters, the last 64 characters are Base64 encoded SHA384 hash of the public-key binary
-     - example: "link-dataflow-5PjTP4kGLqxAAykKBU1MDUb0diZNOUpk_Au8MWxtCYa2YE_hOFaC8eAO6zz6FC0e"
+     - A unique string of 43-128 characters, the last 43 characters are url safe Base64 encoded SHA256 hash of the public-key binary without any base64 padding
+     - public-key binary is always 257 bytes binary with first byte be 0 for the sign of number, and next 256 bytes be the binary of a 2048 modulus big integer
+     - example: "link-dataflow-5PjTP4kGLqxAAykKBU1MDUb0diZNOUpk_Au8MWxtCYa"
  
 Json parameters:
  - publicKey
@@ -47,7 +48,7 @@ Json parameters:
 This is an example configuration of a DSA node.     
 ```javascript
 {
-  "dsId":"broker-dsa-5PjTP4kGLqxAAykKBU1MDUb0diZNOUpk_Au8MWxtCYa2YE_hOFaC8eAO6zz6FC0e",
+  "dsId":"broker-dsa-5PjTP4kGLqxAAykKBU1MDUb0diZNOUpk_Au8MWxtCYa",
   "publicKey":"AIHYvVkY5M_uMsRI4XmTH6nkngf2lMLXOOX4rfhliEYhv4Hw1wlb_I39Q5cw6a9zHSvonI8ZuG73HWLGKVlDmHGbYHWsWsXgrAouWt5H3AMGZl3hPoftvs0rktVsq0L_pz2Cp1h_7XGot87cLah5IV-AJ5bKBBFkXHOqOsIiDXNFhHjSI_emuRh01LmaN9_aBwfkyNq73zP8kY-hpb5mEG-sIcLvMecxsVS-guMFRCk_V77AzVCwOU52dmpfT5oNwiWhLf2n9A5GVyFxxzhKRc8NrfSdTFzKn0LvDPM29UDfzGOyWpfJCwrYisrftC3QbBD7e0liGbMCN5UgZsSssOk=",
   "wsUri":"../ws",
   "httpUri":"/http",
