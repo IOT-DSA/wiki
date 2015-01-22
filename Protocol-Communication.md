@@ -36,7 +36,7 @@ Query parameters:
  
 Json parameters:
  - publicKey
-     - Base64 encoded modulus integer of a 2048 bit RSA public key of the client link. *(the exponent of the public key is always 65537)*
+     - Base64 encoded modulus integer of a 2048 bit RSA public key modulus of the client link. *(the exponent of the public key is always 65537)*
  - isRequester
      - Indicates if the client is a requester
  - isResponder
@@ -63,7 +63,7 @@ When client connect to server's connection end point, sever should return its co
  - dsId
     - dsId of the server
  - publicKey
-    - Base64 encoded public key of the server
+    - Base64 encoded public key modulus of the server
  - wsUri
     - An endpoint for web socket connection
     - Absolute URI to a different host or port is not allowed
