@@ -31,7 +31,7 @@ A json request data is posted to the server's connection end point:
 Query parameters:
  - dsId
      - A unique string of 43-128 characters, the last 43 characters are url safe Base64 encoded SHA256 hash of the public-key binary without any base64 padding
-     - public-key binary is always 257 bytes binary with first byte be 0 for the sign of number, and next 256 bytes be the binary of a 2048 modulus big integer
+     - public-key binary is always 256 bytes binary of a 2048 modulus big integer
      - example: "link-dataflow-5PjTP4kGLqxAAykKBU1MDUb0diZNOUpk_Au8MWxtCYa"
  
 Json parameters:
