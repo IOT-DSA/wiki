@@ -1,5 +1,8 @@
 # Connection Test Case
 
+[Testing code of the following steps in dart](https://github.com/IOT-DSA/sdk-dslink-dart/blob/master/test/ds_handshake_test.dart)
+
+
 ## Client Private Key
 **modulus** of public key and private key (Base64)
 ```
