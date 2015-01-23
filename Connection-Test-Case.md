@@ -57,7 +57,7 @@ MRxHkgT_dEszsB3kWe3HSu1Z8V1c1Z_uTvxP66-Nx0Y
 ```
  - client calculates the dsAuth with following steps
    - Base64 decode encryptedNonce into big integer E
-   - calculate A = E.modPow(privateExponent, modulue)
+   - calculate A = E.modPow(privateExponent, modulus)
    - nonce data = last 16 bytes of A (if A is less than 16 bytes, add 0 in the front)
    - encode the salt into utf8, UTF8("0x100") = Hex```3078313030```
    - concat salt and nonce bytes: H = salt+nonce = Hex```3078313030d26538aabf9a97bcfd8bc0dd1a727c92```
