@@ -15,6 +15,8 @@ Currently there are 3 forms of transport channel bindings:
 
 ## Handshake for HTTP and WebSocket
 
+[A Test Case of the handshake algorithm](https://github.com/IOT-DSA/docs/wiki/Connection-Test-Case)
+
 All Base64 encoded strings used in DSLink handshake are url and filename safe Base64 alphabet [rfc-4648](https://tools.ietf.org/html/rfc4648)
 #### connection-request-json
 The request uses an HTTP POST method to perform the request.
@@ -82,6 +84,8 @@ When client connect to server's connection end point, sever should return its co
  - encryptedNonce
     - Encrypted nonce that is Base64 encoded
     - Server generates a 128bit secret nonce and encrypt the nonce with client's public key
+      - server generate a big number A with last 128 bits (16 bytes) equal to the nonce
+      - E = A.modPow(65537,modulus) is the encryptedNonce
  - updateInterval
     - Only affects the responder
     - When specified, a responder shouldn't send stream updates to server more often than the minimum interval in milliseconds, value subscriptions in the responder should be cached.
