@@ -110,7 +110,7 @@ The response of list will update on any node change available to the current req
       {
         "$is": "numericPoint",
         "$invokable": true,
-        "change": "remove"
+        "$change": "remove"
       }
     ]
   ]
