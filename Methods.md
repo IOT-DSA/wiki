@@ -302,7 +302,8 @@ There are multiple elements in the updates field. Each element will contain:
     ],
     {
       "path": "/node1/point2",
-      "status": "disconnected"
+      "status": "disconnected",
+      "ts": "2014-11-27T09:11.000-08:00"
     },
     {
       "path": "/node1/point3",
