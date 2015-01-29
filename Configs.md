@@ -101,10 +101,10 @@
     {"name":"status","type":"string"}
   ]
 ```
- - **$require** (require:read, writable:never)
+ - **$invokable** (require:read, writable:never)
     - permission needed to invoke a action node
     - value can be "read" "write" "config" or "never"
-    - "read" is the default value if not specified
+    - "never" is the default value if not specified
 
 ## Config Overwrite
  - configs directly defined in profile can not be overwritten.
