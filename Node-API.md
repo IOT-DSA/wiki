@@ -160,7 +160,7 @@ If any error happened, stream response will have a error object showing the info
       "rid": 1,
       "stream": "closed",
       "error": {
-        "type": "PermissionDenied",
+        "type": "permissionDenied",
         "phase": "request",
         "path": "/connection/dslink1",
         "msg": "permission denied",
@@ -173,9 +173,10 @@ If any error happened, stream response will have a error object showing the info
 
 
  - **error** error object
-   - **msg**  required, a short description of the error
+   - **msg**  optional, a short description of the error
    - **type**  optional, a standard error code if the error type is known
      - predefined error structure are in /defs/error
+     - a error must have either a type or a msg or both, when msg is omitted, type is the camelCase formatting of msg
    - **phase**  optional, indicate whether the error happen on request or response, if omitted it means "request" phase
    - **path**  optional, on which path this error happened, can be omitted if it's same path as the path in request.
    - **detail**  a detail message of the error, can be the stack trace or other message
