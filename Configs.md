@@ -21,11 +21,11 @@
  - **$permission** (require:read, writable:never, type:enum[read,write,config])
    - not store in node data, generated for list response based on the permission of current requester
  - **$permissions** (require:config, writable:config)
-   - a list of permission rules defines permission for a user or a group
+   - a list of permission rules defines permission for a group or a requester
 ```javascript
   "$permissions":[
     {"group":"DGLogik", "allow":"config"},
-    {"user":"Samrg", "allow":"config"},
+    {"id":"Samrg", "allow":"config"},
     {"group":"QA", "allow":"read"},
     {"group":"guest", "allow":"none"}
   ]
