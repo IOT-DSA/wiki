@@ -52,7 +52,7 @@ This is an example configuration of a DSA node.
 {
   "dsId":"broker-dsa-5PjTP4kGLqxAAykKBU1MDUb0diZNOUpk_Au8MWxtCYa",
   "publicKey":"AIHYvVkY5M_uMsRI4XmTH6nkngf2lMLXOOX4rfhliEYhv4Hw1wlb_I39Q5cw6a9zHSvonI8ZuG73HWLGKVlDmHGbYHWsWsXgrAouWt5H3AMGZl3hPoftvs0rktVsq0L_pz2Cp1h_7XGot87cLah5IV-AJ5bKBBFkXHOqOsIiDXNFhHjSI_emuRh01LmaN9_aBwfkyNq73zP8kY-hpb5mEG-sIcLvMecxsVS-guMFRCk_V77AzVCwOU52dmpfT5oNwiWhLf2n9A5GVyFxxzhKRc8NrfSdTFzKn0LvDPM29UDfzGOyWpfJCwrYisrftC3QbBD7e0liGbMCN5UgZsSssOk=",
-  "wsUri":"../ws",
+  "wsUri":"/ws",
   "httpUri":"/http",
   "encryptedNonce":"MLbkJdw-eXdJe4zOEwwriEgNWuOtvsOIoBoTqW3kAx4iWMycVbn04zYSyKLtY6NeRaMY1I09-v2E_gDjRyMNSe04YCWp7KWmuWIGYRiFHwmNF9qSMI99NqxB0HJ768Rj_tLVbtbouUPiWn5oscpJTxbf7QklWsBZ6p0vC745sQbzwgBDsdXhiyiXek3FHQPJBEHBlkmiDEo5_j7_Y2FYvSeENyyoSfH2NmVgrKU5y1TGrLW6lz_5UfSH0PIEGhkNHzzBnDzR5Cka0-Rhqalvh2ygObYVXHlNihe7cZECYYSXqUkkO88y9MTr_aZYtGERjEzfsvDFtdE55gSahHM2Cw==",
   "salt":"0x205",
