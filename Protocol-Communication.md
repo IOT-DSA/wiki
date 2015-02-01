@@ -98,7 +98,7 @@ When client connect to server's connection end point, sever should return its co
 ![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/http_handshake.png)
 
 ##### HTTP Queries
-After receiving server configuration, client should send authentication data in http query string on every connection
+After receiving server configuration, client should send authentication data in http query string on every connection, this must also be done for websockets, however, a salt wont be returned.
 
 ###### Sending queries
 The client must send the following url parameters:
