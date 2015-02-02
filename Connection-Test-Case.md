@@ -46,11 +46,9 @@ BCVrEhPXmozrKAextseekQauwrRz3lz2sj56td9j09Oajar0RoVR5Uo95AVuuws1vVEbDzhOUu7freU0
 V2P1nwhoENIi7SqkNBuRFcoc8daWd_iWYYDh_0Z01rs
 ```
  - client calculates the dsAuth with following steps
-   - Base64 decode encryptedNonce into big integer E
-   - calculate A = E.modPow(privateExponent, modulus)
-   - nonce data = last 16 bytes of A (if A is less than 16 bytes, add 0 in the front)
+   - get the sharedSecret with Q and client private key
    - encode the salt into utf8, UTF8("0000") = Hex```30303030```
-   - concat salt and nonce bytes: H = salt+nonce = Hex```30303030116128c016cf380933c4b40ffeee8ef5999167f5c3d49298ba2ebfd0502e74e3```
+   - concat salt and sharedSecret bytes: H = salt+sharedSecret = Hex```30303030116128c016cf380933c4b40ffeee8ef5999167f5c3d49298ba2ebfd0502e74e3```
    - auth = base64(sha256(H))
 
 ## Start connection, Server validate Client
