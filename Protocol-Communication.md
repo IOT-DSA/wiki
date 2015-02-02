@@ -106,7 +106,7 @@ The client must send the following url parameters:
  - auth
     - Authentication string encoded in Base64 to prove client is a valid owner of the dsId and publicKey
     - SHA256 (UTF8Bytes (salt) + SharedSecret ) *("+" here means concatenating of byte buffer)*
-    - SharedSecret is the result of a standard ECDH with client's private key and server's one time public key: Q
+    - SharedSecret is the result of a standard ECDH with client's private key and server's one time public key: tempKey
 
 ###### Receiving queries
 The server sends the following headers:
