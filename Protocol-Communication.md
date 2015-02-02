@@ -17,13 +17,15 @@ Currently there are 3 forms of transport channel bindings:
 
 [A Test Case of the handshake algorithm](https://github.com/IOT-DSA/docs/wiki/Connection-Test-Case)
 
-All Base64 encoded strings used in DSLink handshake are url and filename safe Base64 alphabet [rfc-4648](https://tools.ietf.org/html/rfc4648)
+The Handshake is based on [ECDH](http://en.wikipedia.org/wiki/Elliptic_curve_Diffie%E2%80%93Hellman) with the NIST recommended curve P-256, also known as secp256r1.
+
+All Base64 encoded strings used in DSLink handshake are url and filename safe Base64 alphabet [rfc-4648](https://tools.ietf.org/html/rfc4648) with no padding
 #### connection-request-json
 The request uses an HTTP POST method to perform the request.
 A json request data is posted to the server's connection end point:
 ```javascript
 {
-  "publicKey":"AIHYvVkY5M_uMsRI4XmTH6nkngf2lMLXOOX4rfhliEYhv4Hw1wlb_I39Q5cw6a9zHSvonI8ZuG73HWLGKVlDmHGbYHWsWsXgrAouWt5H3AMGZl3hPoftvs0rktVsq0L_pz2Cp1h_7XGot87cLah5IV-AJ5bKBBFkXHOqOsIiDXNFhHjSI_emuRh01LmaN9_aBwfkyNq73zP8kY-hpb5mEG-sIcLvMecxsVS-guMFRCk_V77AzVCwOU52dmpfT5oNwiWhLf2n9A5GVyFxxzhKRc8NrfSdTFzKn0LvDPM29UDfzGOyWpfJCwrYisrftC3QbBD7e0liGbMCN5UgZsSssOk=",
+  "publicKey":"BEACGownMzthVjNFT7Ry-RPX395kPSoUqhQ_H_vz0dZzs5RYoVJKA16XZhdYd__ksJP0DOlwQXAvoDjSMWAhkg4",
   "zone":"default",
   "isRequester":true,
   "isResponder":true,
@@ -32,13 +34,12 @@ A json request data is posted to the server's connection end point:
 
 Query parameters:
  - dsId
-     - A unique string of 43-128 characters, the last 43 characters are url safe Base64 encoded SHA256 hash of the public-key binary without any base64 padding
-     - public-key binary is always 256 bytes binary of a 2048 modulus big integer
-     - example: "link-dataflow-5PjTP4kGLqxAAykKBU1MDUb0diZNOUpk_Au8MWxtCYa"
+     - A unique string of 43-128 characters, the last 43 characters are url safe Base64 encoded SHA256 hash of the public-key binary
+     - example: "link-dataflow-s-R9RKdvC2VNkfRwpNDMMpmT_YWVbhPLfbIc-7g4cpc"
  
 Json parameters:
  - publicKey
-     - Base64 encoded modulus integer of a 2048 bit RSA public key modulus of the client link. *(the exponent of the public key is always 65537)*
+     -  Base64 of a ECDH public key ECPoint encoded in X9.63 (uncompressed)
  - isRequester
      - Indicates if the client is a requester
  - isResponder
@@ -50,11 +51,11 @@ Json parameters:
 This is an example configuration of a DSA node.     
 ```javascript
 {
-  "dsId":"broker-dsa-5PjTP4kGLqxAAykKBU1MDUb0diZNOUpk_Au8MWxtCYa",
-  "publicKey":"AIHYvVkY5M_uMsRI4XmTH6nkngf2lMLXOOX4rfhliEYhv4Hw1wlb_I39Q5cw6a9zHSvonI8ZuG73HWLGKVlDmHGbYHWsWsXgrAouWt5H3AMGZl3hPoftvs0rktVsq0L_pz2Cp1h_7XGot87cLah5IV-AJ5bKBBFkXHOqOsIiDXNFhHjSI_emuRh01LmaN9_aBwfkyNq73zP8kY-hpb5mEG-sIcLvMecxsVS-guMFRCk_V77AzVCwOU52dmpfT5oNwiWhLf2n9A5GVyFxxzhKRc8NrfSdTFzKn0LvDPM29UDfzGOyWpfJCwrYisrftC3QbBD7e0liGbMCN5UgZsSssOk=",
+  "dsId":"broker-dsa-FEuG-dsvoy3Mfh-DY4ZLqxWdcjA9mky2MyCd0DmqTMw",
+  "publicKey":"BG4OYopcM2q09amKRKsc8N99ns5dybnBYG4Fi8bQVf6fKjyT_KRlPMJCs-3zvnSbBCXzS5fZfi88JuiLYwJY0gc",
   "wsUri":"/ws",
   "httpUri":"/http",
-  "encryptedNonce":"MLbkJdw-eXdJe4zOEwwriEgNWuOtvsOIoBoTqW3kAx4iWMycVbn04zYSyKLtY6NeRaMY1I09-v2E_gDjRyMNSe04YCWp7KWmuWIGYRiFHwmNF9qSMI99NqxB0HJ768Rj_tLVbtbouUPiWn5oscpJTxbf7QklWsBZ6p0vC745sQbzwgBDsdXhiyiXek3FHQPJBEHBlkmiDEo5_j7_Y2FYvSeENyyoSfH2NmVgrKU5y1TGrLW6lz_5UfSH0PIEGhkNHzzBnDzR5Cka0-Rhqalvh2ygObYVXHlNihe7cZECYYSXqUkkO88y9MTr_aZYtGERjEzfsvDFtdE55gSahHM2Cw==",
+  "Q":"BARngwlfjwD7goZHCh_4iWsP0e3JszsvOtovn1UyPnqZLlSOyoUH1v_Lop0oUFClpVhlzsWAAqur6S8apZaBe4I",
   "salt":"0x205",
   "saltS": "1x218",
   "updateInterval":200
@@ -65,12 +66,12 @@ When client connect to server's connection end point, sever should return its co
  - dsId
     - dsId of the server
  - publicKey
-    - Base64 encoded public key modulus of the server
+    -  Base64 of a ECDH public key ECPoint encoded in X9.63 (uncompressed)
  - wsUri
     - An endpoint for web socket connection
     - Absolute URI to a different host or port is not allowed
     - Requires a query parameter of "auth"
-      - SHA256 (UTF8Bytes (salt) + NonceBytes) *("+" here means concatenating of byte buffer)*
+      - SHA256 (UTF8Bytes (salt) + SharedSecret) *("+" here means concatenating of byte buffer)*
       - The salt is already provided within the JSON response
  - httpUri
     - An endpoint for http connection
@@ -81,11 +82,9 @@ When client connect to server's connection end point, sever should return its co
     - Server should make sure that the salt is never reused unless connection is reset and nonce is regenerated
  - saltS
     - salt string for short polling
- - encryptedNonce
-    - Encrypted nonce that is Base64 encoded
-    - Server generates a 128bit secret nonce and encrypt the nonce with client's public key
-      - server generate a big number A with last 128 bits (16 bytes) equal to the nonce
-      - E = A.modPow(65537,modulus) is the encryptedNonce
+ - Q
+    - a one time public key for the ECDH
+    - Base64 of a ECDH public key ECPoint encoded in X9.63 (uncompressed)
  - updateInterval
     - Only affects the responder
     - When specified, a responder shouldn't send stream updates to server more often than the minimum interval in milliseconds, value subscriptions in the responder should be cached.
@@ -106,8 +105,8 @@ The client must send the following url parameters:
     - dsId of the client
  - auth
     - Authentication string encoded in Base64 to prove client is a valid owner of the dsId and publicKey
-    - SHA256 (UTF8Bytes (salt) + NonceBytes) *("+" here means concatenating of byte buffer)*
-    - NonceBytes is decrypted from the encryptedNonce with the client's private key received from the server configuration
+    - SHA256 (UTF8Bytes (salt) + SharedSecret ) *("+" here means concatenating of byte buffer)*
+    - SharedSecret is the result of a standard ECDH with client's private key and server's one time public key: Q
 
 ###### Receiving queries
 The server sends the following headers:
