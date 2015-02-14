@@ -31,8 +31,8 @@ The response of list will update on any node change available to the current req
 
 #### Response columns
  - name
-  - name of the field
-  - names start with $ are [configs](Configs) that can affect how system works
+  - Name of the field
+  - Names start with $ are [configs](Configs) that can affect how system works
     - "$is"
       - profile of the node, must be the first update of a list stream, otherwise requester will treat it as a new node and clear other existing data
       - profile node should also be loaded to get all predefined configs/attributes of a node
@@ -46,9 +46,9 @@ The response of list will update on any node change available to the current req
         - **read** user has read access to the node, can be omitted
         - **write** user has write access to the node, can read node and write to node and its attributes
         - **config** user has full access to the node, can read/write and change configs 
-   - names start with @ are custom attributes
-   - other names are children nodes
-   - name should not be blank or contain these characters: . / \ ? % * : | “ < >  this is basicly rules for file names, plus “.” (dot) is not allowed either
+   - Names that start with '@' are custom attributes
+   - Other names are children nodes
+   - Names should not be blank or contain these characters: ```. / \ ? % * : | “ < >```
 
  - value
   - updated value of the field
