@@ -48,6 +48,10 @@ The response of list will update on any node change available to the current req
         - **config** user has full access to the node, can read/write and change configs 
    - Names that start with '@' are custom attributes
    - Other names are children nodes
+        - children nodes must includes $is in the child object
+        - children nodes must includes $mixin when it's not blank
+        - children node must include $permission if it's not 'read'
+        - children node should include $invokable if it's defined, can be omitted it's defined in profile node 
    - Names must not be blank or contain these characters: ```. / \ ? % * : | “ < >```
 
  - value
