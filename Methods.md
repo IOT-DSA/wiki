@@ -48,7 +48,7 @@ The response of list will update on any node change available to the current req
         - **config** user has full access to the node, can read/write and change configs 
    - Names that start with '@' are custom attributes
    - Other names are children nodes
-   - Names should not be blank or contain these characters: ```. / \ ? % * : | “ < >```
+   - Names must not be blank or contain these characters: ```. / \ ? % * : | “ < >```
 
  - value
   - updated value of the field
