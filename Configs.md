@@ -133,5 +133,7 @@ low to high
    - requester can change configs or run actions that require config permission
    - used by configs: $permissions, $permission, $require, $settings, $writable
  - **never**
+   - No user can have the 'never' permission as this is meant to prevent system admins from overwriting
+a configuration that only the system manages.
    - highest permission that will never happen on any requester
    - used by configs: $settings, $writable
