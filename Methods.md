@@ -48,10 +48,11 @@ The response of list will update on any node change available to the current req
         - **config** user has full access to the node, can read/write and change configs 
    - Names that start with '@' are custom attributes
    - Other names are children nodes
-        - children nodes must includes $is in the child object
-        - children nodes must includes $mixin when it's not blank
-        - children node must include $permission if it's not 'read'
-        - children node should include $invokable if it's defined, can be omitted it's defined in profile node 
+        - children nodes must includes **$is** in the child object
+        - children nodes must includes **$mixin** when it's not blank
+        - children node must include **$permission** if it's not 'read'
+        - children node should include **$invokable** if it's defined, can be omitted it's only defined in profile node
+        - children node should include **$interface** if it's defined, can be omitted it's only defined in profile node
    - Names must not be blank or contain these characters: ```. / \ ? % * : | “ < >```
 
  - value
@@ -105,7 +106,7 @@ The response of list will update on any node change available to the current req
       {
         "$is": "temperaturePoint",
         "$name": "Custom Name for Point1",
-        "$invokable": false,
+        "$invokable": "read",
         "$interface": "tempUnit"
       }
     ],
@@ -113,7 +114,7 @@ The response of list will update on any node change available to the current req
       "point2",
       {
         "$is": "numericPoint",
-        "$invokable": true,
+        "$invokable": "write",
         "$change": "remove"
       }
     ]
