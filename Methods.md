@@ -32,7 +32,7 @@ The response of list will update on any node change available to the current req
 #### Response columns
  - name
   - Name of the field
-  - Names start with $ are [configs](Configs) that can affect how system works
+  - Names that start with '$' are [configs](Configs) that can affect how system works
     - "$is"
       - profile of the node, must be the first update of a list stream, otherwise requester will treat it as a new node and clear other existing data
       - profile node should also be loaded to get all predefined configs/attributes of a node
