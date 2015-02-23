@@ -8,7 +8,7 @@
    - defines the interfaces of a node or a profile, multiple interfaces are separated by "|"
    - interface can define configs, attributes and children nodes
    - interface paths start with "/" are absolute path
-   - other interface paths are path relative to the /defs/interface/
+   - other interface paths are path relative to the /defs/profile/
    - interfaces defined for a profile must be fully implemented in the profile
    - interfaces defined for a node must be implemented by either the node or the profile
  - **$mixin** (require:read, writable:config)
