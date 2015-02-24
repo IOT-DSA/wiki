@@ -288,14 +288,7 @@ There are multiple elements in the updates field. Each element will contain:
 ```json
 {
   "rid": 1,
-  "stream": "closed",
-  "updates": [
-    {
-      "path": "/lights/Lights A",
-      "value": false,
-      "ts": "2014-11-27T09:11.000-08:00"
-    }
-  ]
+  "stream": "closed"
 }
 ```
 
