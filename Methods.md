@@ -238,7 +238,6 @@ params list and
 
 This method will subscribe to a datapoint node to receive its value and value updatea.
 
-
 #### Request fields
 
  - paths (type:list)
