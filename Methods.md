@@ -47,21 +47,19 @@ The response of list will update on any node change available to the current req
         - **write** user has write access to the node, can read node and write to node and its attributes
         - **config** user has full access to the node, can read/write and change configs 
    - Names that start with '@' are custom attributes
-   - Other names are children nodes
+   - Other names are children nodes, with map value of the children properties
         - children nodes must include **$is** in the child object
         - children nodes must include **$mixin** if it's not empty
         - children node must include **$permission** if it's not 'read'
-        - children node must include **$invokable** if it's invokable with the required permission level to execute the action. This configuration is only defined in a profile node, omitted if the node cannot be invoked.
-        - children node should include **$interface** if it's defined, can be omitted it's only defined in profile node
+        - children node should include **$invokable** if user is allowed to invoke it 
+        - children node should include **$type** if node support subscription
+        - children node should include **$interface** if it's defined
+        - **$invokable**, **$type**, **$interface** are not needed if it's already defined in $is profile.
+        - other properties of children nodes shouldn't appear in the list response.
    - Names must not be blank or contain these characters: ```. / \ ? % * : | “ < >```
 
  - value
   - updated value of the field
-  - If the name is a child node then the following parameters are used
-    - name (optional string configuration) - Display name of the child node
-    - invokable (optinal bool configuration) - Whether the node can be invoked or not, default is false
-    - is (string configuration) - Profile of the node
-    - interface (optional string configuration) - Interfaces the node belongs to, if any
 
 #### Response meta
  - change (optional enum configuration)
