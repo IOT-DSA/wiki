@@ -206,15 +206,14 @@ params list and
 
 #### Example usage
 
-
 ##### Request
 ```json
 {
   "rid": 1,
   "method": "invoke",
-  "path": "/lights/testAction",
+  "path": "/echo",
   "params": {
-    "username": "dsaisawesome"
+    "string": "dsaisawesome"
   }
 }
 ```
@@ -224,10 +223,11 @@ params list and
 {
   "rid": 1,
   "stream": "closed",
+  "columns": [
+    {"name": "result", "type": "string"}
+  ],
   "updates": [
-    {
-      "result": "yeah"
-    }
+    ["dsaisawesome"]
   ]
 }
 ```
