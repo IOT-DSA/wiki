@@ -48,8 +48,9 @@ The response of list will update on any node change available to the current req
         - **config** user has full access to the node, can read/write and change configs 
    - Names that start with '@' are custom attributes
    - Other names are children nodes, with map value of the children properties
-        - children nodes must include **$is** in the child object
-        - children nodes must include **$mixin** if it's not empty
+        - children node must include **$name** if it has a display name
+        - children node must include **$is** in the child object
+        - children node must include **$mixin** if it's not empty
         - children node must include **$permission** if it's not 'read'
         - children node should include **$invokable** if user is allowed to invoke it 
         - children node should include **$type** if node support subscription
