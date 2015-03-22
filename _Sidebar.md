@@ -5,4 +5,7 @@
 &emsp;◌ [Methods](Methods)<br/>
 &emsp;◌ [Broker](Broker)<br/>
 [Distributed-Service Model](DS Model)<br/>
-&emsp;◌ [System Types](Configs)
+&emsp;◌ [System Types](Configs)<br/>
+DSLink Manager<br/>
+&emsp;◌ [dslink.json](dslink.json)<br/>
+&emsp;◌ [startup-command](startup-command)
