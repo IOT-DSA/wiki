@@ -20,10 +20,10 @@
    - when merging properties from a mixin node, profile and mixins inside the mixin are ignored
  - **$permission** (require:read, writable:never, type:enum[read,write,config])
    - not store in node data, generated for list response based on the permission of current requester
- - **$permissions** (require:config, writable:config)
+ - **$$permissions** (require:config, writable:config)
    - a list of permission rules defines permission for a group or a requester
 ```javascript
-  "$permissions":[
+  "$$permissions":[
     {"group":"DGLogik", "allow":"config"},
     {"id":"Samrg", "allow":"config"},
     {"group":"QA", "allow":"read"},
@@ -117,21 +117,21 @@
 low to high
  - **none**
    - lowest permission, means requester is not allowed to do anything.
-   - used by config: $permissions
+   - used by config: $$permissions
  - **read**
    - requester can read a node with list request
      - all attributes are shown
      - configs which require:read are shown
      - children nodes that have read permission are shown
    - requester can subscribe to node value if $type is defined for this node
-   - used by configs: $permissions, $permission, $require, $settings, $require
+   - used by configs: $$permissions, $permission, $require, $settings, $require
  - **write**
    - requester can send set request to change node attributes
    - requester can change configs or run actions that require write permission
-   - used by configs: $permissions, $permission, $require, $settings, $writable
+   - used by configs: $$permissions, $permission, $require, $settings, $writable
  - **config**
    - requester can change configs or run actions that require config permission
-   - used by configs: $permissions, $permission, $require, $settings, $writable
+   - used by configs: $$permissions, $permission, $require, $settings, $writable
  - **never**
    - No user can have the 'never' permission as this is meant to prevent system admins from overwriting
 a configuration that only the system manages.
