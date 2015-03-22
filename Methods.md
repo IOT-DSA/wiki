@@ -240,7 +240,10 @@ This method will subscribe to a datapoint node to receive its value and value up
 #### Request fields
 
  - paths (type:list)
-   -  a list of node path to subscribe
+   - a list of JSON objects about the subscription
+     - path - Path of the node
+     - sid - Subscription ID
+     - cache (optional, default of 1) - The cache of values the responder contains. If the responder can't write a subscription update to the requester then it will use the cache of values.
 
 #### Response columns
 
@@ -249,8 +252,8 @@ the value update will be sent in the main subscription stream, which has the fol
 
 There are multiple elements in the updates field. Each element will contain:
 
-- path 
-  - path of the node
+- sid
+  - Subscription ID (requester must keep track of which SIDs belong to which node)
 - value
   - updated value
 - ts (time string in iso8601 format)
@@ -279,7 +282,11 @@ There are multiple elements in the updates field. Each element will contain:
 {
   "rid": 1,
   "method": "subscribe",
-  "paths": ["/lights/Lights A"]
+  "paths": [
+    {path: "/point1", sid: 0, cache: 5},
+    {path: "/point2", sid: 1},
+    {path: "/point3", sid: 2} 
+  ]
 }
 ```
 
@@ -299,17 +306,17 @@ There are multiple elements in the updates field. Each element will contain:
   "rid": 0,
   "updates": [
     [
-      "/node1/point1",
+      0,
       12,
       "2014-11-27T09:11.000-08:00"
     ],
     {
-      "path": "/node1/point2",
+      "sid": 1,
       "status": "disconnected",
       "ts": "2014-11-27T09:11.000-08:00"
     },
     {
-      "path": "/node1/point3",
+      "sid": 2,
       "value": 10,
       "ts": "2014-11-27T09:11.000-08:00",
       "count": 5,
@@ -327,8 +334,8 @@ This method will unsubscribe from a datapoint and stop receiving new values on a
 
 #### Request fields
 
- - paths (type:list)
-   -  a list of node path to subscribe
+ - sids (list)
+   -  a list of subscription IDs to unsubscribe
 
 #### Response columns
 
@@ -342,7 +349,7 @@ No response fields sent.
 {
   "rid": 1,
   "method": "unsubscribe",
-  "paths": ["/lights/Lights A"]
+  "sids": [0]
 }
 ```
 
