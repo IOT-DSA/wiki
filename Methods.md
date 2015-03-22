@@ -267,7 +267,8 @@ There are multiple elements in the updates field. Each element will contain:
      - disconnected - Never set by a dslink. The broker sets this if a connection is lost between the dslink and the broker.
  - count (optional int)
    - if the response skip some value, this shows how many updates have happened since last response 
-   - only valid value is counted
+   - only valid value is counted, if value status is not ok, and count is not specified explicitly, the count this updated is treated as 0\
+   - skip value will happen when responder connection is slow, or when change happens on requester fater than the updateInterval
  - sum (optional number)
    - the sum value if one or more numeric value is skipped
    - only valid numeric value is added to sum
@@ -275,6 +276,10 @@ There are multiple elements in the updates field. Each element will contain:
    - the max value if one or more numeric value is skipped
  - min (optional number)
    - the min value if one or more numeric value is skipped
+ - part (optional string)
+   - used when sending a very big string or very big List value
+   - the value of part will be a fraction number, i.e. "1/2" "2/2" 
+   
 #### Example usage
 
 ##### Request
