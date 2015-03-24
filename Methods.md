@@ -203,7 +203,14 @@ params list and
 
 #### Response columns
 
- columns list is defined in the action node.
+ columns list is defined in the action node or its profile
+ but invoke response can also return a column structure to overwrite the value
+ the columns structure can only be returned once per action invoke
+
+#### Response columns
+ 
+ columns results can have one or multiple rows
+ if the invoke response' streamstatus is still "open", it can have more updates rows in future response until requester or responder close the stream
 
 #### Example usage
 
