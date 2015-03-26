@@ -3,6 +3,16 @@ example values:
 * 1
 * 0.12
 
+### int
+example values:
+* 1
+* -1
+
+### uint
+example values:
+* 1
+* 0
+
 ### string
 example values:
 * "hello world"
