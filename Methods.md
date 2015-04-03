@@ -55,7 +55,7 @@ The response of list will update on any node change available to the current req
         - children node should include **$invokable** if user is allowed to invoke it 
         - children node should include **$type** if node support subscription
         - children node should include **$interface** if it's defined
-        - **$invokable**, **$type**, **$interface** are not needed if it's already defined in $is profile.
+          - **$interface** are not needed if it's already defined in $is profile.
         - other properties of children nodes shouldn't appear in the list response.
    - Names must not be blank or contain these characters: ```. / \ ? % * : | “ < >```
 
