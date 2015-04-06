@@ -1,7 +1,7 @@
 ## when /conn fails
 keep retry until it success
 
-retry interval should be short at first, then inscease to 60 seconds
+retry interval should be short at first, then increase to 60 seconds
 
 1s 2s 3s ...59s  60s 60s 60s .....
 
@@ -14,7 +14,7 @@ when ws get re-connected, kill the http connection if it exists
 
 use the same interval rule for /conn re-connection
 
-when conneciton get a 401 authentication failed error, re-start /conn
+when connection get a 401 authentication failed error, re-start /conn
 
 ### enhancement for ws reconnection
 
