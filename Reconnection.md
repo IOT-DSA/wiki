@@ -12,7 +12,7 @@ still keep retry ws
 
 when ws get re-connected, kill the http connection if it exists 
 
-use the same rule for /conn re-connection
+use the same interval rule for /conn re-connection
 
 when conneciton get a 401 authentication failed error, re-start /conn
 
