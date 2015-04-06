@@ -24,5 +24,5 @@ when ws is connected but http connection already exists, don't kill http at once
 
 if it's 401 error, restart /conn, 
 
-otherwise keep trying http reconnection
+otherwise just keep re-send same data to server
 
