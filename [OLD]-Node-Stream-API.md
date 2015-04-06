@@ -413,7 +413,7 @@ every stream response can contain error.
     "type":"PermissionDenied",
     "phase":"request",
     "path":"/connection/dslink1",
-    "meg":"permission denied",
+    "msg":"permission denied",
     "detail":"user Steve is not allowed to access data in '/connection/dslink1'"
   }
 }
