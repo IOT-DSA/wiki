@@ -286,6 +286,11 @@ subscribe response is always a blank stream, it's just a placeholder for errors.
     ],
     {
       "path":"/node1/point2",
+      "status":"error",
+      "msg":"my error message",
+    },
+    {
+      "path":"/node1/point2",
       "status":"disconnected"
     },
     {
@@ -300,6 +305,7 @@ subscribe response is always a blank stream, it's just a placeholder for errors.
   ]
 }
 ```
+status can be either "error" or "disconnected", when it's error, the msg is a optional field for error detail
 
 definition node data of /defs/method/subscribe:
 
