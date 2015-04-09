@@ -39,8 +39,8 @@ example values:
 * {"name":"Rick", "email":"rick\@iot-dsa.org"}
 * {"primes":[2,3,5,7,11]}
 
-## list
-a list object, all values are list
+## array
+a array object, children values are dynamic
 example values:
 * [{"name":"Rick", "email":"rick\@iot-dsa.org"}, {"name":"Dennis", "email":"dennis\@iot-dsa.org"}]
 * [2,3,5,7,11]
