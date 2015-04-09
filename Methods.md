@@ -117,7 +117,7 @@ The response of list will update on any node change available to the current req
       }
     ],
     {
-      "name": point3",
+      "name": "point3",
       "change": "remove"
     }
   ]
