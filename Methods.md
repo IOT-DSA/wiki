@@ -3,9 +3,8 @@
 Methods are used in a request to retrieve data. They specify what type of data is needed and will
 return it. Permissions affect how data is interacted with by a user.
 
-Request fields are sent in the top level JSON request. Response fields return in the update field,
-methods will go into more detail on how updates are received. All responses are a map in the first
-element of the update field unless otherwise specified by the method.
+Request fields are sent in the top level JSON request. Response fields return in the updates field,
+methods will go into more detail on how updates are received.
 
 #### List of methods
 
