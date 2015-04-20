@@ -391,10 +391,4 @@ This method will close a stream
 ```
 
 ##### Response
-The response of the close method is optional.
-```json
-{
-  "rid": 1,
-  "stream": "closed"
-}
-```
+If request is closed from requester side, response is not needed
