@@ -1,7 +1,7 @@
 ## Config Naming
- - config name start with single $ are readable to all requester 
- - config name start with double $$ are only readable to requester with config permission
- - config name $$password is special value that always return null value in the list api
+ - config name start with single **$** are readable to all requester 
+ - config name start with double **$$** are only readable to requester with config permission
+ - config name **$$password** is special value that always return null value in the list api
 
 ## Core Configs
  - **$is** (require:read, writable:never)
