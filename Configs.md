@@ -89,6 +89,12 @@
      - type, type of the column , defined in /defs/type/
      - default, default value of the column
      - other option defined by the type
+ - **$result** (require:read, writable:never, type:enum[values,table,stream]))
+   - result type when node is invoked as an action
+     - values: the default result type, usually has only one row of values
+     - table: all rows together in the updates represent the action result as a table
+     - stream: every row in the updates is an update of the result, the response stream won't be closed from server and will keep getting updates from server
+
 ```javascript
   "$columns":[
     {"name":"ts","type":"time"},
