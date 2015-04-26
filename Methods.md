@@ -242,6 +242,30 @@ params list and
 }
 ```
 
+##### Stream Response
+```json
+{
+  "rid": 1,
+  "stream": "open",
+  "columns": [
+    {"name": "changes", "type": "string"}
+  ],
+  "updates": [
+    ["first update"]
+  ]
+}
+```
+
+```json
+{
+  "rid": 1,
+  "stream": "closed",
+  "updates": [
+    ["second update"]
+  ]
+}
+```
+
 ## Subscribe
 
 This method will subscribe to a datapoint node to receive its value and value updatea.
