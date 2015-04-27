@@ -12,7 +12,7 @@ config file that's loaded by the dslink app, also managed by the dslink manager
     },
     "nodes": {
       "type": "path",
-      "default": "ds_nodes.json",
+      "default": "nodes.json",
       "required": true
     },
     "key": {
