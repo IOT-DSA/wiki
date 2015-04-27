@@ -7,21 +7,29 @@ config file that's loaded by the dslink app, also managed by the dslink manager
 ```
   "configs": {
     "broker": {
-      "type": "url",
-      "required": false
+      "type": "url"
     },
     "nodes": {
       "type": "path",
-      "default": "nodes.json",
+      "value": "nodes.json",
       "required": true
     },
     "key": {
       "type": "path",
-      "default": ".dslink.key",
+      "value": ".dslink.key",
       "required": true
     }
   }
 ```
+* type
+ * string
+ * number
+ * int
+ * bool
+ * url
+ * path (file or uri path)
+* required (bool)
+ * used by dslink manager to check if config is valid
 
 ### getDependencies
 ```
