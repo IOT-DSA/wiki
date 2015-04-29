@@ -125,3 +125,7 @@ The server sends the following headers:
 WebSocket connection is very similar to HTTP mode except authentication only needs to be done once.
 
 ![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/ws_handshake.png)
+
+when in websocket mode, both client and server need to make sure a message is sent to other side at least once every 60 minutes, (because of network latency can cause message delay on other side, 30 ~ 45 seconds is suggested interval for a minimal interval) 
+
+if no message is received in 60 seconds, websocket should be considered disconnected and a re-connection is needed
