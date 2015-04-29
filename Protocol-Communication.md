@@ -29,6 +29,7 @@ A json request data is posted to the server's connection end point:
   "zone":"default",
   "isRequester":true,
   "isResponder":true,
+  "version":"1.0.1"
 }
 ```
 
@@ -44,6 +45,8 @@ Json parameters:
      - Indicates if the client is a requester
  - isResponder
      - Indicates if the client is a responder
+ - version
+     - version of DSA protocol
  - zone (optional)
      - Designates the quarantine zone the client wants to be in.
 
