@@ -1,3 +1,5 @@
+# Protocol
+
 There is a need for a way to discover brokers on a network. Current methods for discovering devices are complicated to implement. This Broker Discovery Protocol is very simple to understand and implement.
 
 All communication is over UDP with the address as `239.255.255.230` and the port as `1900`.
@@ -23,3 +25,5 @@ For a broker to announce itself, it sends a BROKER message with the connection u
 ```
 BROKER http://192.168.2.53:8080/conn
 ```
+
+#
