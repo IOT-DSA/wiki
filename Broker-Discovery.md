@@ -26,4 +26,6 @@ For a broker to announce itself, it sends a BROKER message with the connection u
 BROKER http://192.168.2.53:8080/conn
 ```
 
-#
+# Connection
+
+Links should connect to every broker it has discovered. This makes it easy for users to whitelist links once they are connected.
