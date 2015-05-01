@@ -1,6 +1,6 @@
 # Protocol
 
-There is a need for a way to discover brokers on a network. Current methods for discovering devices are complicated to implement. This Broker Discovery Protocol is very simple to understand and implement.
+In order for DSA to be seamless, there has to be a way to discover brokers. The Broker Discover Protocol is a very simple solution to this problem.
 
 All communication is over UDP with the address as `239.255.255.230` and the port as `1900`.
 
