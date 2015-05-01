@@ -1,0 +1,1 @@
+DSA is designed to connect upstream rather than downstream. This makes it easy to have DSLinks on a private network connect to a public network.
