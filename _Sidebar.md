@@ -1,6 +1,6 @@
 ### DSA Wiki
 
-[Broker Discovery Protocol](Broker-Discovery-Protocol)<br/>
+[Broker Discovery](Broker-Discovery)<br/>
 [Initializing Connection](Protocol Communication)<br/>
 [NodeAPI Protocol](Node API)<br/>
 &emsp;◌ [Methods](Methods)<br/>
