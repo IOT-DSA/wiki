@@ -7,20 +7,20 @@
  - **$is** (require:read, writable:never)
    - defines the profile of a node
    - profile can define configs, attributes and children nodes
-   - profile paths are patsh relative to the $basePath/defs/profile/
+   - profile paths are patsh relative to the $base/defs/profile/
  - **$interface** (require:read, writable:never)
    - defines the interfaces of a node or a profile, multiple interfaces are separated by "|"
    - interface can define configs, attributes and children nodes
-   - interface paths are path relative to the $basePath/defs/profile/
+   - interface paths are path relative to the $base/defs/profile/
    - interfaces defined for a profile must be fully implemented in the profile
    - interfaces defined for a node must be implemented by either the node or the profile
  - **$mixin** (require:read, writable:config)
    - attributes/configs mixins of a node, multiple mixins are separated by "|"
    - attributes can define configs, attributes but NOT children nodes
    - mixin can not modify readonly configs
-   - mixin paths are paths relative to the $basePath
+   - mixin paths are paths relative to the $base
    - when merging properties from a mixin node, profile and mixins inside the mixin are ignored
- - **$basePath**
+ - **$base**
    - the base path used by mixin, profile, and interface
  - **$disconnectedTs**
    - timestamp of when the remote node get disconnected
