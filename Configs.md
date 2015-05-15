@@ -4,10 +4,14 @@
  - config name **$$password** is special value that always return null value in the list api
 
 ## Core Configs
+ - **$base**
+   - the base path used by mixin, profile, and interface
+   - $base must be the first update in a list api, otherwise it's null
  - **$is** (require:read, writable:never)
    - defines the profile of a node
    - profile can define configs, attributes and children nodes
    - profile paths are patsh relative to the $base/defs/profile/
+   - $is must be the second update in a list api, or the first when $base is null
  - **$interface** (require:read, writable:never)
    - defines the interfaces of a node or a profile, multiple interfaces are separated by "|"
    - interface can define configs, attributes and children nodes
@@ -20,8 +24,6 @@
    - mixin can not modify readonly configs
    - mixin paths are paths relative to the $base
    - when merging properties from a mixin node, profile and mixins inside the mixin are ignored
- - **$base**
-   - the base path used by mixin, profile, and interface
  - **$disconnectedTs**
    - timestamp of when the remote node get disconnected
    - this value should be null or undefined when device is connected
