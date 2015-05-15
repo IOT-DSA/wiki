@@ -10,7 +10,7 @@
  - **$is** (require:read, writable:never)
    - defines the profile of a node
    - profile can define configs, attributes and children nodes
-   - profile paths are patsh relative to the $base/defs/profile/
+   - profile paths are paths relative to the $base/defs/profile/
    - $is must be the second update in a list api, or the first when $base is null
  - **$interface** (require:read, writable:never)
    - defines the interfaces of a node or a profile, multiple interfaces are separated by "|"
