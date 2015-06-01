@@ -18,6 +18,11 @@ example values:
 * "hello world"
 * ""
 
+when string type is used in action parameter, it support addition properties
+* editor: the editor used in GUI tool
+ * can be password, daterange, date, textarea
+* placeholder: the placeholder for the input box when used in GUI tool
+
 ### bool
 * true
 * false
