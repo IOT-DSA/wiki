@@ -19,10 +19,14 @@ While dsa's websocket data is transferred in json, it still allows binary data t
 
 ## data structure in binary channel
 each frame in binary channel contains one or more message headers and with same number of message data after them
-`[header1][header2][header3].....[data1][data2][data3]....`
+```
+[header1][header2][header3].....[data1][data2][data3]....
+```
 
 ### structure of the header
-`[position(4bytes)][id(4bytes)][status(1byte)]`
+```
+[position(4bytes)][id(4bytes)][status(1byte)]
+```
 * position integer (in big endian)
   * the start position of where the data begins
   * the first data position is also the length of total data, it can be used to get a count of messages
