@@ -24,8 +24,9 @@ each frame in binary channel contains one or more message headers and with same 
 ### structure of the header
 `[position(4bytes)][id(4bytes)][status(1byte)]`
 * position integer (stores in big endian)
-  * the start position of where the data begins, the first data position is also the length of total data, it can be used to get a count of messages
-* id
+  * the start position of where the data begins
+  * the first data position is also the length of total data, it can be used to get a count of messages
+* id (stores in big endian)
   * id of the message
 * status
   * status of the binary channel
