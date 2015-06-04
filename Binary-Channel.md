@@ -7,7 +7,7 @@ While dsa's websocket data is transferred in json, it still allows binary data t
 
 ### meaning of the binary reference
 * \u001B
-  * escape code telling decode this is not just a string, but a reference for binary data (or other special value) 
+  * escape code telling decoder this is not just a string, but a reference for binary data (or other special value) 
 * bytes
   * the type of the binary data, option can be
     * bytes
