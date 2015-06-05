@@ -29,7 +29,7 @@ each frame in binary channel contains one or more message headers and with same 
 ```
 * position integer (in big endian)
   * the start position of where the data begins
-  * the first data position is also the length of total data, it can be used to get a count of messages
+  * the first data position is also the length of total data headers, it can be used to get the count of messages
 * id (in big endian)
   * id of the message
 * status
