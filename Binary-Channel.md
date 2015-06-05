@@ -1,4 +1,4 @@
-While dsa's websocket data is transferred in json, it still allows binary data to be sent in separated binary channel. And a reference of the binary data is stored in the json
+While dsa's websocket data is transferred in json, it still allows binary data to be sent in separated binary frames. And a reference of the binary data is stored in the json
 
 
 ### example of a binary data
