@@ -36,10 +36,6 @@ The response of list will update on any node change available to the current req
       - profile of the node, must be the first update of a list stream, otherwise requester will treat it as a new node and clear other existing data
       - profile node should also be loaded to get all predefined configs/attributes of a node
       - profile nodes locate in /defs/profile/
-    - "$mixin"
-      - attributes and configs mixin of a node, multiple mixins are separated with "|"
-      - when mixin path starts with "/", it's a absolute node path
-      - when mixin path starts doesn't start with "/", it's a node path relative to the current node being listed
     - "$permission"
       - a enum of the following values
         - **read** user has read access to the node, can be omitted
@@ -49,7 +45,6 @@ The response of list will update on any node change available to the current req
    - Other names are children nodes, with map value of the children properties
         - children node must include **$name** if it has a display name
         - children node must include **$is** in the child object
-        - children node must include **$mixin** if it's not empty
         - children node must include **$permission** if it's not 'read'
         - children node should include **$invokable** if user is allowed to invoke it 
         - children node should include **$type** if node support subscription
@@ -87,10 +82,6 @@ The response of list will update on any node change available to the current req
     [
       "$is",
       "point/light"
-    ],
-    [
-      "$mixin",
-      "myMixin"
     ],
     [
       "$permission",
@@ -163,7 +154,7 @@ The value in this usage turns the lights on (true) or off (false).
 ## Remove
 
 This method will remove attributes or configs.
-Remove a overwritten config/attribute value will restore it to default value defined in profile or mixin
+Remove a overwritten config/attribute value will restore it to default value defined in profile
 
 #### Request fields
 
