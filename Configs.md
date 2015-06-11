@@ -5,7 +5,7 @@
 
 ## Core Configs
  - **$base**
-   - the base path used by mixin, profile, and interface
+   - the base path used by profile, and interface
    - $base must be the first update in a list api, otherwise it's null
  - **$is** (require:read, writable:never)
    - defines the profile of a node
@@ -18,12 +18,6 @@
    - interface paths are path relative to the $base/defs/profile/
    - interfaces defined for a profile must be fully implemented in the profile
    - interfaces defined for a node must be implemented by either the node or the profile
- - **$mixin** (require:read, writable:config)
-   - attributes/configs mixins of a node, multiple mixins are separated by "|"
-   - attributes can define configs, attributes but NOT children nodes
-   - mixin can not modify readonly configs
-   - mixin paths are paths relative to the $base
-   - when merging properties from a mixin node, profile and mixins inside the mixin are ignored
  - **$disconnectedTs**
    - timestamp of when the remote node get disconnected
    - this value should be null or undefined when device is connected
@@ -120,13 +114,6 @@
     - permission needed to invoke a action node
     - value can be "read" "write" "config" or "never"
     - "never" is the default value if not specified
-
-## Config Overwrite
- - configs directly defined in profile can not be overwritten.
- - configs defined in profile $settings must be implemented by mixin or by the node itself
-   - if both mixin and node defined same config, the config value in node overwrite the mixin
-   - if multiple mixins contain duplicated configs, the latter one overwrite the previous mixin
-   - these rules applied to attribute overwrite too
 
 ## Permission Values
 low to high
