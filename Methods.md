@@ -141,6 +141,7 @@ The value in this usage turns the lights on (true) or off (false).
 {
   "rid": 1,
   "method": "set",
+  "permit": "write",
   "path": "/lights/Lights A",
   "value": false
 }
