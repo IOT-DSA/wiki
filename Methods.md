@@ -122,6 +122,9 @@ This method will set values on a node.
 #### Request fields
  - path (type:path)
    -  path of the node to set, can be a node path or attribute/config path
+ - permit (string, optional)
+   - max permission of this Set
+     - if $writable require "config" permission to change value, and requester do have "config" permission, but permit is "read", the action should still return a "permissionDenied" error.
  - value (any primitive type)
   - The type of the value must be acceptable to the type of the node.
 
@@ -191,6 +194,9 @@ params list and
 
 #### Request fields
 
+- permit (string, optional)
+  - max permission of this invoke
+    - if action require "write" permission to invoke, and requester do have "write" permission, but permit is "read", the action should still return a "permissionDenied" error.
 - params (map, optional)
   - The parameters are defined in the action node
   - Can be omitted if the action takes no parameters
@@ -213,6 +219,7 @@ params list and
 {
   "rid": 1,
   "method": "invoke",
+  "permit": "read",
   "path": "/echo",
   "params": {
     "string": "dsaisawesome"
