@@ -17,5 +17,5 @@
     * **2N 3N 4N 6N**
 * years: **1y 2y 3y** ...
 * other values
-  * **none**: don't use any rollup, return all values with in the time range
+  * **none**: don't use any rollup, return all values within the time range
   * **default**: responder choose a interval based on the time range
