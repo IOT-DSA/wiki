@@ -24,8 +24,8 @@ when string type is used in action parameter, it support addition properties
 * placeholder: the placeholder for the input box when used in GUI tool
 
 ### bool
-Bools can also have labels attached to them similar to enums. The first value is always equivalent to `true` and the second value is always equivalent of `false`
-* bool\[enabled,disabled\]
+Bools can also have labels attached to them similar to enums. The first value is always equivalent to `false` and the second value is always equivalent of `true`
+* bool\[disabled,enabled\]
 
 However the responder must always send either of these two values.
 * true
