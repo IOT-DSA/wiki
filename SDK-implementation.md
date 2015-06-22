@@ -11,4 +11,6 @@
    1. http client to initiate connection from /conn, 
    2. websocket client to send receive data from /ws
  1. implement methods https://github.com/IOT-DSA/docs/wiki/Methods
-   
+ 1. implement standard command line arguments of the dslink, and dslink.json
+   * https://github.com/IOT-DSA/docs/wiki/startup-command
+   * https://github.com/IOT-DSA/docs/wiki/dslink.json  
