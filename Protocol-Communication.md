@@ -6,12 +6,13 @@ There are 3 inter-node connection types in DSA:
 * Responder - Responder is able to expose its model structure, stream model updates and receive commands from Requesters
 * Requester + Responder - A DSBroker implements this pattern in an effort to route requests and responses between connected nodes
 
+<!--
 Currently there are 3 forms of transport channel bindings:
 
 * HTTP
 * WebSocket
 * Socket
-
+-->
 
 ## Handshake for HTTP and WebSocket
 
@@ -60,8 +61,6 @@ This is an example configuration of a DSA node.
   "httpUri":"/http",
   "tempKey":"BARngwlfjwD7goZHCh_4iWsP0e3JszsvOtovn1UyPnqZLlSOyoUH1v_Lop0oUFClpVhlzsWAAqur6S8apZaBe4I",
   "salt":"0x205",
-  "saltS": "1x218",
-  "saltL": "2x221",
   "updateInterval":200
 }
 ```
@@ -84,10 +83,6 @@ When client connect to server's connection end point, server should return its c
  - salt
     - A salt string to protect connection from replay attack on websocket connection
     - Server should make sure that the salt is never reused unless connection is reset and nonce is regenerated
- - saltS
-    - salt string for http short polling
- - saltL
-    - salt string for http long polling
  - tempKey
     - a one time public key for the ECDH
     - Base64 of a ECDH public key ECPoint encoded in X9.63 (uncompressed)
@@ -98,12 +93,13 @@ When client connect to server's connection end point, server should return its c
     - This value only affects the time between 2 updates of same stream.
     - If the responder does not respect the interval the requestor may close the connection due to flooding.
 
-### HTTP
+### WebSockets
 
-![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/http_handshake.png)
+![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/ws_handshake.png)
 
-##### HTTP Queries
-After receiving server configuration, client should send authentication data in http query string on every connection, this must also be done for websockets, however, a salt wont be returned.
+both websocket client and server need to make sure a message is sent to other side at least once every 60 seconds, (because of network latency can cause message delay on other side, 30 ~ 45 seconds is suggested value for a minimal interval) 
+
+if no message is received in 60 seconds, websocket should be considered disconnected and a re-connection is needed
 
 ###### Sending queries
 The client must send the following url parameters:
@@ -114,18 +110,7 @@ The client must send the following url parameters:
     - SHA256 (UTF8Bytes (salt) + SharedSecret ) *("+" here means concatenating of byte buffer)*
     - SharedSecret is the result of a standard ECDH with client's private key and server's one time public key: tempKey
 
-###### Receiving queries
-The server sends the following headers:
+###### Receiving response
 - salt
     - The server creates a new salt every time for the client to hash the decrypted nonce bytes.
-    - This is used for sending another query when creating the "auth" token.
-
-### WebSockets
-
-WebSocket connection is very similar to HTTP mode except authentication only needs to be done once.
-
-![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/ws_handshake.png)
-
-when in websocket mode, both client and server need to make sure a message is sent to other side at least once every 60 seconds, (because of network latency can cause message delay on other side, 30 ~ 45 seconds is suggested value for a minimal interval) 
-
-if no message is received in 60 seconds, websocket should be considered disconnected and a re-connection is needed
+    - This is used for a "auth" token in a second websocket connection after the first one get disconnected
