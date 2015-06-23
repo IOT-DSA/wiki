@@ -9,6 +9,6 @@ Distributed-Service Model<br/>
 &emsp;◌ [Value Types](Value Types)<br/>
 DSLink Manager<br/>
 &emsp;◌ [dslink.json](dslink.json)<br/>
-&emsp;◌ [startup-command](startup-command)
+&emsp;◌ [startup-command](startup-command)<br/>
 DSLink SDK Development<br/>
 &emsp;◌ [Guide](SDK-implementation)
