@@ -206,7 +206,7 @@ params list and
 
  columns list is defined in the action node or its profile
  but invoke response can also return a column structure to overwrite the value
- the columns structure can only be returned once per action invoke
+ the columns structure can only be returned once per action invoke. Columns can also have a "meta" field which is a key:value pair where value is always dynamic.
 
 #### Response updates (rows)
  
@@ -234,7 +234,7 @@ params list and
   "rid": 1,
   "stream": "closed",
   "columns": [
-    {"name": "result", "type": "string"}
+    {"name": "result", "type": "string", "meta": { "test": true, "unit": "F" } }
   ],
   "updates": [
     ["dsaisawesome"]
