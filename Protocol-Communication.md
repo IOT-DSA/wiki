@@ -114,3 +114,13 @@ The client must send the following url parameters:
 - salt
     - The server creates a new salt every time for the client to hash the decrypted nonce bytes.
     - This is used for a "auth" token in a second websocket connection after the first one get disconnected
+
+
+
+## Versions
+* 1.0.1
+  * support ping message, websocket should be closed if not receving any message from other side for more than 1 minute
+* 1.0.2
+  * support binary channel
+* 1.0.3
+  * trust local dslink connected from 127.0.0.1, server don't send tempKey and salt, and don't do auth check
