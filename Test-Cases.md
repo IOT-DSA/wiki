@@ -1,7 +1,7 @@
 * Responder
   * subscribe
     1. subscribe (method close should be sent to requester)
-    1. update value (value should be sent)
+    1. update value (value should be sent in rid 0)
     1. subscribe again on same path with same sid
     1. update value (value shouldn't be sent twice)
     1. ubsubscribe (method close should be sent)
