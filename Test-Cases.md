@@ -1,3 +1,16 @@
+* Connection
+  * test initial handshake
+  * test disconnection
+    1. connect
+    1. turn off internet
+    1. dslink should retry evern 1 second 2 seoncd ... in the end it should retry once every 60 seconds
+    1. turn internet back
+    1. dslink should reused the previous salt send back by broker, instead of doing a full handshake (in websocket message, not the initial one returned by /conn)
+    1. restart broker, dslink should try the previous salt first, after that failed, do a full handshake
+  * test reconnection 
+     1. start dslink before broker
+     1. dslink should retry
+     1. start broker and it should get connected.
 * Responder
   * subscribe
     1. subscribe (method close should be sent to requester)
