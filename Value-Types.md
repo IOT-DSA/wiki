@@ -40,6 +40,8 @@ the first value in the list will be the default value
 
 the value sent in network will look same as a string
 
+### bytes
+[binary type](Binary-Channel)
 
 ### map
 a map object with key:value pairs
