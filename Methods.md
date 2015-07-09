@@ -269,6 +269,7 @@ params list and
 
 ##### meta
 The default table mode is `stream`. When the mode is omitted the last mode set will be used.
+
 **mode**: optional 
  * `refresh` : clear all existing rows in requester cache and add the updates
  * `append` : append updates to the end of cache
