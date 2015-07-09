@@ -271,9 +271,13 @@ params list and
 **mode**: optioanal 
  * `refresh` : clear all existing rows in requester cache and add the updates
  * `append` : append updates to the end of cache
+ * `stream` : work similiar as append, but allows requester to safely control the cache size and remove data from begining
+ when mode is ommited, it use the previous mode, the default is stream
+
+***modify*:optional
  * `replace 0-10` : remove rows in the range and replace with new updates
  * `insert 0` : insert before the rows number, 0 means insert from begining
- * when meta is ommited : work similiar as append, but allows requester to safely control the cache size and remove data from begining.
+ modify is not allowed in stream mode
 
 ## Subscribe
 
