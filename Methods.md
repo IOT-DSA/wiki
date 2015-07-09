@@ -269,6 +269,7 @@ params list and
 
 ##### meta
 The default table mode is `stream`. When the mode is omitted the last mode set will be used.
+`modify` is not allowed in `stream` mode.
 
 **mode**: optional 
  * `refresh` : clear all existing rows in requester cache and add the updates
@@ -277,8 +278,7 @@ The default table mode is `stream`. When the mode is omitted the last mode set w
 
 **modify**: optional
  * `replace 0-10` : remove rows in the range and replace with new updates
- * `insert 0` : insert before the rows number, 0 means insert from begining
- modify is not allowed in stream mode
+ * `insert 0` : insert before the rows number, 0 means insert from beginning
 
 ## Subscribe
 
