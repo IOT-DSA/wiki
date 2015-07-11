@@ -30,7 +30,7 @@ A json request data is posted to the server's connection end point:
   "zone":"default",
   "isRequester":true,
   "isResponder":true,
-  "version":"1.0.1"
+  "version":"1.0.3"
 }
 ```
 
