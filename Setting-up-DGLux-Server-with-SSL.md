@@ -1,6 +1,9 @@
 Go to your dglux server installation.
 
-Certificate generation requires certutil. On Ubuntu install using: apt-get install libnss3-tools
+Certificate generation requires certutil. On Ubuntu install using: 
+```
+apt-get install libnss3-tools
+```
 
 ```
 mkdir certs
