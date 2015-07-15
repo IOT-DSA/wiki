@@ -1,13 +1,22 @@
 Go to your dglux server installation.
 
+Certificate generation requires certutil. On Ubuntu install using: apt-get install libnss3-tools
+
 ```
 mkdir certs
+cd certs
 certutil -N -d 'sql:./'
-certutil -S -s 'cn=dartcert' -n 'self signed for dart' -x -t 'C,C,C' \
-      -m 1000 -v 120 -d 'sql:./' -k rsa -g 2048
+certutil -S -s 'cn=YourOwnCertificateName' -n 'Certificate Description' -x -t 'C,C,C' -m 1000 -v 120 -d 'sql:./' -k rsa -g 2048
 ```
 
-Update your `server.json` certname to `CN=dartcert` as well as the NSS database password.
+Update your `server.json` certName to `cn=YourOwnCertificateName` as well as the NSS database password.
+
+```
+{
+  "certName": "cn=YourOwnCertificateName",
+  "certPassword": "password",
+}
+```
 
 
 ## add existing certificate with private key
