@@ -6,14 +6,14 @@ Certificate generation requires certutil. On Ubuntu install using: apt-get insta
 mkdir certs
 cd certs
 certutil -N -d 'sql:./'
-certutil -S -s 'cn=YourOwnCertificateName' -n 'Certificate Description' -x -t 'C,C,C' -m 1000 -v 120 -d 'sql:./' -k rsa -g 2048
+certutil -S -s 'CN=YourOwnCertificateName' -n 'Certificate Description' -x -t 'C,C,C' -m 1000 -v 120 -d 'sql:./' -k rsa -g 2048
 ```
 
-Update your `server.json` certName to `cn=YourOwnCertificateName` as well as the NSS database password.
+Update your `server.json` certName to `CN=YourOwnCertificateName` as well as the NSS database password.
 
 ```
 {
-  "certName": "cn=YourOwnCertificateName",
+  "certName": "CN=YourOwnCertificateName",
   "certPassword": "password",
 }
 ```
