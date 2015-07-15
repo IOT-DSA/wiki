@@ -1,7 +1,7 @@
 # methods
 
 ## list
- * syntax: `list {path}`  or `list "{path1}" "{path2}" "{path3}" `
+ * syntax: `list {path}`
  * input:  array of node
  * output: array of node
  * distributed: yes
@@ -9,6 +9,7 @@
 **{path}:**
  * `*` means match any nodes
  * `?` means match one node
+
  exmaples
 ```
  list a/b/c
@@ -40,3 +41,16 @@
  filter $unit="true"
  filter @icon!=null
 ```
+
+
+## invoke
+invoke actions
+
+## set
+set config/attribute/value
+
+## remove
+remove config/attribute
+
+## window
+ waiting for changes and doing rollup
