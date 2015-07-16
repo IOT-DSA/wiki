@@ -9,7 +9,7 @@ apt-get install libnss3-tools
 mkdir certs
 cd certs
 certutil -N -d 'sql:./'
-certutil -S -s 'CN=YourOwnCertificateName' -n 'Certificate Description' -x -t 'C,C,C' -m 1000 -v 120 -d 'sql:./' -k rsa -g 2048
+certutil -S -s 'CN=YourOwnCertificateName' -n 'Certificate Description' -x -t 'C,C,C' -m 1000 -v 9 -d 'sql:./' -k rsa -g 2048
 ```
 
 Update your `server.json` certName to `CN=YourOwnCertificateName` as well as the NSS database password.
