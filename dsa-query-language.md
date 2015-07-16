@@ -1,3 +1,10 @@
+# piping
+
+`list * | filter @unit='kwh' | subsribe $value`
+
+ * every query method is based on the result of left pipe
+ * the first method will always be based on the root node of the broker
+ 
 # methods
 
 ## list
