@@ -124,3 +124,5 @@ The client must send the following url parameters:
   * support binary channel
 * 1.0.3
   * trust local dslink connected from 127.0.0.1, server don't send tempKey and salt, and don't do auth check
+* 1.0.4
+  * support ack
