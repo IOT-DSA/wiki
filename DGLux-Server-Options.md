@@ -67,3 +67,29 @@ When this value is true, then any user can access any file. When this is false, 
 When this value is true, the server's broker is broadcast to the local network for discovery by other machines. When this value is false, the broadcast service is not enabled.
 
 **Default Value**: true
+
+## workers
+
+Number of Server Workers. For low end devices, this should stay at 1. For large machines, this can be set to the number of available processors to better handle massive amounts of connections.
+
+**Default Value**: For low end devices, this is 1, for other devices, this is 2.
+
+## updateInterval
+
+The interval in which data is sent to links by the broker in milliseconds. This options will be going away soon.
+
+**Default Value**: 200
+
+## static
+
+Configures a Static Directory Mapping. This is used to serve files and directories on the server.
+
+Example:
+
+```
+{
+  "/static": "/srv/http/static"
+}
+```
+
+**Default Value**: {}
