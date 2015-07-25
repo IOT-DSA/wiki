@@ -30,7 +30,7 @@ A json request data is posted to the server's connection end point:
   "zone":"default",
   "isRequester":true,
   "isResponder":true,
-  "version":"1.0.3"
+  "version":"1.0.4"
 }
 ```
 
@@ -61,6 +61,7 @@ This is an example configuration of a DSA node.
   "httpUri":"/http",
   "tempKey":"BARngwlfjwD7goZHCh_4iWsP0e3JszsvOtovn1UyPnqZLlSOyoUH1v_Lop0oUFClpVhlzsWAAqur6S8apZaBe4I",
   "salt":"0x205",
+  "version":"1.0.4",
   "updateInterval":200
 }
 ```
