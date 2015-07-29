@@ -247,7 +247,7 @@ params list and
 {
   "rid": 1,
   "stream": "open",
-  "meta":{"mode":"refresh"},
+  "meta":{"mode":"refresh", "meta": {}},
   "columns": [
     {"name": "changes", "type": "string"}
   ],
@@ -279,6 +279,9 @@ The default table mode is `stream`. When the mode is omitted the last mode set w
 **modify**: optional
  * `replace 0-10` : remove rows in the range and replace with new updates
  * `insert 0` : insert before the rows number, 0 means insert from beginning
+
+**meta**: optional
+ * This is overall table metadata related to the table as a whole. This is solely used for information purposes about the table.
 
 ## Subscribe
 
