@@ -7,5 +7,4 @@ Here's a list of possible libraries that can be used in the C SDK.
 - JSON
   - [SimpleJSON](https://github.com/MJPA/SimpleJSON)
 - ECDH Curve
-  - [mbedtls](https://github.com/ARMmbed/mbedtls)
-  - [MatrixSSL](http://www.matrixssl.org/)
+  - [LibreSSL Portable](https://github.com/libressl-portable/portable/)
