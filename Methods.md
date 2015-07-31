@@ -272,9 +272,9 @@ The default table mode is `stream`. When the mode is omitted the last mode set w
 `modify` is not allowed in `stream` mode.
 
 **mode**: optional 
- * `refresh` : clear all existing rows in requester cache and add the updates
- * `append` : append updates to the end of cache
- * `stream` : work similiar as append, but allows requester to safely control the cache size and remove data from begining
+ * `refresh` : Clear all existing rows in requester cache and add the updates. If columns are sent, then all previous columns will be cleared.
+ * `append` : Append updates to the end of cache. If columns are sent, they will be added to the existing columns of the table.
+ * `stream` : Works similarly as append, but allows requester to safely control the cache size and remove data from beginning. If columns are sent, they will be added to the existing columns of the table.
 
 **modify**: optional
  * `replace 0-10` : remove rows in the range and replace with new updates
