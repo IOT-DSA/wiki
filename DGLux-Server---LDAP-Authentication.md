@@ -1,6 +1,6 @@
 To setup LDAP Authentication in DGLux Server, add the following to your server.json:
 
-```
+```json
   "ldap": {
     "url": "ldap://myhost.org",
     "dn": "cn=root,dc=myhost,dc=org",
