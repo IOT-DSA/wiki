@@ -8,3 +8,4 @@ Here's a list of possible libraries that can be used in the C SDK.
   - [SimpleJSON](https://github.com/MJPA/SimpleJSON)
 - ECDH Curve
   - [TinySSL](https://tls.mbed.org/tiny-ssl-library)
+  - [MatrixSSL](http://www.matrixssl.org/)
