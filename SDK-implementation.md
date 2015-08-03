@@ -1,4 +1,4 @@
-## Library required
+## Libraries required
  * HTTP client 
  * Websocket client
  * JSON parser
