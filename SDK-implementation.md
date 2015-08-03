@@ -1,16 +1,16 @@
 ## Library required
- * http client 
- * websocket client
- * json parser
- * crypto library that support ECDH curve P-256 (AKA secp256r1)
- * base64 encode decode (URL version, without padding `=`)
+ * HTTP client 
+ * Websocket client
+ * JSON parser
+ * Crypto library that support ECDH curve P-25(secp256r1)
+ * Base64 encode decode (URL version, without padding `=`)
 
 ## steps
- 1. download and insall a dsa broker: https://dglogik.github.io/get-dsa/
- 1. implement the handshake [Protocol Communication](Protocol%20Communication)
-   1. http client to initiate connection from /conn, 
+ 1. Download and install a DSA broker: https://dglogik.github.io/get-dsa/
+ 1. Implement the handshake [Protocol Communication](Protocol%20Communication)
+   1. HTTP client to initiate connection from /conn, 
    2. websocket client to send receive data from /ws
- 1. implement methods https://github.com/IOT-DSA/docs/wiki/Methods
- 1. implement standard command line arguments of the dslink, and dslink.json
-   * https://github.com/IOT-DSA/docs/wiki/startup-command
+ 1. Implement methods https://github.com/IOT-DSA/docs/wiki/Methods
+ 1. Implement standard command line arguments of the DSLink and dslink.json
+   * https://github.com/IOT-DSA/docs/wiki/Startup-command
    * https://github.com/IOT-DSA/docs/wiki/dslink.json  
