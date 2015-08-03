@@ -4,11 +4,11 @@
 
 
 ## Client Private Key
-**publicKey**, Bae64 encoded ECPoint in X9.63 format (uncompressed) 
+**publicKey**, Base64 encoded ECPoint in X9.63 format (uncompressed) 
 ```
 BEACGownMzthVjNFT7Ry-RPX395kPSoUqhQ_H_vz0dZzs5RYoVJKA16XZhdYd__ksJP0DOlwQXAvoDjSMWAhkg4
 ```
-**privateKey** Bae64 encoded big integer (with NO leading bit for sign)
+**privateKey** Base64 encoded big integer (with NO leading bit for sign)
 ```
 M6S41GAL0gH0I97Hhy7A2-icf8dHnxXPmYIRwem03HE
 ```
