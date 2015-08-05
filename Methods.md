@@ -294,10 +294,10 @@ This method will subscribe to a datapoint node to receive its value and value up
      - path - Path of the node
      - sid - Subscription ID
      - qos (optional int, can be 0,1,2,3,  default is 0) - the qos of the subscription
-       - 0: default, responder/broker won't cache value for requester, if responder's updating speed is faster than requester's reading speed, broker will merge value and only send requester the last state with the rollup of all skipped values. 
-       - 1: durable, responder/broker cache value for the requester, makes sure it doesn't miss data if requester's connection is slow, or when requester is offline for a while.
-       - 2: persist, if responder/broker is not able to send data to requester at once, it will backup the last value (i.e. on hard drive) so the requester can receive the data even the broker is restarted later.
-       - 3: durable & persist, both 1 and 2, responder/broker will backup the whole cache queue
+        - 0: default, responder/broker won't cache value for requester, if responder's updating speed is faster than requester's reading speed, broker will merge value and only send requester the last state with the rollup of all skipped values. 
+        - 1: durable, responder/broker cache value for the requester, makes sure it doesn't miss data if requester's connection is slow, or when requester is offline for a while.
+        - 2: persist, if responder/broker is not able to send data to requester at once, it will backup the last value (i.e. on hard drive) so the requester can receive the data even the broker is restarted later.
+        - 3: durable & persist, both 1 and 2, responder/broker will backup the whole cache queue
 
 #### Response columns
 
