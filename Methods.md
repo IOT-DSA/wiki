@@ -342,7 +342,7 @@ There are multiple elements in the updates field. Each element will contain:
   "rid": 1,
   "method": "subscribe",
   "paths": [
-    {"path": "/point1", "sid": 0, "cache": 5},
+    {"path": "/point1", "sid": 0, "qos": 3},
     {"path": "/point2", "sid": 1},
     {"path": "/point3", "sid": 2} 
   ]
