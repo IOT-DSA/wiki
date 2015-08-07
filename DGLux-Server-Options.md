@@ -8,7 +8,7 @@ An example server.json is:
 {
   "debug": false,
   "port": 8080,
-  "httpsport": 8443,
+  "httpsPort": 8443,
   "certName": "",
   "certPassword": "",
   "disableFileSecurity": false,
@@ -42,7 +42,7 @@ HTTP Port to listen on. If this is less than or equal to 0, then the server does
 
 **Default Value**: 8080
 
-## httpsport
+## httpsPort
 
 HTTPs Port to listen on. If this is less than or equal to 0, and/or `certName` or `certPassword` is empty or not provided, then the server does not listen on any port for HTTPS. Ensure that you setup your SSL certificate and fill in the certName and certPassword fields.
 
