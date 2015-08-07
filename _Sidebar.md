@@ -12,3 +12,6 @@ DSLink Manager<br/>
 &emsp;◌ [startup-command](startup-command)<br/>
 DSLink SDK Development<br/>
 &emsp;◌ [Guide](SDK-implementation)
+DGLux Server<br/>
+&emsp;◌ [Configuration](DGLux-Server-Options)
+&emsp;◌ [LDAP Authentication](DGLux-Server---LDAP-Authentication)
