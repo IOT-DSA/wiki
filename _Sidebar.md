@@ -1,5 +1,6 @@
 ### DSA Wiki
 
+Protocol<br/>
 [Initializing Connection](Protocol-Communication)<br/>
 [NodeAPI Protocol](Node-API)<br/>
 &emsp;◌ [Methods](Methods)<br/>
