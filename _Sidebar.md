@@ -5,7 +5,7 @@ Communication<br/>
 &emsp;◌ [Node API Protocol](Node-API)<br/>
 &emsp;&emsp;◌ [Methods](Methods)<br/>
 &emsp;&emsp;◌ [Broker](Broker)<br/>
-Distributed-Service Model<br/>
+Distributed Service Model<br/>
 &emsp;◌ [Node Configs](Configs)<br/>
 &emsp;◌ [Value Types](Value-Types)<br/>
 DSLink Manager<br/>
