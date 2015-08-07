@@ -9,7 +9,7 @@ Distributed-Service Model<br/>
 &emsp;◌ [Value Types](Value-Types)<br/>
 DSLink Manager<br/>
 &emsp;◌ [dslink.json](dslink.json)<br/>
-&emsp;◌ [startup-command](startup-command)<br/>
+&emsp;◌ [Startup Command](Startup-Command)<br/>
 DSLink SDK Development<br/>
 &emsp;◌ [Guide](SDK-implementation)<br/>
 DGLux Server<br/>
