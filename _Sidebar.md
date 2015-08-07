@@ -1,10 +1,10 @@
 ### DSA Wiki
 
 Protocol<br/>
-[Initializing Connection](Protocol-Communication)<br/>
-[NodeAPI Protocol](Node-API)<br/>
-&emsp;◌ [Methods](Methods)<br/>
-&emsp;◌ [Broker](Broker)<br/>
+&emsp;◌ [Initializing Connection](Protocol-Communication)<br/>
+&emsp;◌ [NodeAPI Protocol](Node-API)<br/>
+&emsp;&emsp;◌ [Methods](Methods)<br/>
+&emsp;&emsp;◌ [Broker](Broker)<br/>
 Distributed-Service Model<br/>
 &emsp;◌ [Node Configs](Configs)<br/>
 &emsp;◌ [Value Types](Value-Types)<br/>
