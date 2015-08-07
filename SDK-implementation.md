@@ -6,7 +6,7 @@
  * Base64 encode decode (URL version, without padding `=`)
 
 ## Steps
- 1. Download and install a DSA broker: https://dglogik.github.io/get-dsa/
+ 1. Download and install a DSA broker: http://get.iot-dsa.org
  1. Implement the handshake [Protocol Communication](Protocol%20Communication)
    1. HTTP client to initiate connection from /conn, 
    2. websocket client to send receive data from /ws
