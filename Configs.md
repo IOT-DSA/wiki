@@ -70,6 +70,8 @@
      - name, name of the parameter
      - type, type of the parameter, defined in /defs/type/
      - default, default value of the parameter
+     - description, description of the parameter, will be shown in element tooltip (title)
+     - placeholder, placeholder when the editor is text input
      - other option defined by the type
 ```javascript
   "$params":[
