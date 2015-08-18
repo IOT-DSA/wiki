@@ -11,9 +11,9 @@ Distributed Service Model<br/>
 DSLink Manager<br/>
 &emsp;◌ [dslink.json](dslink.json)<br/>
 &emsp;◌ [Startup Command](Startup-Command)<br/>
-DSLink SDK Development<br/>
-&emsp;◌ [Guide](SDK-implementation)<br/>
+SDK Development<br/>
+&emsp;◌ [Implementation Guide](SDK-Implementation-Guide)<br/>
 DGLux Server<br/>
 &emsp;◌ [Configuration](DGLux-Server-Options)<br/>
-&emsp;◌ [LDAP Authentication](DGLux-Server---LDAP-Authentication)
+&emsp;◌ [LDAP Authentication](DGLux-Server---LDAP-Authentication)<br/>
 &emsp;◌ [SSL Setup](DGLux-Server---SSL)
