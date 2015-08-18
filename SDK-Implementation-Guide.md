@@ -1,9 +1,9 @@
-## Libraries required
- * HTTP client 
- * Websocket client
- * JSON parser
- * Crypto library that support ECDH curve P-25(secp256r1)
- * Base64 encode decode (URL version, without padding `=`)
+## Required Components
+ * HTTP Client
+ * WebSocket client
+ * JSON Parser
+ * Cryptography library that support ECDH curve P-25(secp256r1)
+ * Base64 encoder and decoder (URL version, without padding `=`)
 
 ## Steps
  1. Download and install a DSA broker: http://get.iot-dsa.org
