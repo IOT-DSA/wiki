@@ -2,7 +2,7 @@
 
 Communication<br/>
 &emsp;◌ [Initializing Connection](Protocol-Communication)<br/>
-&emsp;◌ [Node API Protocol](Node-API)<br/>
+&emsp;◌ [Node API](Node-API)<br/>
 &emsp;&emsp;◌ [Methods](Methods)<br/>
 &emsp;&emsp;◌ [Broker](Broker)<br/>
 Distributed Service Model<br/>
