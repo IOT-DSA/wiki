@@ -15,5 +15,5 @@ Welcome to the DSA Wiki!
 &emsp;◌ [Guide](SDK-implementation)<br/>
 ### DGLux Server
 &emsp;◌ [Configuration](DGLux-Server-Options)<br/>
-&emsp;◌ [LDAP Authentication](DGLux-Server---LDAP-Authentication)
+&emsp;◌ [LDAP Authentication](DGLux-Server---LDAP-Authentication)<br/>
 &emsp;◌ [SSL Setup](DGLux-Server---SSL)
