@@ -11,8 +11,8 @@ Welcome to the DSA Wiki!
 ### DSLink Manager
 &emsp;◌ [dslink.json](dslink.json)<br/>
 &emsp;◌ [Startup Command](Startup-Command)<br/>
-### DSLink SDK Development
-&emsp;◌ [Guide](SDK-implementation)<br/>
+### SDK Development
+&emsp;◌ [Implementation Guide](SDK-Implementation-Guide)<br/>
 ### DGLux Server
 &emsp;◌ [Configuration](DGLux-Server-Options)<br/>
 &emsp;◌ [LDAP Authentication](DGLux-Server---LDAP-Authentication)<br/>
