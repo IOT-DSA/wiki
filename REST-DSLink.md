@@ -34,7 +34,7 @@ The REST DSLink allows you to create a server that binds to a specific port. Wit
 ```
 
 **Example Response**:
-```
+```json
 {
   "?name": "percentage",
   "?path": "/data/percentage",
