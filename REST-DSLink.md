@@ -38,7 +38,7 @@ The REST DSLink allows you to create a server that binds to a specific port. Wit
 {
   "?name": "percentage",
   "?path": "/data/percentage",
-  "$is": "node"
+  "$is": "node",
   "$type": "number",
   "@unit": "%",
   "?value": 30
