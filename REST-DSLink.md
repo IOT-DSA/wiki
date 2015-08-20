@@ -2,9 +2,10 @@ The REST DSLink allows you to create a server that binds to a specific port. Wit
 
 ## API
 
+**Node URL**: `http://host:port/path/to/node`
+
 ### Fetch Node
 
-**URL**: http://host:port/path/to/node<br/>
 **Method**: GET<br/>
 **Example Response**:
 
@@ -16,5 +17,30 @@ The REST DSLink allows you to create a server that binds to a specific port. Wit
   "$type": "string",
   "?value": "Hello World",
   "?value_timestamp": "2015-08-19T21:50:40.624-04:00"
+}
+```
+
+## Create/Update Node
+
+**URL**: http://host:port/path/to/node<br/>
+**Method**: PUT<br/>
+**Example Request**:
+```json
+{
+  "$type": "number",
+  "@unit": "%",
+  "?value": 30
+}
+```
+
+**Example Response**:
+```
+{
+  "?name": "percentage",
+  "?path": "/data/percentage",
+  "$is": "node"
+  "$type": "number",
+  "@unit": "%",
+  "?value": 30
 }
 ```
