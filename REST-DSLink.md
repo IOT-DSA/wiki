@@ -4,8 +4,8 @@ The REST DSLink allows you to create a server that binds to a specific port. Wit
 
 ### Fetch Node
 
-**URL**: http://host:port/path/to/node
-**Method**: GET
+**URL**: http://host:port/path/to/node<br/>
+**Method**: GET<br/>
 **Example Response**:
 
 ```json
