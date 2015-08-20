@@ -22,7 +22,6 @@ The REST DSLink allows you to create a server that binds to a specific port. Wit
 
 ## Create/Update Node
 
-**URL**: http://host:port/path/to/node<br/>
 **Method**: PUT<br/>
 **Example Request**:
 ```json
