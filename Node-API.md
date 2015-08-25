@@ -221,7 +221,9 @@ A -> B
 
 there is no need to send ack back if the incomming message doesn't come with any requests or responses.
 
+ack can also be merged, if 2 or more incomming messages are received before the ack is sent back, the ack is sent with the last msg id.
+
 #### Behavior of responder when ack is missing
- * subscription responder should stop sending data and rollup all the pending changes when there are more than N ack missing for the subscription update. by default N = 8 on the broker, this value should be configurable.
+ * subscription responder should stop sending data and rollup all the pending changes when there are more than N ack missing for the subscription update. by default N = 8 on the broker, this value should be configurable. It should start send data once a new ack is received and pending ack number is less than N.
  * list responder should stop sending data and merge all the changes when there are more than N ack missing.
  * for streaming invoke, the sdk should provide a way for the callback to know how many ack is not received yet.
