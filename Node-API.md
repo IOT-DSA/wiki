@@ -196,8 +196,7 @@ A -> B
 ```json
 {
   "msg": 10,
-  "requestes": [
-    .....
+  "requests": [
   ]
 }
 ```
@@ -207,7 +206,6 @@ B -> A
   "msg": 1,
   "ack": 10,
   "responses": [
-    .....
   ]
 }
 ```
