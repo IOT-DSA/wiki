@@ -1,4 +1,4 @@
-Go to your dglux server installation.
+Go to your dglux-server installation folder. Normally it is located in: `/opt/dsa/dglux-server/`
 
 Certificate generation requires certutil. On Ubuntu install using: 
 ```
