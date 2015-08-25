@@ -35,6 +35,7 @@ field.
 #### Example
 ```json
 {
+   "msg": 15,
    "requests": [
       {
          "rid": 2,
@@ -81,6 +82,7 @@ partial responses. Responses can (and often will) provide more fields than those
 #### Example of stream that use list for row structure
 ```json
 {
+  "msg": 16,
   "responses": [
     {
       "rid": 2,
@@ -136,6 +138,7 @@ partial responses. Responses can (and often will) provide more fields than those
 #### Example with custom columns in the response
 ```json
 {
+  "msg": 17,
   "responses": [
     {
       "rid": 2,
@@ -155,6 +158,8 @@ partial responses. Responses can (and often will) provide more fields than those
 If any error happened, stream response will have a error object showing the information about the error
 ```json
 {
+  "msg": 18,
+  "ack" : 7,
   "responses": [
     {
       "rid": 1,
