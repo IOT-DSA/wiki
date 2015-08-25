@@ -6,6 +6,7 @@ apt-get install libnss3-tools
 ```
 
 ```
+cd /opt/dsa/dglux-server/
 mkdir certs
 cd certs
 certutil -N -d 'sql:./'
