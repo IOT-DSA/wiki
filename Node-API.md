@@ -121,6 +121,7 @@ partial responses. Responses can (and often will) provide more fields than those
 #### Example of stream that use map for row structure
 ```json
 {
+  "msg": 17,
   "responses": [
     {
       "rid": 2,
@@ -138,7 +139,7 @@ partial responses. Responses can (and often will) provide more fields than those
 #### Example with custom columns in the response
 ```json
 {
-  "msg": 17,
+  "msg": 18,
   "responses": [
     {
       "rid": 2,
@@ -158,7 +159,7 @@ partial responses. Responses can (and often will) provide more fields than those
 If any error happened, stream response will have a error object showing the information about the error
 ```json
 {
-  "msg": 18,
+  "msg": 19,
   "ack" : 7,
   "responses": [
     {
@@ -187,3 +188,40 @@ If any error happened, stream response will have a error object showing the info
    - **detail**  a detail message of the error, can be the stack trace or other message
      - when /settings/$errorDetail = false, error won’t contain detail message
    - anything else to describe the error
+
+## msg and ack
+every message comes with an msg id. when received response or request, the dslink/broker must send a ack back with same id. the ack can be a standalone message or merged into normal message.
+#### Example:
+A -> B
+```json
+{
+  "msg": 10,
+  "requestes": [
+    .....
+  ]
+}
+```
+B -> A
+```json
+{
+  "msg": 1,
+  "ack": 10,
+  "responses": [
+    .....
+  ]
+}
+```
+A -> B
+```json
+{
+  "msg": 11,
+  "ack": 1
+}
+```
+
+there is no need to send ack back if the incomming message doesn't come with any requests or responses.
+
+#### Behavior of responder when ack is missing
+ * subscription responder should stop sending data and rollup all the pending changes when there are more than N ack missing for the subscription update. by default N = 8 on the broker, this value should be configurable.
+ * list responder should stop sending data and merge all the changes when there are more than N ack missing.
+ * for streaming invoke, the sdk should provide a way for the callback to know how many ack is not received yet.
