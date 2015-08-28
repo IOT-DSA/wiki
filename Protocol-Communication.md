@@ -24,22 +24,22 @@ All Base64 encoded strings used in DSLink handshake are url and filename safe Ba
 #### connection-request-json
 The request uses an HTTP POST method to perform the request.
 A json request data is posted to the server's connection end point:
-```javascript
+```json
 {
-  "publicKey":"BEACGownMzthVjNFT7Ry-RPX395kPSoUqhQ_H_vz0dZzs5RYoVJKA16XZhdYd__ksJP0DOlwQXAvoDjSMWAhkg4",
-  "zone":"default",
-  "isRequester":true,
-  "isResponder":true,
-  "version":"1.0.4"
+  "publicKey": "BEACGownMzthVjNFT7Ry-RPX395kPSoUqhQ_H_vz0dZzs5RYoVJKA16XZhdYd__ksJP0DOlwQXAvoDjSMWAhkg4",
+  "zone": "default",
+  "isRequester": true,
+  "isResponder": true,
+  "version": "1.0.4"
 }
 ```
 
-Query parameters:
+Query Parameters:
  - dsId
      - A unique string of 43-128 characters, the last 43 characters are url safe Base64 encoded SHA256 hash of the public-key binary
      - example: "link-dataflow-s-R9RKdvC2VNkfRwpNDMMpmT_YWVbhPLfbIc-7g4cpc"
  
-Json parameters:
+JSON parameters:
  - publicKey
      -  Base64 of a ECDH public key ECPoint encoded in X9.63 (uncompressed)
  - isRequester
@@ -53,16 +53,16 @@ Json parameters:
 
 #### server-configuration content
 This is an example configuration of a DSA node.     
-```javascript
+```json
 {
-  "dsId":"broker-dsa-FEuG-dsvoy3Mfh-DY4ZLqxWdcjA9mky2MyCd0DmqTMw",
-  "publicKey":"BG4OYopcM2q09amKRKsc8N99ns5dybnBYG4Fi8bQVf6fKjyT_KRlPMJCs-3zvnSbBCXzS5fZfi88JuiLYwJY0gc",
-  "wsUri":"/ws",
-  "httpUri":"/http",
-  "tempKey":"BARngwlfjwD7goZHCh_4iWsP0e3JszsvOtovn1UyPnqZLlSOyoUH1v_Lop0oUFClpVhlzsWAAqur6S8apZaBe4I",
-  "salt":"0x205",
-  "version":"1.0.4",
-  "updateInterval":200
+  "dsId": "broker-dsa-FEuG-dsvoy3Mfh-DY4ZLqxWdcjA9mky2MyCd0DmqTMw",
+  "publicKey": "BG4OYopcM2q09amKRKsc8N99ns5dybnBYG4Fi8bQVf6fKjyT_KRlPMJCs-3zvnSbBCXzS5fZfi88JuiLYwJY0gc",
+  "wsUri": "/ws",
+  "httpUri": "/http",
+  "tempKey": "BARngwlfjwD7goZHCh_4iWsP0e3JszsvOtovn1UyPnqZLlSOyoUH1v_Lop0oUFClpVhlzsWAAqur6S8apZaBe4I",
+  "salt": "0x205",
+  "version": "1.0.4",
+  "updateInterval": 200
 }
 ```
 When client connect to server's connection end point, server should return its configuration JSON in the http response body
