@@ -35,14 +35,14 @@ field.
 #### Example
 ```json
 {
-   "msg": 15,
-   "requests": [
-      {
-         "rid": 2,
-         "method": "list",
-         "path": "/connections/dslink1"
-      }
-   ]
+  "msg": 15,
+  "requests":[
+    {
+      "rid": 2,
+      "method": "list",
+      "path": "/connections/dslink1"
+    }
+  ]
 }
 ```
 
@@ -118,6 +118,7 @@ partial responses. Responses can (and often will) provide more fields than those
   ]
 }
 ```
+
 #### Example of stream that use map for row structure
 ```json
 {
@@ -136,6 +137,7 @@ partial responses. Responses can (and often will) provide more fields than those
   ]
 }
 ```
+
 #### Example with custom columns in the response
 ```json
 {
@@ -144,17 +146,27 @@ partial responses. Responses can (and often will) provide more fields than those
     {
       "rid": 2,
       "stream": "open",
-      "columns":[
-        {"name":"ts","type":"time"},
-        {"name":"value","type":"number"}
+      "columns": [
+        {
+          "name": "ts",
+          "type": "time"
+        },
+        {
+          "name": "value",
+          "type": "number"
+        }
       ],
       "updates": [
-        ["2014-01-01T11:21:23.00-08:00", 45]
+        [
+          "2014-01-01T11:21:23.00-08:00",
+          45
+        ]
       ]
     }
   ]
 }
 ```
+
 ## Error
 If any error happened, stream response will have a error object showing the information about the error
 ```json
