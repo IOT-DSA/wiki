@@ -8,7 +8,7 @@ In your server.json, set the `twoFactorAuth` setting from `none` to `duo`.
 
 Then add the following to your server.json.
 
-```
+```json
 "duo": {
   "host": "",
   "ikey": "",
