@@ -13,7 +13,7 @@ dslinkAgent is defined in [dslink.json](dslink.json)
 * **engines** config defines the engines that can run the main file, if engines is blank, means main file itself is executable
 
 ### broker
-the url of connection end point
+The url of connection end point
 
 ### log
 different log level, "debug" will print all log message, and none will print no log message except critical fatal errors.
