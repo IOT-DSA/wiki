@@ -27,7 +27,6 @@ A json request data is posted to the server's connection end point:
 ```json
 {
   "publicKey": "BEACGownMzthVjNFT7Ry-RPX395kPSoUqhQ_H_vz0dZzs5RYoVJKA16XZhdYd__ksJP0DOlwQXAvoDjSMWAhkg4",
-  "zone": "default",
   "isRequester": true,
   "isResponder": true,
   "version": "1.0.4"
@@ -48,8 +47,6 @@ JSON parameters:
      - Indicates if the client is a responder
  - version
      - version of DSA protocol
- - zone (optional)
-     - Designates the quarantine zone the client wants to be in.
 
 #### server-configuration content
 This is an example configuration of a DSA node.     
