@@ -1,6 +1,6 @@
 ## Overview
 
-nodeAPI is a state-full and light-weight streaming remote procedure call (RPC) protocol. Primarily this specification defines several data structures and the rules around their processing. It is transport agnostic in that the concepts can be used over various transport layers such as: the same process, http, web-sockets, sockets, or various other message passing environments. It uses [JSON](http://www.json.org/) ([RFC 4627](http://www.ietf.org/rfc/rfc4627.txt)) as data format.
+nodeAPI is a state-full and light-weight streaming remote procedure call (RPC) protocol. Primarily this specification defines several data structures and the rules around their processing. It is transport agnostic in that the concepts can be used over various transport layers such as: the same process, http, web-sockets, sockets, or various other message passing environments. It uses [JSON](http://www.json.org/) ([RFC 4627](http://www.ietf.org/rfc/rfc4627.txt)) as the data format by default, however the protocol is serialization-format independent, and can be transported using formats like MsgPack.
 
 ## Conventions
 
