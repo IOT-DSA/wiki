@@ -76,7 +76,9 @@ Number of Server Workers. For low end devices, this should stay at 1. For large 
 
 ## updateInterval
 
-The interval in which data is sent to links by the broker in milliseconds. This options will be going away soon.
+**Notice**: This option is deprecated.
+
+The interval in which data is sent to links by the broker in milliseconds.
 
 **Default Value**: 200
 
