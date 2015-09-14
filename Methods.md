@@ -50,7 +50,6 @@ The response of list will update on any node change available to the current req
         - children node should include **$type** if node support subscription
         - children node should include **$interface** if it's defined
           - **$interface** are not needed if it's already defined in $is profile.
-        - children node should include **$shared** if it's defined
         - other properties of children nodes shouldn't appear in the list response.
    - Names must not be blank or contain these characters: ```. / \ ? * : | “ < >```
    - When % is used in name, it must be used only for UTF-8 based percent encode, not for other purpose. 
