@@ -18,6 +18,9 @@
    - interface paths are path relative to the $base/defs/profile/
    - interfaces defined for a profile must be fully implemented in the profile
    - interfaces defined for a node must be implemented by either the node or the profile
+ - **$shared**
+   - Top level data that is shown immediately in the children list response without having to list on the node to retrieve the data.
+   - This is similar to a profile, however it is a plain string identifier for a node. This can be used, for example, to discover all DSLinks that have this property in its super root.
  - **$disconnectedTs**
    - timestamp of when the remote node get disconnected
    - this value should be null or undefined when device is connected
