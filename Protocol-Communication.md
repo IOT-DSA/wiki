@@ -29,6 +29,7 @@ A json request data is posted to the server's connection end point:
   "publicKey": "BEACGownMzthVjNFT7Ry-RPX395kPSoUqhQ_H_vz0dZzs5RYoVJKA16XZhdYd__ksJP0DOlwQXAvoDjSMWAhkg4",
   "isRequester": true,
   "isResponder": true,
+  "linkData": {},
   "version": "1.0.4"
 }
 ```
@@ -45,6 +46,8 @@ JSON parameters:
      - Indicates if the client is a requester
  - isResponder
      - Indicates if the client is a responder
+ - linkData
+     - Extra data a DSLink can attach for the requester to utilize
  - version
      - version of DSA protocol
 
