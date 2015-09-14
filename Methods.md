@@ -97,8 +97,7 @@ The response of list will update on any node change available to the current req
         "$is": "temperaturePoint",
         "$name": "Custom Name for Point1",
         "$invokable": "read",
-        "$interface": "tempUnit",
-        "$shared": "data"
+        "$interface": "tempUnit"
       }
     ],
     [
