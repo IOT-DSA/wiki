@@ -30,6 +30,7 @@ A json request data is posted to the server's connection end point:
   "isRequester": true,
   "isResponder": true,
   "linkData": {},
+  "path", "/downstream/link",
   "version": "1.0.4"
 }
 ```
@@ -48,6 +49,8 @@ JSON parameters:
      - Indicates if the client is a responder
  - linkData
      - Extra data a DSLink can attach for the requester to utilize
+ - path
+     - The full path where the DSLink is located on the broker
  - version
      - version of DSA protocol
 
