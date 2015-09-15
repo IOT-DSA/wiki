@@ -30,7 +30,6 @@ A json request data is posted to the server's connection end point:
   "isRequester": true,
   "isResponder": true,
   "linkData": {},
-  "path", "/downstream/link",
   "version": "1.0.4"
 }
 ```
@@ -49,8 +48,6 @@ JSON parameters:
      - Indicates if the client is a responder
  - linkData
      - Extra data a DSLink can attach for the requester to utilize
- - path
-     - The full path where the DSLink is located on the broker
  - version
      - version of DSA protocol
 
@@ -64,6 +61,7 @@ This is an example configuration of a DSA node.
   "httpUri": "/http",
   "tempKey": "BARngwlfjwD7goZHCh_4iWsP0e3JszsvOtovn1UyPnqZLlSOyoUH1v_Lop0oUFClpVhlzsWAAqur6S8apZaBe4I",
   "salt": "0x205",
+  "path": "/downstream/link",
   "version": "1.0.4",
   "updateInterval": 200
 }
@@ -84,12 +82,14 @@ When client connect to server's connection end point, server should return its c
     - An endpoint for http connection
     - Absolute URI to a different host or port is not allowed
     - See [HTTP Queries](#http-queries)
- - salt
-    - A salt string to protect connection from replay attack on websocket connection
-    - Server should make sure that the salt is never reused unless connection is reset and nonce is regenerated
  - tempKey
     - a one time public key for the ECDH
     - Base64 of a ECDH public key ECPoint encoded in X9.63 (uncompressed)
+ - salt
+    - A salt string to protect connection from replay attack on websocket connection
+    - Server should make sure that the salt is never reused unless connection is reset and nonce is regenerated
+ - path
+     - The full path where the DSLink is located on the broker
  - updateInterval
     - Only affects the responder
     - When specified, a responder shouldn't send stream updates to server more often than the minimum interval in milliseconds, value subscriptions in the responder should be cached.
