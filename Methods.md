@@ -115,6 +115,10 @@ The response of list will update on any node change available to the current req
 }
 ```
 
+### Example Sequence Diagram of List
+![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/list_sequence.png)
+
+
 ## Set
 
 This method will set values on a node.
@@ -187,9 +191,6 @@ No response update.
   "stream": "closed"
 }
 ```
-
-### Example Sequence Diagram of List
-![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/list_sequence.png)
 
 ## Invoke
 
