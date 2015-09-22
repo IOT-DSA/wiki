@@ -188,6 +188,9 @@ No response update.
 }
 ```
 
+### Example Sequence Diagram of List
+![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/list_sequence.png)
+
 ## Invoke
 
 This method will invoke an action on a node.
@@ -282,6 +285,13 @@ The default table mode is `stream`. When the mode is omitted the last mode set w
 
 **meta**: optional
  * This is overall table metadata related to the table as a whole. This is solely used for information purposes about the table.
+
+### Example Sequence Diagram of Invoke with Streaming Response
+![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/invoke_sequence.png)
+
+### Example Sequence Diagram of Invoke with Non-Streaming Response
+![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/invoke2_sequence.png)
+
 
 ## Subscribe
 
@@ -420,6 +430,8 @@ No response fields sent.
 }
 ```
 
+### Example Sequence Diagram of Subscribe and Unsubscribe
+![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/subscribe_sequence.png)
 
 ## Close
 
