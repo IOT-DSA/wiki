@@ -9,7 +9,7 @@ methods will go into more detail on how updates are received.
 #### List of methods
 
 - list
-- set
+- set / publish
 - remove
 - invoke
 - subscribe
@@ -119,9 +119,9 @@ The response of list will update on any node change available to the current req
 ![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/list_sequence.png)
 
 
-## Set
+## Set / Publish
 
-This method will set values on a node.
+This method will set values on a node, analogous to publishing to a topic in traditional message brokers.
 
 #### Request fields
  - path (type:path)
