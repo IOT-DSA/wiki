@@ -1,16 +1,16 @@
 ## Required Components
  * HTTP Client
- * WebSocket client
+ * WebSocket Client
  * JSON Parser
- * Cryptography library that support ECDH curve P-25(secp256r1)
- * Base64 encoder and decoder (URL version, without padding `=`)
+ * Cryptography Library with ECDH curve P-256(also known as secp256r1)
+ * Base64 Encoder and Decoder (URL version, without padding `=`)
 
 ## Steps
  1. Download and install a DSA broker: http://get.iot-dsa.org
- 1. Implement the handshake [Protocol Communication](Protocol%20Communication)
-   1. HTTP client to initiate connection from /conn, 
-   2. WebSocket client to send and receive data from /ws
- 1. Implement methods https://github.com/IOT-DSA/docs/wiki/Methods
- 1. Implement standard command line arguments of the DSLink and dslink.json
+ 2. Implement the handshake [Protocol Communication](Protocol%20Communication)
+   1. HTTP Client to initiate connection from /conn, 
+   2. WebSocket Client to send and receive data from /ws
+ 3. Implement Methods https://github.com/IOT-DSA/docs/wiki/Methods
+ 4. Implement standard command line arguments of the DSLink and dslink.json
    * https://github.com/IOT-DSA/docs/wiki/startup-command
    * https://github.com/IOT-DSA/docs/wiki/dslink.json  
