@@ -1,7 +1,7 @@
 ## Config Naming
- - config name start with single **$** are readable to all requester 
- - config name start with double **$$** are only readable to requester with config permission
- - config name **$$password** is special value that always return null value in the list api
+ - Config names that start with **$** are readable to all requesters.
+ - Config names that start with **$$** are only readable to requesters with config permission.
+ - Config **$$password** is special value that always returns a null value in the list method.
 
 ## Core Configs
  - **$base**
