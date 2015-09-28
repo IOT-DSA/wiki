@@ -26,7 +26,7 @@ field.
   is what is used to differentiate the requests.
   - rid cannot be reused by another request except when closing the stream
   - request rid should always > 0 
-  - max value of rid is 2147483647
+  - max value of rid is 2147483647 (0x7FFFFFFF), after that, rid start from 1 again.
 - [method](methods) (string)
   - The [method](methods) is used to determine what type of request you are making.
 - path (string)
