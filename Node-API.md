@@ -26,6 +26,7 @@ field.
   is what is used to differentiate the requests.
   - rid cannot be reused by another request except when closing the stream
   - request rid should always > 0 
+  - max value of rid is 2147483647
 - [method](methods) (string)
   - The [method](methods) is used to determine what type of request you are making.
 - path (string)
@@ -192,6 +193,7 @@ If any error happened, stream response will have a error object showing the info
 
  - **error** error object
    - **msg**  optional, a short description of the error
+      - max value of msg is 2147483647 (0x7FFFFFFF), after that, msg start from 1 again.
    - **type**  optional, a standard error code if the error type is known
      - predefined error structure are in /defs/error
      - a error must have either a type or a msg or both, when msg is omitted, type is the camelCase formatting of msg
