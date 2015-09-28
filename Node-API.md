@@ -193,7 +193,6 @@ If any error happened, stream response will have a error object showing the info
 
  - **error** error object
    - **msg**  optional, a short description of the error
-      - max value of msg is 2147483647 (0x7FFFFFFF), after that, msg start from 1 again.
    - **type**  optional, a standard error code if the error type is known
      - predefined error structure are in /defs/error
      - a error must have either a type or a msg or both, when msg is omitted, type is the camelCase formatting of msg
@@ -205,6 +204,9 @@ If any error happened, stream response will have a error object showing the info
 
 ## msg and ack
 every message comes with an msg id. when received response or request, the dslink/broker must send a ack back with same id. the ack can be a standalone message or merged into normal message.
+
+max value of msg is 2147483647 (0x7FFFFFFF), after that, msg start from 1 again.
+
 #### Example:
 A -> B
 ```json
