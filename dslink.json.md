@@ -1,9 +1,9 @@
 dslink.json is the basic config and description file for every dslink application.
-it's a json document that shares most of the properties same as package.json: https://docs.npmjs.com/files/package.json
+It's a JSON document that shares most of the properties same as package.json from [npm](https://docs.npmjs.com/files/package.json).
 
-## custom properties
+## Custom Properties
 ### configs
-config file that's loaded by the dslink app, also managed by the dslink manager
+config file that's loaded by the DSLink app, also managed by the DSLink manager.
 ```
   "configs": {
     "broker": {
@@ -29,7 +29,7 @@ config file that's loaded by the dslink app, also managed by the dslink manager
  * url
  * path (file or uri path)
 * required (bool)
- * used by dslink manager to check if config is valid
+ * Used by dslink manager to check if config is valid
 
 ### getDependencies
 ```
