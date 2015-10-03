@@ -66,7 +66,7 @@ This is an example configuration of a DSA node.
   "updateInterval": 200
 }
 ```
-When client connect to server's connection end point, server should return its configuration JSON in the http response body
+When the client connects to the server's connection endpoint, the server should return its configuration JSON in the HTTP response body.
 
  - dsId
     - dsId of the server
