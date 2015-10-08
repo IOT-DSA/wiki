@@ -78,7 +78,7 @@ The response of list will update on any node change available to the current req
 {
   "rid": 1,
   "stream": "open",
-  "update": [
+  "updates": [
     [
       "$is",
       "point/light"
