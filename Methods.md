@@ -8,13 +8,13 @@ methods will go into more detail on how updates are received.
 
 #### List of methods
 
-- list
-- set / publish
-- remove
-- invoke
-- subscribe
-- unsubscribe
-- close
+- [List](#list)
+- [Set/Publish](#set--publish)
+- [Remove](#remove)
+- [Invoke](#invoke)
+- [Subscribe](#subscribe)
+- [Unsubscribe](#unsubscribe)
+- [Close](#close)
 
 ## List
 
