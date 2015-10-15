@@ -38,7 +38,9 @@ Query Parameters:
  - dsId
      - A unique string of 43-128 characters, the last 43 characters are url safe Base64 encoded SHA256 hash of the public-key binary
      - example: "link-dataflow-s-R9RKdvC2VNkfRwpNDMMpmT_YWVbhPLfbIc-7g4cpc"
- 
+ - token
+     - optional, [A token for client to access predefined authorization](https://github.com/IOT-DSA/docs/wiki/Token-Based-Handshake)
+
 JSON parameters:
  - publicKey
      -  Base64 of a ECDH public key ECPoint encoded in X9.63 (uncompressed)
@@ -113,6 +115,8 @@ The client must send the following url parameters:
     - Authentication string encoded in Base64 to prove client is a valid owner of the dsId and publicKey
     - SHA256 (UTF8Bytes (salt) + SharedSecret ) *("+" here means concatenating of byte buffer)*
     - SharedSecret is the result of a standard ECDH with client's private key and server's one time public key: tempKey
+ - token
+     - optional, [A token for client to access predefined authorization](https://github.com/IOT-DSA/docs/wiki/Token-Based-Handshake)
 
 ###### Receiving response
 - salt
