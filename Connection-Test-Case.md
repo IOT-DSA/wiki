@@ -50,8 +50,8 @@ V2P1nwhoENIi7SqkNBuRFcoc8daWd_iWYYDh_0Z01rs
      - sharedSecret = (tempKey.Q * privateKey.D).x;
      - sharedSecret is always 32 bytes (256 bits), add padding 0 to the left if x only has 31 bytes or less
    - encode the salt into utf8, UTF8("0000") = Hex```30303030```
-   - concat salt and sharedSecret bytes: H = salt+sharedSecret = Hex```30303030116128c016cf380933c4b40ffeee8ef5999167f5c3d49298ba2ebfd0502e74e3```
-   - auth = base64(sha256(H))
+   - concat salt and sharedSecret bytes: Bin = salt+sharedSecret = Hex```30303030116128c016cf380933c4b40ffeee8ef5999167f5c3d49298ba2ebfd0502e74e3```
+   - auth = base64(sha256(Bin))
 
 ## Start connection, Server validate Client
    server has A, salt and nonce already, use same algorithm to check if dsAuth value is same
