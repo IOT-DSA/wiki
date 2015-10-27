@@ -39,13 +39,13 @@
 
 ## filter
  * syntax: `filter {condition}`
- * input:  array of node or array of records
+ * input:  array of nodes or array of records
  * output: same type as input
  * distributed: yes
 
- exmaples
+ examples
 ```
- filter $unit="true"
+ filter $unit="F"
  filter @icon!=null
 ```
 
