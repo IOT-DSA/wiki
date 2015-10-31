@@ -5,6 +5,7 @@ Welcome to the DSA Wiki!
 &emsp;◌ [Node API](Node-API)<br/>
 &emsp;&emsp;◌ [Methods](Methods)<br/>
 &emsp;&emsp;◌ [Broker](Broker)<br/>
+&emsp;◌ [Tokens](Token-Based-Handshake)<br/>
 ### Distributed Service Model
 &emsp;◌ [Node Configs](Configs)<br/>
 &emsp;◌ [Value Types](Value-Types)<br/>
