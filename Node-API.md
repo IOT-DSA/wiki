@@ -24,14 +24,14 @@ field.
 - rid (integer)
   - The request ID is how the request gets identified. All responses are asynchronous and this field
   is what is used to differentiate the requests.
-  - rid cannot be reused by another request except when closing the stream
-  - request rid should always > 0 
-  - max value of rid is 2147483647 (0x7FFFFFFF), after that, rid start from 1 again.
+  - rid cannot be reused by another request except when closing the stream.
+  - Request rid should always be greater than 0.
+  - The max value of an rid is 2147483647(0x7FFFFFFF), after that, the next rid should be reset to 1.
 - [method](methods) (string)
   - The [method](methods) is used to determine what type of request you are making.
 - path (string)
   - The path is where the method should perform the operation on.
-  - The path must be valid
+  - The path must be valid.
 
 #### Example
 ```json
