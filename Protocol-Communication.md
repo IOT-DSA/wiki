@@ -39,7 +39,7 @@ Query Parameters:
      - A unique string of 43-128 characters, the last 43 characters are url safe Base64 encoded SHA256 hash of the public-key binary
      - example: "link-dataflow-s-R9RKdvC2VNkfRwpNDMMpmT_YWVbhPLfbIc-7g4cpc"
  - token
-     - optional, [A token for client to access predefined authorization](https://github.com/IOT-DSA/docs/wiki/Token-Based-Handshake)
+     - [Optional token for client to access predefined authorization](https://github.com/IOT-DSA/docs/wiki/Token-Based-Handshake)
 
 JSON parameters:
  - publicKey
@@ -51,7 +51,7 @@ JSON parameters:
  - linkData
      - Extra data a DSLink can attach for the requester to utilize
  - version
-     - version of DSA protocol
+     - Version of DSA protocol
 
 #### server-configuration content
 This is an example configuration of a DSA node.     
@@ -81,11 +81,11 @@ When the client connects to the server's connection endpoint, the server should 
       - SHA256 (UTF8Bytes (salt) + SharedSecret) *("+" here means concatenating of byte buffer)*
       - The salt is already provided within the JSON response
  - httpUri
-    - An endpoint for http connection
+    - An endpoint for HTTP connection
     - Absolute URI to a different host or port is not allowed
     - See [HTTP Queries](#http-queries)
  - tempKey
-    - a one time public key for the ECDH
+    - One time public key for ECDH
     - Base64 of a ECDH public key ECPoint encoded in X9.63 (uncompressed)
  - salt
     - A salt string to protect connection from replay attack on websocket connection
@@ -103,12 +103,12 @@ When the client connects to the server's connection endpoint, the server should 
 
 ![](https://raw.githubusercontent.com/IOT-DSA/docs/master/images/ws_handshake.png)
 
-both websocket client and server need to make sure a message is sent to other side at least once every 60 seconds, (because of network latency can cause message delay on other side, 30 ~ 45 seconds is suggested value for a minimal interval) 
+Both WebSocket client and server need to make sure a message is sent to other side at least once every 60 seconds, (because of network latency can cause message delay on other side, 30 to 45 seconds is suggested value for a minimal interval).
 
-if no message is received in 60 seconds, websocket should be considered disconnected and a re-connection is needed
+If no message is received in 60 seconds, the WebSocket should be considered disconnected and a re-connection is necessary.
 
 ###### Sending queries
-The client must send the following url parameters:
+The client must send the following URL parameters:
  - dsId
     - dsId of the client
  - auth
@@ -116,7 +116,7 @@ The client must send the following url parameters:
     - SHA256 (UTF8Bytes (salt) + SharedSecret ) *("+" here means concatenating of byte buffer)*
     - SharedSecret is the result of a standard ECDH with client's private key and server's one time public key: tempKey
  - token
-     - optional, [A token for client to access predefined authorization](https://github.com/IOT-DSA/docs/wiki/Token-Based-Handshake)
+     - [Optional token for client to access predefined authorization](https://github.com/IOT-DSA/docs/wiki/Token-Based-Handshake)
 
 ###### Receiving response
 - salt
