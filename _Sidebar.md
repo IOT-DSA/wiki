@@ -5,6 +5,7 @@ Communication<br/>
 &emsp;◌ [Node API](Node-API)<br/>
 &emsp;&emsp;◌ [Methods](Methods)<br/>
 &emsp;&emsp;◌ [Broker](Broker)<br/>
+&emsp;◌ [Tokens](Token-Based-Handshake)<br/>
 Distributed Service Model<br/>
 &emsp;◌ [Node Configs](Configs)<br/>
 &emsp;◌ [Value Types](Value-Types)<br/>
