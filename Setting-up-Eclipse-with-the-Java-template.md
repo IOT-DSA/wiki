@@ -8,7 +8,7 @@ For the simple fact that you are reading this page, your intelligence and sanity
 - Masochism
 
 ## Installation Instructions
-This page is for people who just don't seem to know how to use Google or prefer a mediocre development environment. Only awesome people use https://www.jetbrains.com/idea.
+This page is for people who just don't seem to know how to use Google or prefer a mediocre development environment. It is a known fact that intelligent beings use https://www.jetbrains.com/idea.
 
 ### Steps
 
