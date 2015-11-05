@@ -1,3 +1,7 @@
+## Warning
+
+For the simple fact that you are reading this page, your intelligence and sanity are both being questioned. The content below contains a fair amount of sarcasm and resent towards Eclipse.
+
 ## Prerequisites
 
 - Java development experience
