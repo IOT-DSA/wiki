@@ -22,3 +22,4 @@ This page is for people who just don't seem to know how to use Google or prefer 
   - Set the program arguments to: -b http://localhost:8080/conn -d ../dslink.json
 
 Run it. Congratulations, you're running an editor slightly better than Microsoft Notepad!
+If you couldn't make it through all the steps, please ensure that you have all the prerequisites.
