@@ -2,7 +2,7 @@
 
 For the simple fact that you are reading this page, your intelligence and sanity are both being questioned. The content below contains a fair amount of sarcasm and resent towards Eclipse.
 
-## Prerequisites and Requirements
+## Prerequisites
 
 - Java development experience
 - Some intelligence
@@ -20,6 +20,6 @@ This page is for people who just don't seem to know how to use Google or prefer 
 - Setup a run configuration:
   - Set the working directory to template/build
   - Set the program arguments to: -b http://localhost:8080/conn -d ../dslink.json
+- Run it. Congratulations, you're running an editor slightly better than Microsoft Notepad!
 
-Run it. Congratulations, you're running an editor slightly better than Microsoft Notepad!
-If you couldn't make it through all the steps, please ensure that you have all the prerequisites and requirements.
+If you couldn't make it through all the steps, please reread the prerequisites.
