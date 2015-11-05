@@ -4,8 +4,8 @@ For the simple fact that you are reading this page, your intelligence and sanity
 
 ## Prerequisites
 
-- Intelligence to some degree
-- The personality of a masochist
+- Common sense
+- Masochism
 
 ## Installation Instructions
 This page is for people who just don't seem to know how to use Google or prefer a mediocre development environment. Only awesome people use https://www.jetbrains.com/idea.
