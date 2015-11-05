@@ -4,9 +4,8 @@ For the simple fact that you are reading this page, your intelligence and sanity
 
 ## Prerequisites
 
-- Java development experience
-- Some intelligence
-- The personality of a masochist (Eclipse is quite reliable at causing pain)
+- Intelligence to some degree
+- The personality of a masochist
 
 ## Installation Instructions
 This page is for people who just don't seem to know how to use Google or prefer a mediocre development environment. Only awesome people use https://www.jetbrains.com/idea.
