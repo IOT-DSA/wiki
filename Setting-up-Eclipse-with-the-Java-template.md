@@ -7,7 +7,7 @@
 - Navigate to https://marketplace.eclipse.org/content/gradle-integration-eclipse-0
 - Use the "Install" button to install the Gradle integration for Eclipse.
 - Once Gradle is installed, go ahead and clone the template repository from https://github.com/IOT-DSA/template-dslink-java.
-  - Navigate into the root of the template and build it. Building it simply ensures that everything is all set. The build directory will also be used in the runtime configuration to prevent repository pollution.
+  - Navigate into the root of the template and build it. Building it simply ensures that everything is all set. The created build directory will also be used in the runtime configuration to prevent repository pollution.
      - On Windows (Powershell) use `.\gradlew.bat build`
      - On Unix use `./gradlew build`
 - In Eclipse, import the project
