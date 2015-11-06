@@ -1,4 +1,4 @@
-### Proxy Configuration
+## Proxy Configuration
 
 Replace the variables between `{{` and `}}` with their corresponding values if they are used:
 - `nginx_host`: Host/Domain name for your DGLux Server that nginx will respond to.
