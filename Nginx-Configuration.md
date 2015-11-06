@@ -6,6 +6,11 @@ Replace the variables between `{{` and `}}` with their corresponding values:
 - `dglux_port`: Port that DGLux Server is running on.
 
 ```nginx
+map $http_upgrade $connection_upgrade {
+  default upgrade;
+  ''   '';
+}
+
 upstream dglux {
   server localhost:{{dglux_port}} max_fails=0 fail_timeout=30s;
   keepalive 32;
