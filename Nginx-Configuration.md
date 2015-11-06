@@ -1,9 +1,11 @@
 ### Proxy Configuration
 
-Replace the variables between `{{` and `}}` with their corresponding values:
-- `nginx_host`: Host/Domain name for your DGLux Server that Nginx will respond to.
-- `nginx_port`: Port you want Nginx to listen on.
+Replace the variables between `{{` and `}}` with their corresponding values if they are used:
+- `nginx_host`: Host/Domain name for your DGLux Server that nginx will respond to.
+- `nginx_port`: Port you want nginx to listen on.
 - `dglux_port`: Port that DGLux Server is running on.
+- `ssl_certificate_path`: Path to the SSL certificate.
+- `ssl_certificate_key_path`: Path to the key for the SSL certificate.
 
 ```nginx
 map $http_upgrade $connection_upgrade {
