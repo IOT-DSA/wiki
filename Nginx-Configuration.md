@@ -14,13 +14,15 @@ upstream dglux {
 server {
     server_name {{nginx_host}};
 
-    # Include if you do not want SSL.
+    #### Include if you do not want SSL. ####
     listen {{nginx_port}};
+    #########################################
 
-    # Include if you want SSL.
+    #### Include if you want SSL. ####
     listen {{nginx_port}} ssl;
     ssl_certificate {{path_to_certificate}};
     ssl_certificate_key {{path_to_certificate_key}};
+    ##################################
 
     location / {
         proxy_pass http://dglux;
