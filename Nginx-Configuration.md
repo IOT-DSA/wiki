@@ -1,16 +1,26 @@
-## For HTTP Proxies
+### For HTTP Proxies
+
+Replace the variables between `{{` and `}}` with their corresponding values:
+- `nginx_host`: Host/Domain name for your DGLux Server that Nginx will respond to.
+- `nginx_port`: Port you want Nginx to listen on.
+- `dglux_port`: Port that DGLux Server is running on.
+
 ```nginx
 upstream dglux {
-  server localhost:{{server_port}} max_fails=0 fail_timeout=30s;
+  server localhost:{{dglux_port}} max_fails=0 fail_timeout=30s;
   keepalive 32;
 }
 
 server {
-    listen 80;
+    server_name {{nginx_host}};
 
+    // Include if you do not want SSL.
+    listen {{nginx_port}};
+
+    // Include if you want SSL.
+    listen {{nginx_port}} ssl;
     ssl_certificate {{path_to_certificate}};
     ssl_certificate_key {{path_to_certificate_key}};
-    server_name {{server_host}};
 
     location / {
         proxy_pass http://dglux;
