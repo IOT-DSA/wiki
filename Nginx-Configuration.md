@@ -1,5 +1,5 @@
 ## For HTTP Proxies
-```
+```nginx
 upstream dglux {
   server localhost:{{server_port}} max_fails=0 fail_timeout=30s;
   keepalive 32;
