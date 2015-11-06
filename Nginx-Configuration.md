@@ -4,8 +4,8 @@ Replace the variables between `{{` and `}}` with their corresponding values if t
 - `nginx_host`: Host/Domain name for your DGLux Server that nginx will respond to.
 - `nginx_port`: Port you want nginx to listen on.
 - `dglux_port`: Port that DGLux Server is running on.
-- `ssl_certificate_path`: Path to the SSL certificate.
-- `ssl_certificate_key_path`: Path to the key for the SSL certificate.
+- `ssl_certificate_path`: (Only used if you want SSL) Path to the SSL certificate.
+- `ssl_certificate_key_path`: (Only used if you want SSL) Path to the key for the SSL certificate.
 
 ```nginx
 map $http_upgrade $connection_upgrade {
