@@ -4,9 +4,10 @@
 
 ## Installation instructions
 
-  - Navigate into the root of the template and build it. Building it simply ensures that everything is all set. The created build directory will also be used in the runtime configuration to prevent repository pollution.
-     - On Windows (Powershell) use `.\gradlew.bat build`
-     - On Unix use `./gradlew build`
+- Go ahead and clone the template repository from https://github.com/IOT-DSA/template-dslink-java.
+- Navigate into the root of the template and build it. Building it simply ensures that everything is all set. The created build directory will also be used in the runtime configuration to prevent repository pollution.
+   - On Windows (Powershell) use `.\gradlew.bat build`
+   - On Unix use `./gradlew build`
 - In Intellij, create the project
   - File > Create Project From Existing Sources
   - Open the root directory of the template
