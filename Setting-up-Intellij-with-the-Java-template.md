@@ -16,7 +16,7 @@
 - Setup the Run Configuration
   - Run > Edit Configurations
   - Create a new configuration for a Java application
-  - Renamed the configuration
+  - Rename the configuration
   - Set the main class to `org.dsa.iot.template.Main`
   - Set the program arguments to `-b http://localhost:8080/conn -d ../dslink.json`
     - Configure the URL to your running broker as necessary
