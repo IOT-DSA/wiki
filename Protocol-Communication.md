@@ -135,3 +135,6 @@ The client must send the following URL parameters:
 * 1.0.4
   * support ack
   * support linkData
+
+* 1.1.2
+  * support msgpack
