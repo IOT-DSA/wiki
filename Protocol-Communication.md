@@ -30,7 +30,8 @@ A json request data is posted to the server's connection end point:
   "isRequester": true,
   "isResponder": true,
   "linkData": {},
-  "version": "1.0.4"
+  "version": "1.1.2",
+  "formats":["msgpack","json"]
 }
 ```
 
@@ -52,6 +53,8 @@ JSON parameters:
      - Extra data a DSLink can attach for the requester to utilize
  - version
      - Version of DSA protocol
+ - formats
+     - a list of string for the formats supported by clients, but server will assume all dslink support json no matter if it's in the formats list or not.
 
 #### server-configuration content
 This is an example configuration of a DSA node.     
@@ -64,8 +67,9 @@ This is an example configuration of a DSA node.
   "tempKey": "BARngwlfjwD7goZHCh_4iWsP0e3JszsvOtovn1UyPnqZLlSOyoUH1v_Lop0oUFClpVhlzsWAAqur6S8apZaBe4I",
   "salt": "0x205",
   "path": "/downstream/link",
-  "version": "1.0.4",
-  "updateInterval": 200
+  "version": "1.1.2",
+  "updateInterval": 200,
+  "format":"msgpack"
 }
 ```
 When the client connects to the server's connection endpoint, the server should return its configuration JSON in the HTTP response body.
@@ -92,6 +96,8 @@ When the client connects to the server's connection endpoint, the server should 
     - Server should make sure that the salt is never reused unless connection is reset and nonce is regenerated
  - path
      - The full path where the DSLink is located on the broker
+ - format
+     - the format client link should use. 
  - updateInterval
     - Only affects the responder
     - When specified, a responder shouldn't send stream updates to server more often than the minimum interval in milliseconds, value subscriptions in the responder should be cached.
@@ -117,6 +123,8 @@ The client must send the following URL parameters:
     - SharedSecret is the result of a standard ECDH with client's private key and server's one time public key: tempKey
  - token
      - [Optional token for client to access predefined authorization](https://github.com/IOT-DSA/docs/wiki/Token-Based-Handshake)
+ - format
+     - format string for the websocket data, can be either "json" or "msgpack"
 
 ###### Receiving response
 - salt
