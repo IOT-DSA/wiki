@@ -54,7 +54,7 @@ JSON parameters:
  - version
      - Version of DSA protocol
  - formats
-     - a list of string for the formats supported by clients, but server will assume all dslink support json no matter if it's in the formats list or not.
+     - An array of formats supported by clients. Server will always assume all DSLinks support JSON regardless if it is in the array or not. The order of the array starts from most preferred to least preferred.
 
 #### server-configuration content
 This is an example configuration of a DSA node.     
