@@ -8,7 +8,7 @@ You will need two PEM files:
 
 Place these files in the `certs` directory of your DGLux Server installation (the `dglux-server` folder). If you do not have a `certs` directory, create it.
 
-Add the following to your `server.json` file, filling in the correct details:
+Configure the following in your `server.json` file, filling in the correct details:
 
 ```json
   "certName": "certificate.pem",
