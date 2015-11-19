@@ -44,7 +44,7 @@ Update your `server.json` certName to `CN=YourOwnCertificateName` as well as the
 ```
 
 
-## add existing certificate with private key
+### add existing certificate with private key
 convert pem to pkcs12
 ```
 openssl pkcs12 -export -out server.pfx -inkey server.key -in server.crt -certfile CAcert.crt
