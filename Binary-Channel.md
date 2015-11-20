@@ -3,7 +3,7 @@ While dsa's websocket data is transferred in json, it still allows binary data t
 
 ### example of a binary data
 
-{"rid":0,"updates":[ [9,**"\u001Bbytes,10"**,"2015-06-04T21:02:52.174+00:00"] ]}
+{"rid":0,"updates":[ [9,**"\u001B:bytes,10"**,"2015-06-04T21:02:52.174+00:00"] ]}
 
 ### meaning of the binary reference
 * \u001B
