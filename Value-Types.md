@@ -3,15 +3,14 @@ example values:
 * 1
 * 0.12
 
-### int
-example values:
-* 1
-* -1
+when number type is used in action parameter, it support addition properties
 
-### uint
-example values:
-* 1
-* 0
+editor: the editor used in GUI tool
+can be color, int
+
+min: minimun value (doesn't work in color editor)
+max: maximun value (doesn't work in color editor)
+
 
 ### string
 example values:
