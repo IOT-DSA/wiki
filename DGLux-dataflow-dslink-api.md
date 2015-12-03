@@ -180,7 +180,9 @@ this is an sample request of binding stopwatch's interval from a add block's out
 
 ## binding value subscription (_@bv)
 `/downstream/dataflow/a/stopwatch/interval` should have a regular subscription
+
 `/downstream/dataflow/a/stopwatch/interval/_@bv` should have another subscription with both value and binding path
+
 standard dsa subscription request, subscribing the _@bv
 ```json
  {
