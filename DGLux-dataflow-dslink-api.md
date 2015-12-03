@@ -71,6 +71,7 @@ add a block with name 'stopwatch' and @type 'stopwatch'
 
 
 ## list a block
+
 a sample response of the list api on `/downstream/dataflow/a/stopwatch`
 ```javascript
 {
@@ -140,5 +141,73 @@ a sample response of the list api on `/downstream/dataflow/a/stopwatch`
     }
   ],
   "msg": 92
+}
+```
+
+
+## change position
+standard dsa attribute set, everything is implemented in sdk
+```json
+    {
+      "method": "set",
+      "path": "/downstream/dataflow/a/stopwatch/@x",
+      "value": 281,
+      "rid": 26
+    },
+    {
+      "method": "set",
+      "path": "/downstream/dataflow/a/stopwatch/@y",
+      "value": 105,
+      "rid": 27
+    }
+```
+
+
+## change a binding
+standard dsa invoke, responder need to store the binding value, also need to update the _@bv subscription
+
+this is an sample request of binding stopwatch's interval from a add block's output
+```json
+{
+  "method": "invoke",
+  "path": "/downstream/dataflow/a/stopwatch/interval/_@bind",
+  "params": {
+    "bind": "@parent.add.output"
+  },
+  "rid": 117
+}
+```
+
+## binding value subscription (_@bv)
+`/downstream/dataflow/a/stopwatch/interval` should have a regular subscription
+`/downstream/dataflow/a/stopwatch/interval/_@bv` should have another subscription with both value and binding path
+standard dsa subscription request, subscribing the _@bv
+```json
+ {
+      "method": "subscribe",
+      "paths": [
+        {
+          "path": "/downstream/dataflow/a/stopwatch/interval/_@bv",
+          "sid": 54
+        }
+      ],
+      "rid": 127
+    }
+```
+
+sample response, subscription update returns `[value, bindingPath]`
+```json
+{
+  "rid": 0,
+  "updates": [
+    [
+      54,
+      [
+        5,
+        "@parent.add.output"
+      ],
+      "2015-12-02T18:45:49.337-08:00"
+    ]
+  ]
 }
 ```
