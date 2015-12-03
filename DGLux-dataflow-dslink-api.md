@@ -213,3 +213,16 @@ sample response, subscription update returns `[value, bindingPath]`
   ]
 }
 ```
+
+## delete a block
+
+to delete a block, simply set the block value to null
+
+```json
+{
+  "method": "set",
+  "path": "/downstream/dataflow/a/add",
+  "value": null,
+  "rid": 222
+}
+```
