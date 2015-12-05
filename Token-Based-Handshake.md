@@ -1,11 +1,16 @@
 When a broker is configured to not allow unknown DSLinks, a token is necessary for a new handshake.
 
-### Command to start a Dart DSLink with token
+## Command to start a Dart DSLink with token
+dart example
 ```
 dart run.dart --broker http://server/conn --token RMtO6mEJmUlJfoWfofiLgjguUEpuIzWP3sXeoBNSbLIVumlw
 ```
 
-### Parameters for /conn and /ws
+
+## implementation of the token
+these features need to be implemented in a dslink sdk to enable token
+
+#### Parameters for /conn and /ws
 A tokenHash needs to be sent to /conn and /ws endpoints.
 
 ```
@@ -14,7 +19,7 @@ http://server/conn?dsId=test-wjN6iQTk7TOXZbHHkQDH1T2zfrPcphTxchiPvTgzbww&token=R
 http://server/ws?dsId=test-wjN6iQTk7TOXZbHHkQDH1T2zfrPcphTxchiPvTgzbww&auth=kd66ixI3cvVTRpgQuHSaYN4o__JtuT-XiLE6IF695uc&token=RMtO6mEJmUlJfoWfegkDI-jCG-4J2Ke1L26hX_63vHlq9zsRJbFUWWIgE8U
 ```
 
-### tokenHash Generate Algorithm
+#### tokenHash Generate Algorithm
 ```java
 tokenHash = token.substring(0,16) + base64(sha256(dsId+token))
 ```
