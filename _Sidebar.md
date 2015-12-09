@@ -17,6 +17,6 @@ SDK Development<br/>
 DGLux Server<br/>
 &emsp;◌ [Configuration](DGLux-Server-Options)<br/>
 &emsp;◌ [LDAP Authentication](DGLux-Server---LDAP-Authentication)<br/>
-&emsp;◌ [SSL Setup](DGLux-Server---SSL)
+&emsp;◌ [SSL Setup](DGLux-Server---SSL)<br/>
 Other<br/>
 &emsp;◌ [Docker Support](Docker-Support)
