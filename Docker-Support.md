@@ -16,6 +16,8 @@ $ docker create -p 0.0.0.0:8080:8080 iotdsa/dglux-server
 your_container_id
 
 # Start the container.
+# After running this command, DGLux Server will be accessible
+# at http://127.0.0.1:8080
 $ docker start your_container_id
 
 # Stop the container.
