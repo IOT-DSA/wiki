@@ -1,6 +1,6 @@
 Welcome to the DSA Wiki!
 
-### Communication
+## Communication
 
 &emsp;◌ [Initializing Connection](Protocol-Communication)<br/>
 &emsp;◌ [Node API](Node-API)<br/>
