@@ -36,16 +36,31 @@ FROM iotdsa/dglux-server
 #   Multiple customizations can be combined.   #
 ################################################
 
+################################################
+#               Custom Projects                #
+################################################
+
 # Load a project export.
 # Place the project export in the directory that
 # contains the Dockerfile
 ADD project.zip /app
 RUN unzip project.zip -d /app/files/proj && rm project.zip
 
+################################################
+#           Change Server Options              #
+################################################
+
 # Customize the server options.
 # Place a custom server.json file in the
 # directory that contains the Dockerfile
 ADD server.json /app
+
+################################################
+#               Customize Users                #
+################################################
+
+# Add a user.
+RUN bin/users.sh add -u myuser -p mypassword
 ```
 
 Then execute the following:
