@@ -28,7 +28,7 @@ $ docker stop your_container_id
 
 To build your own image, create a file named `Dockerfile` in a blank directory with the following content, modifying to fit your needs:
 
-```docker
+```dockerfile
 FROM iotdsa/dglux-server
 
 ################################################
