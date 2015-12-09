@@ -18,7 +18,7 @@ $ docker run -p 0.0.0.0:8080:8080 iotdsa/dglux-server
 ```bash
 # Create a container that is exposed on port 8080.
 # This step only needs to be done once.
-$ docker create iotdsa/dglux-server
+$ docker create -p 0.0.0.0:8080:8080 iotdsa/dglux-server
 your_container_id
 
 # Start the container.
