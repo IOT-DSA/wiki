@@ -99,6 +99,7 @@ When the client connects to the server's connection endpoint, the server should 
  - format
      - the format client link should use. 
  - updateInterval
+    - **Do not implement, only for backwards compatibility.**
     - Only affects the responder
     - When specified, a responder shouldn't send stream updates to server more often than the minimum interval in milliseconds, value subscriptions in the responder should be cached.
        - If a value subscription update is already cached then it should update the cache with the new value to prevent useless updates or updating an incorrect value.
