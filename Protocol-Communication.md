@@ -136,14 +136,13 @@ The client must send the following URL parameters:
 
 ## Versions
 * 1.0.1
-  * support ping message, websocket should be closed if not receving any message from other side for more than 1 minute
+  * Support ping message, WebSocket should be closed if not receiving any message from other side for more than one minute.
 * 1.0.2
-  * support binary channel
+  * Support binary channel.
 * 1.0.3
-  * trust local dslink connected from 127.0.0.1, server don't send tempKey and salt, and don't do auth check
+  * Trust DSLink connected from 127.0.0.1, server doesn't send tempKey and salt, and doesn't do auth check.
 * 1.0.4
-  * support ack
-  * support linkData
-
+  * Support ack.
+  * Support linkData.
 * 1.1.2
-  * support msgpack
+  * Support MsgPack.
