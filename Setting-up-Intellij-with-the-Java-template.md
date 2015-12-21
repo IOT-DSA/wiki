@@ -20,7 +20,7 @@
   - Set the main class to `org.dsa.iot.template.Main`
   - Set the program arguments to `-b http://localhost:8080/conn -d ../dslink.json`
     - Configure the URL to your running broker as necessary
-  - Append '/build' or '\build' (depending on your system platform) to the working directory
+  - Append `/build` or `\build` (depending on your system platform) to the working directory
   - Save your configuration
 
 That's it! Run your DSLink and it will be connected to your broker.
