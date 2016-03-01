@@ -60,7 +60,7 @@ ADD server.json /app
 ################################################
 
 # Add a user.
-RUN bin/users.sh add -u myuser -p mypassword
+RUN dart bin/users.dart add -u myuser -p mypassword
 ```
 
 Then execute the following:
