@@ -1,6 +1,13 @@
 When a broker is configured to not allow unknown DSLinks, a token is necessary for a new handshake.
 
+## Work flow of using a token
+
+
+
 ## Command to start a Dart DSLink with token
+
+when dslink is running outside the broker's link manager, token can be specified in command line
+
 dart example
 ```
 dart run.dart --broker http://server/conn --token RMtO6mEJmUlJfoWfofiLgjguUEpuIzWP3sXeoBNSbLIVumlw
