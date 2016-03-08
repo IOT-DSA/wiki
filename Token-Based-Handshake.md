@@ -28,7 +28,7 @@ open server.json on server, and change `allowAllLinks` to false.
 
 when it's true, all dslinks can connect to broker without any token.
 
-#### dslink maintained by broker's own dslink manager
+#### dslinks maintained by broker's own dslink manager don't need token
 If dslink is installed from the broker's /sys/links node, that dslink will be maintained by the broker and use a auto-generated token behind the scene.
 
 ## implementation of the token
