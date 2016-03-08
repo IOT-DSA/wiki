@@ -8,9 +8,9 @@ a broker user with config permission or a dslink with config permisison can acce
 there is an add action to create tokens.
 
 parameters:
-# TimeRange: when this token is valid
-# Count: how many times this token can be used, by default it allow unlimited count
-# Managed: when token is managed, all dslinks connected with this token will get disconnected and removed from broker when token is expired or removed.
+ 1. TimeRange: when this token is valid
+ 1. Count: how many times this token can be used, by default it allow unlimited count
+ 1. Managed: when token is managed, all dslinks connected with this token will get disconnected and removed from broker when token is expired or removed.
 
 #### use token
 token can be specified in command line
