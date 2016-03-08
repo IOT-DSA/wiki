@@ -1,18 +1,35 @@
 When a broker is configured to not allow unknown DSLinks, a token is necessary for a new handshake.
 
-## Work flow of using a token
+## Workflow of using token
 
+#### create token
 
+a broker user with config permission or a dslink with config permisison can access the /sys/tokens/{username}/ node
+there is an add action to create tokens.
 
-## Command to start a Dart DSLink with token
+parameters:
+# TimeRange: when this token is valid
+# Count: how many times this token can be used, by default it allow unlimited count
+# Managed: when token is managed, all dslinks connected with this token will get disconnected and removed from broker when token is expired or removed.
 
-when dslink is running outside the broker's link manager, token can be specified in command line
+#### use token
+token can be specified in command line
 
 dart example
 ```
 dart run.dart --broker http://server/conn --token RMtO6mEJmUlJfoWfofiLgjguUEpuIzWP3sXeoBNSbLIVumlw
 ```
 
+when a dslink successfully connected to broker with token, the dslink's dsId will be stored on broker, and next time it can just connect without any token. 
+
+
+#### token is not needed when broker is running in development mode
+open server.json on server, and change `allowAllLinks` to false.
+
+when it's true, all dslinks can connect to broker without any token.
+
+#### dslink maintained by broker's own dslink manager
+If dslink is installed from the broker's /sys/links node, that dslink will be maintained by the broker and use a auto-generated token behind the scene.
 
 ## implementation of the token
 these features need to be implemented in a dslink sdk to enable token
