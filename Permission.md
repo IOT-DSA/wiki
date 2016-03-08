@@ -18,4 +18,4 @@
 
 ## assign group
  1. dslink/user that has global config permission can assign group to any dslink/user
- 1. a [token](https://github.com/IOT-DSA/docs/wiki/Token-Based-Handshake)can define its default permission group, and dslink that's connected with this token will have this permission group by default.
+ 1. a [token](https://github.com/IOT-DSA/docs/wiki/Token-Based-Handshake) can define its default permission group, and dslink that's connected with this token will have this permission group by default.
