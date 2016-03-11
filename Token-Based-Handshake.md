@@ -31,7 +31,7 @@ when it's true, all dslinks can connect to broker without any token.
 #### dslinks maintained by broker's own dslink manager don't need token
 If dslink is installed from the broker's /sys/links node, that dslink will be maintained by the broker and use a auto-generated token behind the scene.
 
-## implementation of the token
+## implementation of the token in the SDK
 these features need to be implemented in a dslink sdk to enable token
 
 #### Parameters for /conn and /ws
