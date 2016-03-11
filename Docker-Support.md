@@ -53,7 +53,7 @@ RUN unzip project.zip -d /app/files/proj && rm project.zip
 # Customize the server options.
 # Place a custom server.json file in the
 # directory that contains the Dockerfile
-ADD server.json /app
+ADD server.json /data
 
 ################################################
 #               Customize Users                #
