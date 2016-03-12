@@ -6,7 +6,7 @@ Each DSLink or DGLux5 user can belong to one or more user permission groups.
 How permission groups are created:
  - A dsId or username automatically constitutes a permission group.
  - A DGLux5 user can create a custom user group. A custom user group is referred to by its name, preceded by the username of the user who created it, and a colon (:)—for example, `userA:userGroup`.
- - A [token](https://github.com/IOT-DSA/docs/wiki/Token-Based-Handshake) can define its default permission group.
+ - A [token](https://github.com/IOT-DSA/docs/wiki/Token) can define its default permission group.
 
 Valid permission groups are:
  - A username
