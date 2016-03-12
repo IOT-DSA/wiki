@@ -6,7 +6,7 @@ Each DSLink or DGLux5 user can belong to one or more user permission groups.
 How permission groups are created:
  - A dsId or username automatically constitutes a permission group.
  - A DGLux5 user can create a custom user group. A custom user group is referred to by its name, preceded by the username of the user who created it, and a colon (:)—for example, `userA:userGroup`.
- - A [token](https://github.com/IOT-DSA/docs/wiki/Token) can define its default permission group.
+ - A [token](https://github.com/IOT-DSA/docs/wiki/Tokens) can define its default permission group.
 
 Valid permission groups are:
  - A username
@@ -37,7 +37,7 @@ If a user or a DSLink does not have permissions defined in relation to a node:
  - If the node's token has a default, then all groups that are not defined in the list have the token's default permissions.
  - Otherwise, the permission list is inherited from parent nodes.
 
-The [root node's permission list](https://github.com/IOT-DSA/docs/wiki/permission-list) is defined in `server.json`. If no permissions are defined for the root node, then the permission system is ignored by the broker.
+The [root node's permission list](https://github.com/IOT-DSA/docs/wiki/permission-list-for-the-root) is defined in `server.json`. If no permissions are defined for the root node, then the permission system is ignored by the broker.
 
 ## Priority Level of Conflicting Permissions
 If the current DSLink or user belongs to multiple groups, then the group that has the highest permission on the current node is used.
