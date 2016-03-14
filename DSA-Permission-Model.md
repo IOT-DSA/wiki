@@ -24,10 +24,10 @@ Users are added using `sys > users`.
 A permission value defines the capabilities of the permission group that it is assigned to.
 
 Valid permission values are:
- - `config`
- - `write`
- - `read` 
- - `list`
+ - `config` — Maximum permission level.
+ - `write` — Values and attributes can be written.
+ - `read` — Values and attributes can be read.
+ - `list` — Attributes can be read, but not values.
  - `none`
  
 ## Permission Lists
