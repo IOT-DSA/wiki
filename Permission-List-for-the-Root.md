@@ -5,18 +5,10 @@ Within `server.json`, the `defaultPermission` config is a permission list that d
 
 #### example 
 ```
-  "defaultPermission": [
-    [
-      "dgSuper",
-      "config"
-    ],
-    [
-      "mydslink-reqwjN6iQTk7TOXZbHHkQDH1T2zfrPcphTxchiPvTgzbww",
-      "config"
-    ],
-    [
-      "default",
-      "write"
-    ]
-  ]
+   "defaultPermission": [
+      [":config","config"],
+      [":write","write"],
+      [":read","read"],
+      ["default","read"]
+   ]
 ```
