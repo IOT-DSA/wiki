@@ -37,7 +37,7 @@ If a user or a DSLink does not have permissions defined in relation to a node:
  - If the node's token has a default, then all groups that are not defined in the list have the token's default permissions.
  - Otherwise, the permission list is inherited from parent nodes.
 
-The [root node's permission list](https://github.com/IOT-DSA/docs/wiki/permission-list-for-the-root) is defined in `server.json`. If no permissions are defined for the root node, then the permission system is ignored by the broker.
+The [root node's permission list](https://github.com/IOT-DSA/docs/wiki/permission-list-for-the-root) is defined in `server.json`. If no permissions are defined for the root node, then the permission system is ignored by the broker. The recommended way to give global permission to a DSLink is to assign that DSLink to the `config` permission group for the node.
 
 ## Priority Level of Conflicting Permissions
 If the current DSLink or user belongs to multiple groups, then the group that has the highest permission on the current node is used.
