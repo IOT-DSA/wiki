@@ -11,8 +11,8 @@ DGLux Server is [available on Docker Hub](https://hub.docker.com/r/iotdsa/dglux-
 ```bash
 # Create a container that is exposed on port 8080.
 # This command will output a container id to be used by other commands.
-# This step only needs to be done once.
-$ docker create -p 0.0.0.0:8080:80 iotdsa/dglux-server
+# This step only needs to be done once for each image version.
+$ docker create -p 0.0.0.0:8080:80 -v /var/dglux:/data iotdsa/dglux-server
 your_container_id
 
 # Start the container.
@@ -69,5 +69,5 @@ Then execute the following:
 $ docker build -t my-dglux-server --rm=true .
 
 # Create a container using the created image.
-$ docker create -p 0.0.0.0:8080:80 my-dglux-server
+$ docker create -p 0.0.0.0:8080:80 -v /var/dglux:/data my-dglux-server
 ```
