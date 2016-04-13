@@ -341,10 +341,7 @@ There are multiple elements in the updates field. Each element will contain:
    - the max value if one or more numeric value is skipped
  - min (optional number)
    - the min value if one or more numeric value is skipped
- - part (optional string)
-   - used when sending a very big string or very big List value
-   - the value of part will be a fraction number, i.e. "1/2" "2/2" 
-   
+
 #### Example usage
 
 ##### Request
