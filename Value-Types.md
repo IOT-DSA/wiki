@@ -40,7 +40,7 @@ the first value in the list will be the default value
 the value sent in network will look same as a string
 
 ### bytes
-[binary type](Binary-Channel)
+Byte array expressed in a string. String is prefixed with ```\u001Bbytes:```, afterwards a byte array encoded in Base64 is added.
 
 ### map
 a map object with key:value pairs
