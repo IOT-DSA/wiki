@@ -6,7 +6,7 @@
 &emsp;&emsp;◌ [Methods](Methods)<br/>
 &emsp;&emsp;◌ [Broker](Broker)<br/>
 &emsp;◌ [Tokens](Tokens)<br/>
-&emsp;◌ [Quality of Service](Quality of Service)<br/>
+&emsp;◌ [Quality of Service](Quality-of-Service)<br/>
 **Distributed Service Model**<br/>
 &emsp;◌ [Node Configs](Configs)<br/>
 &emsp;◌ [Value Types](Value-Types)<br/>
