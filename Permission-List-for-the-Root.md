@@ -9,6 +9,7 @@ Within `server.json`, the `defaultPermission` config is a permission list that d
       [":config","config"],
       [":write","write"],
       [":read","read"],
+      [":user","read"],
       ["default","read"]
    ]
 ```
