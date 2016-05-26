@@ -19,6 +19,7 @@ An example server.json is:
   "disabledLinks": [],
   "uptimeCheckUrl": null,
   "upstream": {},
+  "allowAllLinks": true,
   "quarantine": false,
   "defaultPermission": null,
   "useRuntimeManager": false,
