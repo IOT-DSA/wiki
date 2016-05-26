@@ -14,7 +14,6 @@ An example server.json is:
   "disableFileSecurity": false,
   "broadcast": false,
   "workers": 2,
-  "updateInterval": 200,
   "static": {},
   "linkConfig": {},
   "disabledLinks": [],
@@ -74,13 +73,6 @@ Number of Server Workers. For low end devices, this should stay at 1. For large 
 
 **Default Value**: For low end devices, this is 1, for other devices, this is 2.
 
-## updateInterval
-
-**Notice**: This option is deprecated.
-
-The interval in which data is sent to links by the broker in milliseconds.
-
-**Default Value**: 200
 
 ## static
 
@@ -95,3 +87,22 @@ Example:
 ```
 
 **Default Value**: {}
+
+## defaultPermission
+
+Default permission setting for the root node. 
+When this value is null, permission is disabled, and everything have config permission
+
+Check [Permission-List-for-the-Root](Permission-List-for-the-Root) for details
+
+## allowAllLinks
+
+When value is true, all incoming dslink connection will be accepted to `/downstream`
+
+When value is false, incoming dslink without proper authentication will be rejected unless quarantine is enabled
+
+## quarantine
+** this config has no effect when allowAllLinks is true **
+When value is true, new incoming dslink without token will be put in `/sys/quarantine`
+
+A quarantined dslink can only work as a responder. Use the `/sys/quarantine/authorize` to move a quarantined dslink to `/downstream`. 
