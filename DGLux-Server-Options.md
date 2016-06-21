@@ -197,7 +197,7 @@ Determines the authentication provider to use.
 
 Determines the two factor authentication provider to use.
 
-## Supported Two-Factor Authentication Providers
+### Supported Two-Factor Authentication Providers
 
 - none: Don't enable two factor authentication.
 - [duo](https://github.com/IOT-DSA/docs/wiki/Using-DUO-Two-Factor-Authentication): Duo Two-Factor Authentication
