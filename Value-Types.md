@@ -49,11 +49,11 @@ example values:
 * {"name":"Rick", "email":"rick\@iot-dsa.org"}
 * {"primes":[2,3,5,7,11]}
 
-## array
+### array
 a array object, children values are dynamic
 example values:
 * [{"name":"Rick", "email":"rick\@iot-dsa.org"}, {"name":"Dennis", "email":"dennis\@iot-dsa.org"}]
 * [2,3,5,7,11]
 
-## dynamic
+### dynamic
 a dynamic value type can have value of any above type
