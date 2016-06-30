@@ -31,7 +31,8 @@ A json request data is posted to the server's connection end point:
   "isResponder": true,
   "linkData": {},
   "version": "1.1.2",
-  "formats":["msgpack","json"]
+  "formats":["msgpack","json"],
+  "enableWebSocketCompression": true
 }
 ```
 
@@ -55,6 +56,8 @@ JSON parameters:
      - Version of DSA protocol
  - formats
      - An array of formats supported by clients. Server will always assume all DSLinks support JSON regardless if it is in the array or not. The order of the array starts from most preferred to least preferred.
+ - enableWebSocketCompression
+     - Enables WebSocket compression.
 
 #### server-configuration content
 This is an example configuration of a DSA node.     
