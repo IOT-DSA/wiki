@@ -15,3 +15,14 @@ curl https://gsdview.appspot.com/dart-archive/channels/stable/release/1.17.1/sdk
 unzip sdk.zip
 rm sdk.zip
 ```
+
+## Dart for DGLux Server on Linux (Raspberry Pi / ODROID)
+
+Run the following commands:
+```
+cd /opt/dsa
+rm -rf dart-sdk
+curl https://gsdview.appspot.com/dart-archive/channels/stable/release/1.17.1/sdk/dartsdk-linux-arm-release.zip > sdk.zip
+unzip sdk.zip
+rm sdk.zip
+```
