@@ -1,59 +1,69 @@
-### number
-example values:
+## number
+Number can be either a single or double. When a number type is used in the action parameter, it supports additional properties.
+
+### Additional properties
+* editor
+  * color
+    * Opens a color editor
+  * min
+    * Requires a minimum bound.
+    * Note: Does not work in color editor.
+  * max
+    * Requires a maximum bound.
+    * Note: Does not work in color editor.
+
+### Examples
 * 1
 * 0.12
 
-when number type is used in action parameter, it support addition properties
+## string
+When a string type is used in the action parameter, it supports additional properties.
+### Additional properties
+* editor
+  * password
+    * Masks the input box.
+  * daterange
+    * Opens a date range editor.
+  * date
+    * Opens a date editor.
+  * textarea
+    * Allows for multi-line input.
+* placeholder
+  * Placeholder value in a text box.
 
-editor: the editor used in GUI tool
-can be color, int
-
-min: minimun value (doesn't work in color editor)
-max: maximun value (doesn't work in color editor)
-
-
-### string
-example values:
+### Examples
 * "hello world"
 * ""
 
-when string type is used in action parameter, it support addition properties
-* editor: the editor used in GUI tool
- * can be password, daterange, date, textarea
-* placeholder: the placeholder for the input box when used in GUI tool
+## bool
+Booleans can also have labels attached to them similar to enums. The first value is always equivalent to "false" and the second value is always equivalent of "true". However, the responder *must always* send either true or false.
 
-### bool
-Bools can also have labels attached to them similar to enums. The first value is always equivalent to `false` and the second value is always equivalent of `true`
+### Example
 * bool\[disabled,enabled\]
 
-However the responder must always send either of these two values.
-* true
-* false
+## enum\[..\]
+An enum value type can be enum\[...\] with comma separated values. The first value is always the default. The value sent over the network is the same as a string.
 
-### enum\[..\]
-a enum value type can be enum\[...\] with comma separated values, example:
+### Examples
 * enum\[off,on,auto\]
 * enum\[Sun,Mon,Tue,Wed,Thu,Fri,Sat\]
 
-the first value in the list will be the default value
-
-the value sent in network will look same as a string
-
-### binary
+## binary
 Byte array expressed in a string. String is prefixed with ```\u001Bbytes:```, afterwards a byte array encoded in Base64 is added.
 
-### map
-a map object with key:value pairs
-key is always string and value is dynamic type
-example values:
+## map
+Map object with key/value pairs. Key is always a string, and value is always of type dynamic.
+
+### Examples
 * {"name":"Rick", "email":"rick\@iot-dsa.org"}
 * {"primes":[2,3,5,7,11]}
 
-### array
-a array object, children values are dynamic
-example values:
+## array
+An array, children values are always of type dynamic.
+
+### Examples
 * [{"name":"Rick", "email":"rick\@iot-dsa.org"}, {"name":"Dennis", "email":"dennis\@iot-dsa.org"}]
 * [2,3,5,7,11]
 
-### dynamic
-a dynamic value type can have value of any above type
+## dynamic
+The dynamic value type can be any type listed above.
