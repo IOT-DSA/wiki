@@ -21,6 +21,7 @@
   - Set the program arguments to `-b http://localhost:8080/conn -d ../dslink.json`
     - Configure the URL to your running broker as necessary
   - Append `/build` or `\build` (depending on your system platform) to the working directory
+  - Set the Use classpath of module to `template-dslink-java_main`
   - Save your configuration
 
 That's it! Run your DSLink and it will be connected to your broker.
