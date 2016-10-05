@@ -10,6 +10,8 @@ Modify server.json:
 ```
 
 ## Enable SSO Service on the Clients
+
+Modify server.json:
 ```json
 {
   "ssoProviderUrl": "http://my.sso.host:8080/"
