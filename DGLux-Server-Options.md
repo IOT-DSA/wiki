@@ -73,6 +73,8 @@ Enable/Disable Debugging Mode
 
 **Default Value**: false
 
+For production site, this should always be false, debug:true may result in memory leak and bugs.
+
 ## port
 
 HTTP Port to listen on. If this is less than or equal to 0, then the server does not listen on any port for HTTP.
@@ -213,5 +215,12 @@ Toggles support for IPv6 connections.
 ## keepCustomAssets
 
 When the value is true, custom assets in www/assets are kept upon updating DGLux Server.
+
+**Default Value**: false
+
+
+## formatDg5
+
+When this value is true, dglux client will save dg5 in a formatted and json with key sorted, makes it easy to track changes.
 
 **Default Value**: false
