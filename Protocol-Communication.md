@@ -41,7 +41,7 @@ Query Parameters:
      - A unique string of 43-128 characters, the last 43 characters are url safe Base64 encoded SHA256 hash of the public-key binary
      - example: "link-dataflow-s-R9RKdvC2VNkfRwpNDMMpmT_YWVbhPLfbIc-7g4cpc"
  - token
-     - [Optional token for client to access predefined authorization](https://github.com/IOT-DSA/docs/wiki/Token-Based-Handshake)
+     - [Optional token for client to access predefined authorization](https://github.com/IOT-DSA/docs/wiki/Tokens)
 
 JSON parameters:
  - publicKey
