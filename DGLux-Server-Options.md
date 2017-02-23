@@ -113,7 +113,7 @@ When this value is true, the server's broker is broadcast to the local network f
 
 ## workers
 
-Number of Server Workers. For low end devices, this should stay at 1. For large machines, this can be set to the number of available processors to better handle massive amounts of connections.
+Number of Server Workers. For low end devices, this should stay at 1. For large machines, this can be set up to a maximum of 128. It is recommended that you do not exceed the number of logical processors on your machine. 
 
 **Default Value**: For single-core machines, this is 1, for other devices, this is 2.
 
