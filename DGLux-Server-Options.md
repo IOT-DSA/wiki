@@ -81,7 +81,7 @@ HTTP Port to listen on. If this is less than or equal to 0, then the server does
 
 **Default Value**: 8080
 
-__At least one of `port` or `httpsPort` must have a valid port number assigned.__
+_At least one of `port` or `httpsPort` must have a valid port number assigned._
 
 ## httpsPort
 
@@ -89,7 +89,7 @@ HTTPS port to listen on. If this is less than or equal to 0, and/or `certName` o
 
 **Default Value**: 8443
 
-__At least one of `port` or `httpsPort` must have a valid port number assigned.__
+_At least one of `port` or `httpsPort` must have a valid port number assigned._
 
 ## certName
 
