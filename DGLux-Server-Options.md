@@ -85,7 +85,7 @@ _At least one of `port` or `httpsPort` must have a valid port number assigned._
 
 ## httpsPort
 
-HTTPS port to listen on. If this is less than or equal to 0, and/or `certName` or `certPassword` is empty or not provided, then the server does not listen on any port for HTTPS. Ensure that if you install a custom certificate, you fill in the `certName`, `certKeyName` and `certPassword` fields.
+HTTPS port to listen on. If this is less than or equal to 0, and/or `certName` or `certPassword` is not provided, then the server does not listen on any port for HTTPS. Ensure that if you install a custom certificate, you fill in the `certName`, `certKeyName` and `certPassword` fields.
 
 **Default Value**: 8443
 
@@ -97,7 +97,7 @@ SSL certificate file name. Leave blank to disable HTTPS.
 
 ## certPassword
 
-SSL certificate password. Leave blank to disable HTTPS.
+SSL certificate password. set to null to disable HTTPS.
 
 ## certKeyName
 
