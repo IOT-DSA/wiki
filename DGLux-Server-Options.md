@@ -97,7 +97,7 @@ SSL certificate file name. Leave blank to disable HTTPS.
 
 ## certPassword
 
-SSL certificate password. set to null to disable HTTPS.
+SSL certificate password. Set to `null` to disable HTTPS.
 
 ## certKeyName
 
