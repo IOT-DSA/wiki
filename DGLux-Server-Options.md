@@ -13,6 +13,7 @@ An example server.json is:
   "certName": "server.pem",
   "certKeyName": "key.pem",
   "certPassword": "",
+  "enableHSTS": true,
   "disableFileSecurity": false,
   "isAlwaysOffline": false,
   "broadcast": false,
@@ -102,6 +103,10 @@ SSL certificate password. Set to `null` to disable HTTPS.
 ## certKeyName
 
 SSL private key file name. Leave blank to disable HTTPS.
+
+## enableHSTS
+
+When this value is true, the HTTP server will always redirect to the HTTPS server, and the HTTPS server will have HSTS enabled to route requests automatically to the HTTPS server.
 
 ## disableFileSecurity
 
