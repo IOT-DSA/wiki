@@ -13,7 +13,7 @@ An example server.json is:
   "certName": "server.pem",
   "certKeyName": "key.pem",
   "certPassword": "",
-  "enableHSTS": true,
+  "enableHSTS": false,
   "disableFileSecurity": false,
   "isAlwaysOffline": false,
   "broadcast": false,
