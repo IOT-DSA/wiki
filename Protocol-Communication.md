@@ -66,12 +66,10 @@ This is an example configuration of a DSA node.
   "dsId": "broker-dsa-FEuG-dsvoy3Mfh-DY4ZLqxWdcjA9mky2MyCd0DmqTMw",
   "publicKey": "BG4OYopcM2q09amKRKsc8N99ns5dybnBYG4Fi8bQVf6fKjyT_KRlPMJCs-3zvnSbBCXzS5fZfi88JuiLYwJY0gc",
   "wsUri": "/ws",
-  "httpUri": "/http",
   "tempKey": "BARngwlfjwD7goZHCh_4iWsP0e3JszsvOtovn1UyPnqZLlSOyoUH1v_Lop0oUFClpVhlzsWAAqur6S8apZaBe4I",
   "salt": "0x205",
   "path": "/downstream/link",
   "version": "1.1.2",
-  "updateInterval": 200,
   "format":"msgpack"
 }
 ```
