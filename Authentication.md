@@ -1,5 +1,3 @@
-# Authentication Options
-
 To configure authentication for DGLux servers, edit the “server.json” file and set the authType parameter. Valid options are as follows:
  
 * file (formerly “json”)
