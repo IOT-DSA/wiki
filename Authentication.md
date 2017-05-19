@@ -40,9 +40,12 @@ You can specify the following LDAP server settings in “servers.json” as key/
 * allowListUsers: (Optional) Specifies whether the user can view and query the list of users in DGLux5. Default: false (cannot view or query)
 * metadata (Optional) Additional data about the user to be requested from the LDAP server, specified as key/value pairs. 
 
+## open
+This authentication type will allow any username/password combination to log in. Superuser privileges are never granted.
+
 ## composite
 This option enables you to configure a sequence of the preceding authentication methods. Specify the options in square brackets in the order you want them executed. Examples:
 
 * composite[ldap,file]: First try the LDAP server configured in server.json. If authentication fails, try to authentication the user against the users defines in users.json.
-* composite [file,open]: Try to authenticate against the users defines in users.json. If authentication fails, allow the user to log in without superuser privileges.
-* composite [ldap-with-fallback,file]: Try the primary LDAP server, then the secondary, and finally the local users.json file
+* composite[file,open]: Try to authenticate against the users defines in users.json. If authentication fails, allow the user to log in without superuser privileges.
+* composite[ldap-with-fallback,file,open]: Try the primary LDAP server, then the secondary LDAP server, next the local users.json file, and finally if that fails it will allow all connections. (Note this is the same as using composite[ldap-with-fallback-and-file,open] and is included for demonstration purposes)
