@@ -18,7 +18,7 @@ This is the default login mechanism, and requires no additional settings. With t
 * superuser: true or false, indicates whether this user has superuser privileges.
 * metadata: a JSON object of key/value pairs containing other information about the user.
 
-## LDAP options
+## LDAP
 
 For authentication using LDAP, the following options are supported:
 
