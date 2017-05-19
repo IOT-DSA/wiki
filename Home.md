@@ -21,5 +21,5 @@ Welcome to the DSA Wiki!
 &emsp;◌ [Configuration](DGLux-Server-Options)<br/>
 &emsp;◌ [LDAP Authentication](DGLux-Server---LDAP-Authentication)<br/>
 &emsp;◌ [SSL Setup](DGLux-Server---SSL)<br/>
-&emsp;◌ [Docker](Docker)
+&emsp;◌ [Docker](Docker)<br/>
 &emsp;◌ [Authentication](Authentication)
