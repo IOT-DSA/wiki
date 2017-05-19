@@ -1,11 +1,11 @@
 To configure authentication for DGLux servers, edit the “server.json” file and set the authType parameter. Valid options are as follows:
  
-* file (formerly “json”)
-* ldap 
-* ldap-with-fallback 
-* ldap-with-fallback-and-file
-* open 
-* composite
+* [file](#file-or-json) (formerly “json”)
+* [ldap](#ldap) 
+* [ldap-with-fallback](#ldap)
+* [ldap-with-fallback-and-file](#ldap)
+* [open](#open)
+* [composite](#composite)
 
 The following sections describe these options in detail.
 
