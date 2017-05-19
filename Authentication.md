@@ -47,4 +47,4 @@ This option enables you to configure a sequence of the preceding authentication 
 
 * composite[ldap,file]: First try the LDAP server configured in server.json. If authentication fails, try to authentication the user against the users defines in users.json.
 * composite [file,open]: Try to authenticate against the users defines in users.json. If authentication fails, allow the user to log in without superuser privileges.
-* composite [ldap-with-fallback,external,file]: Try the primary LDAP server, then the secondary, then the master DGLux server, and finally the local users.json file
+* composite [ldap-with-fallback,file]: Try the primary LDAP server, then the secondary, and finally the local users.json file
