@@ -40,6 +40,17 @@ You can specify the following LDAP server settings in “servers.json” as key/
 * allowListUsers: (Optional) Specifies whether the user can view and query the list of users in DGLux5. Default: false (cannot view or query)
 * metadata (Optional) Additional data about the user to be requested from the LDAP server, specified as key/value pairs. 
 
+Example LDAP configuration:
+
+    "authType": "ldap",
+    "ldap": {
+      "url": "ldap://myldap.host",
+      "dn": "cn=root,dc=myhost,dc=org",
+      "password": "myPassword",
+      "searchBase": "dc=myHost,dc=org",
+      "groupAttribute": "users"
+},
+
 ## open
 This authentication type will allow any username/password combination to log in. Superuser privileges are never granted.
 
