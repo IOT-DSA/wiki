@@ -1,6 +1,6 @@
 ## Overview
 
-NodeAPI is a stateful and lightweight streaming remote procedure call (RPC) protocol. Primarily, this specification defines several data structures and the rules around their processing. The concepts can be used over various transport layers, such as the same process, HTTP, web sockets, sockets, and various other message-passing environments. By default, NodeAPI uses [JSON](http://www.json.org/) ([RFC 4627](http://www.ietf.org/rfc/rfc4627.txt)) as the data format. However the protocol is serialization-format-independent, and can be transported using formats like MsgPack.
+NodeAPI is a stateful and lightweight streaming remote procedure call (RPC) protocol. Primarily, this specification defines several data structures and the rules for processing them. These concepts can be used with various transport layers, such as the same process, HTTP, web sockets, sockets, and various other message-passing environments. By default, NodeAPI uses [JSON](http://www.json.org/) ([RFC 4627](http://www.ietf.org/rfc/rfc4627.txt)) as the data format. However the protocol is serialization-format-independent, and can be transported using formats like MsgPack.
 
 ## Conventions
 
@@ -15,19 +15,15 @@ responder. To avoid conflicts, the responder must track IDs for each individual 
 
 ### Fields
 
-Path is a special case: if the method does not require it then it is deemed as an optional
-field.
-
 - rid (integer)
-  - The request ID, which is how the request gets identified. All responses are asynchronous and this field
-  is used to differentiate the requests.
+  - The request ID. All responses are asynchronous, so this field is used to associate the response with the request.
   - rid cannot be reused by another request except when closing the stream.
   - Request rid must be greater than 0.
-  - The max value of an rid is 2147483647(0x7FFFFFFF), after that, the next rid must be reset to 1.
+  - The maximum value of an rid is 2147483647(0x7FFFFFFF). The next rid must be reset to 1.
 - [method](methods) (string)
   - The [method](methods) is used to determine what type of request you are making.
 - path (string)
-  - The path specifies where the method is to perform the operation. The path must be valid.
+  - (Optional) Specifies the node where the method is to perform the operation. The path must be valid.
 
 #### Example
 ```json
@@ -45,15 +41,13 @@ field.
 
 ## Responses
 
-Responses are returned to the requestor asynchronously. Data is provided through
-responses to the original requester. They can be streamed to provided subscription updates or provide
-partial responses. Responses can contain more fields than those listed below.
+Responses are returned to the requestor asynchronously. Data is provided through responses to the original requester. They can be streamed to provided subscription updates or provided as partial responses. Responses can contain more fields than those listed below.
 
 ### Fields
 
 - rid (integer)
   - The identifier of the request to which the response is addressed.
-  - rid:0 is reserved for the subscription update
+  - rid 0 is reserved for the subscription update
 - stream (enum string, optional)
   - The stream determines whether data will keep flowing.
   - If stream is omitted, it is assumed to be same value as previous stream response of same rid, default value is "initialize" if it is not shown in the first response
