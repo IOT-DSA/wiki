@@ -49,7 +49,7 @@ Example LDAP configuration:
       "password": "myPassword",
       "searchBase": "dc=myHost,dc=org",
       "groupAttribute": "users"
-},
+    },
 
 ## open
 This authentication type will allow any username/password combination to log in. Superuser privileges are never granted.
