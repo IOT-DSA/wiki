@@ -192,7 +192,7 @@ If any error happened, stream response will have a error object showing the info
    - anything else to describe the error
 
 ## msg and ack
-Every message has an ID. When a DSLink or broker receives a response or request, it must return and ACK with the same ID. The ACK can be a standalone message or merged into normal message.
+Every message has an ID. When a DSLink or broker receives a response or request, it must return an ACK with the same ID. The ACK can be a standalone message or merged into normal message.
 
 The maximum value of a message ID is 2147483647 (0x7FFFFFFF), after which IDs must be reset to start at 1.
 
