@@ -17,8 +17,8 @@ responder. To avoid conflicts, the responder must track IDs for each individual 
 
 - rid (integer)
   - The request ID. All responses are asynchronous, so this field is used to associate the response with the request.
-  - rid cannot be reused by another request except when closing the stream.
-  - Request rid must be greater than 0.
+  - An rid cannot be reused by another request except when closing the stream.
+  - An rid must be greater than 0.
   - The maximum value of an rid is 2147483647(0x7FFFFFFF). The next rid must be reset to 1.
 - [method](methods) (string)
   - The [method](methods) is used to determine what type of request you are making.
@@ -47,23 +47,23 @@ Responses are returned to the requestor asynchronously. Data is provided through
 
 - rid (integer)
   - The identifier of the request to which the response is addressed.
-  - rid 0 is reserved for the subscription update
+  - rid 0 is reserved for the subscription update.
 - stream (enum string, optional)
   - The stream determines whether data will keep flowing.
-  - If stream is omitted, it is assumed to be same value as previous stream response of same rid, default value is "initialize" if it is not shown in the first response
+  - If stream is omitted, it is assumed to be the same as the previous response with the same rid.
   - Valid values:
-      - initialize
-          - responder hasn’t finished sending existing or cached data
+      - initialize (default)
+          - The responder hasn’t finished sending existing or cached data
       - open
-          - there is no data cached for the stream at the moment, but subsequent updates might be sent
+          - There is no data cached for the stream at the moment, but subsequent updates might be sent
       - closed
-          - all data has been sent, data consumer can close the stream
+          - All data has been sent, so the data consumer can close the stream
 - updates (array, optional)
-  - Array rows are sent in one of the following formats:
+  - Array rows are sent in one of the following two formats:
     - a row/list with same number of items as columns structure
     - a map with key:value pairs
       - key can be column name or a meta value
-      - when required column is omitted, use the default value if defined for the column, otherwise use null
+      - when a required column is omitted, use the default value if defined for the column, otherwise use null
  - columns (array, optional)
    - column structure of the response, for response to an "invoke" method
    - when an action node or its profile already defined the column structure, the this field is not needed
