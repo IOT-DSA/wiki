@@ -30,7 +30,7 @@
  * output: array of records (with path and the record id)
  * distributed: yes
 
- exmaples
+ Examples
 ```
  subscribe $path
  subscribe $value
