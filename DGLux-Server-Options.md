@@ -233,3 +233,9 @@ When the value is true, custom assets in www/assets are kept upon updating DGLux
 When this value is true, dglux client will save dg5 in a formatted and json with key sorted, makes it easy to track changes.
 
 **Default Value**: false
+
+## userTimeout
+
+Number of minutes of user inactivity (nothing being loaded from the server) after which session times out. This is a general setting, cannot be set per user.
+
+**Default Value**: 525600m (1 year)
