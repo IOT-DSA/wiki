@@ -16,7 +16,7 @@ There are three types of transport channel bindings:
 
 ## Handshake for HTTP and WebSocket
 
-[A Test Case of the handshake algorithm](https://github.com/IOT-DSA/docs/wiki/Connection-Test-Case)
+[A test case for the handshake algorithm](https://github.com/IOT-DSA/docs/wiki/Connection-Test-Case)
 
 The handshake is based on [ECDH](http://en.wikipedia.org/wiki/Elliptic_curve_Diffie%E2%80%93Hellman) with the NIST recommended curve P-256, also known as secp256r1.
 
@@ -37,7 +37,7 @@ The request uses an HTTP POST method to perform the request, in which JSON reque
 
 Query Parameters:
  - dsId
-     - A unique string of 43-128 characters, the last 43 characters are a URL-safe Base64-encoded SHA256 hash of the public-key binary
+     - A unique string of 43-128 characters, the last 43 characters are an URL-safe Base64-encoded SHA256 hash of the public-key binary
      - example: "link-dataflow-s-R9RKdvC2VNkfRwpNDMMpmT_YWVbhPLfbIc-7g4cpc"
  - token
      - [Optional token for client to access predefined authorization](https://github.com/IOT-DSA/docs/wiki/Tokens)
