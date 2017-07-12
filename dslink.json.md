@@ -2,7 +2,7 @@ The dslink.json file is the basic configuration and description for every DSLink
 It's a JSON document that shares most of the properties same as package.json from [npm](https://docs.npmjs.com/files/package.json).
 
 ## Note
-To ensure that upgrades to the Java DSLink are performed correctly, add the following stanza to the dslink.json file:
+To ensure that upgrades to Java DSLinks are performed correctly, add the following stanza to the dslink.json file:
 
     "update": {
     "backupForUpdate": true,
