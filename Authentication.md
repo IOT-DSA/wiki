@@ -31,12 +31,12 @@ To configure the primary and secondary LDAP servers, edit the “server.json” 
 You can specify the following LDAP server settings in “servers.json” as key/value pairs (see DGLux Server LDAP Authentication for details):
 
 * url: (Required) The full ldap:// or ldaps:// protocol address. For example: ldap://myhost.org
-* dn: (Required) Distinguished Names as specified by the remote LDAP configuration
-* password: (Optional) LDAP user password
-* searchBase: (Required) A list of strings of search base distinguished names used to search for the user. All search bases are checked for the user and the first match is used. To maximize performance, keep this list as short as possible. 
+* dn: (Required) Distinguished Names as specified by the remote LDAP configuration. Also known as the BindDN.
+* password: (Optional) LDAP Bind password
+* searchBase: (Required) A list of strings of search base distinguished names used to search for the user. All search bases are checked for the user and the first match is used. To maximize performance, keep this list as short as possible. Also known as the Base DN.
 * groupAttribute: (Optional) The groupAttribute name as defined on the LDAP server. If it is found, it is used in conjunction with the superuserGroup to determine if a user has superuser privileges. This setting defaults to “gid” if omitted.
 * superuserGroup: (Optional) An integer or string that specifies the groupAttribute that must match the corresponding entry in the LDAP server in order for the user to be granted superuser privileges. This value defaults to “superuser,” which will generally fail to match any groupAttribute values.
-* usernameAttribute: (Optional) The usernameAttribute name as configured in the LDAP server. This setting is used as a filter when searching the LDAP server for a username.
+* usernameAttribute: (Optional) The usernameAttribute name as configured in the LDAP server. This setting is used as a filter when searching the LDAP server for a username. Default is `uid` if not specified.
 * allowListUsers: (Optional) Specifies whether the user can view and query the list of users in DGLux5. Default: false (cannot view or query)
 * metadata (Optional) Additional data about the user to be requested from the LDAP server, specified as key/value pairs. 
 
