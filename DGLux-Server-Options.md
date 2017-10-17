@@ -217,7 +217,7 @@ Determines the two factor authentication provider to use.
 
 ## enableIPv6
 
-Toggles support for IPv6 connections.
+Toggles support for IPv6 connections. When enabled server is listening on IPv6 interface only. In order to support both IPv4 and IPv6 in the mixed environment two copies of server needs to be installed and configured.
 
 **Default Value**: false
 
