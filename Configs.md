@@ -103,5 +103,3 @@ low to high
  - **never**
    - No user can have the 'never' permission as this is meant to prevent system admins from overwriting
 a configuration that only the system manages.
-   - highest permission that will never happen on any requester
-   - used by configs: $settings, $writable
