@@ -15,9 +15,6 @@
  - **$disconnectedTs**
    - timestamp of when the remote node get disconnected
    - this value should be null or undefined when device is connected
- - **$permission** (require:read, type:enum[read,write,config])
-   - not store in node data, generated for list response based on the permission of current requester
-
  - **$name** (require:read)
    - custom display name for a node
    - change $name won't affect node's path or its name in parent node
