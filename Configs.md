@@ -1,13 +1,13 @@
 ## Config Naming
  - Config names that start with **$** are readable to all requesters.
  - Config names that start with **$$** are only readable to requesters with config permission.
- - Config **$$password** is special value that always returns a null value in the list method.
+ - Config names that start with **$$$** always returns a null value in the list method.
 
 ## Core Configs
  - **$base**
    - the base path used by profile, and interface
    - $base must be the first update in a list api, otherwise it's null
- - **$is** (require:read, writable:never)
+ - **$is** (require:read)
    - defines the profile of a node
    - profile can define configs, attributes and children nodes
    - profile paths are paths relative to the $base/defs/profile/
@@ -15,22 +15,22 @@
  - **$disconnectedTs**
    - timestamp of when the remote node get disconnected
    - this value should be null or undefined when device is connected
- - **$permission** (require:read, writable:never, type:enum[read,write,config])
+ - **$permission** (require:read, type:enum[read,write,config])
    - not store in node data, generated for list response based on the permission of current requester
 
- - **$name** (require:read, writable:config)
+ - **$name** (require:read)
    - custom display name for a node
    - change $name won't affect node's path or its name in parent node
- - **$type** (require:read, writable:never)
+ - **$type** (require:read)
    - type of subscription value
    - node is not subscribable if $type is not specified
- - **$writable** (require:read, writable:never)
+ - **$writable** (require:read)
    - whether the set method can be called to this node
    - only valid on a node with value type ($type)
-   - value can be "write" "config" or "never"
-   - "never" is the default value if not specified
+   - value can be "write" "config"
+   - "never" is the default value when not specified
  
- - **$params** (require:read, writable:never)
+ - **$params** (require:read)
    - parameters for a action node, required for any action node (or its profile)
      - action with no parameters data still need a blank $params config
    - option for each parameter item
@@ -46,7 +46,7 @@
     {"name":"timerange","type":"timerange"}
   ]
 ```
- - **$columns** (require:read, writable:never)
+ - **$columns** (require:read)
    - column structure for a action node's response stream, required for any action node (or its profile)
      - action with no response data still need a blank $columns config
    - option for each column item
@@ -54,7 +54,7 @@
      - type, type of the column , defined in /defs/type/
      - default, default value of the column
      - other option defined by the type
- - **$result** (require:read, writable:never, type:enum[values,table,stream]))
+ - **$result** (require:read, type:enum[values,table,stream]))
    - result type when node is invoked as an action
      - values: the default result type, usually has only one row of values
      - table: all rows together in the updates represent the action result as a table
@@ -66,7 +66,7 @@
     {"name":"value","type":"object"}
   ]
 ```
- - **$streamMeta** (require:read, writable:never)
+ - **$streamMeta** (require:read)
    - stream meta data of a action node, optional
    - when stream meta is needed by a row in the stream, this row has to use the map format instead of list format
    - option for each streamMeta item
@@ -79,7 +79,7 @@
     {"name":"status","type":"string"}
   ]
 ```
- - **$invokable** (require:read, writable:never)
+ - **$invokable** (require:read)
     - permission needed to invoke a action node
     - value can be "read" "write" "config" or "never"
     - "never" is the default value if not specified
