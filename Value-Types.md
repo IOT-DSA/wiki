@@ -49,7 +49,9 @@ An enum value type can be enum\[...\] with comma separated values. The first val
 * enum\[Sun,Mon,Tue,Wed,Thu,Fri,Sat\]
 
 ## binary
-Byte array expressed in a string. String is prefixed with ```\u001Bbytes:```, afterwards a byte array encoded in Base64 is added.
+when encoded in json, byte array expressed in a string. String is prefixed with ```\u001Bbytes:```, afterwards a byte array encoded in Base64 is added.
+
+Msgpack encoding doesn't need this special format
 
 ## map
 Map object with key/value pairs. Key is always a string, and value is always of type dynamic.
