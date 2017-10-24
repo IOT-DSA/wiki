@@ -32,7 +32,7 @@
      - action with no parameters data still need a blank $params config
    - option for each parameter item
      - name, name of the parameter
-     - type, type of the parameter, defined in /defs/type/
+     - type, type of the parameter
      - default, default value of the parameter
      - description, description of the parameter, will be shown in element tooltip (title)
      - placeholder, placeholder when the editor is text input
