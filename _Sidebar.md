@@ -15,7 +15,8 @@
 **SDK Development**<br/>
 &emsp;◌ [Implementation Guide](SDK-Implementation-Guide)<br/>
 **DGLux Server**<br/>
-&emsp;◌ [Configuration](DGLux-Server-Options)<br/>
+&emsp;◌ [Server Configuration](DGLux-Server-Options)<br/>
+&emsp;&emsp;◌ [Permission List for the Root](Permission-List-for-the-Root)<br/>
 &emsp;◌ [LDAP Authentication](DGLux-Server---LDAP-Authentication)<br/>
 &emsp;◌ [SSL Setup](DGLux-Server---SSL)<br/>
 &emsp;◌ [Docker](Docker)
