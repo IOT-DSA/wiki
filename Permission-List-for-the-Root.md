@@ -14,5 +14,5 @@ Within `server.json`, the `defaultPermission` config is a permission list that d
       ["default","read"]
    ]
 ```
-`:trustedLink` is the default permission for all dslink instealled with broker
+`:trustedLink` is the default permission for all dslink installed with broker
 `:user` is the default group for all dglux users
