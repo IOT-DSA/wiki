@@ -215,6 +215,30 @@ Determines the two factor authentication provider to use.
 
 **Default Value**: none
 
+## passwordHasherIterations
+
+When using `file` based [authType](#authtype), passwords are encrypted locally using PBKDF2. This value determines the number of iterations of the PBKDF2 algorithm used to encode the password.
+
+**Default Value**: 1000
+
+## passwordHasherKeyLength
+
+When using `file` based [authType](#authtype), This value determines the number of bytes that the encoded password should store.
+
+**Default Value**: 32
+
+## old_passwordHasherIterations
+
+In the event you change the default [passwordHasherIterations](#passwordhasheriterations), this value can be set as the previous value for `passwordHasherIterations`. This will enable the system to verify against the previous settings and migrate to the new settings without forcing a password reset. This option is hidden if not in use.
+
+**Default Value**: none
+
+## old_passwordHasherKeyLength
+
+In the event you change the default [passwordHasherKeyLength](#passwordhasherkeylength), this value can be set as the previous value for `passwordHasherKeyLength`. This will enable the system to verify against the previous setting and migrate to the new setting without forcing a password reset. This option is hidden if not in use. If the new `passwordHasherKeyLength` is less than the original value, this option is not required.
+
+**Default Value**: none
+
 ## enableIPv6
 
 Toggles support for IPv6 connections. When enabled server is listening on IPv6 interface only. In order to support both IPv4 and IPv6 in the mixed environment two copies of server needs to be installed and configured.
