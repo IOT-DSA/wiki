@@ -221,11 +221,15 @@ When using `file` based [authType](#authtype), passwords are encrypted locally u
 
 **Default Value**: 1000
 
+Check [Password Hasher](DGLux-Server---Password-Hasher) for more information.
+
 ## passwordHasherKeyLength
 
 When using `file` based [authType](#authtype), This value determines the number of bytes that the encoded password should store.
 
 **Default Value**: 32
+
+Check [Password Hasher](DGLux-Server---Password-Hasher) for more information.
 
 ## old_passwordHasherIterations
 
@@ -233,11 +237,15 @@ In the event you change the default [passwordHasherIterations](#passwordhasherit
 
 **Default Value**: none
 
+Check [Password Hasher](DGLux-Server---Password-Hasher) for more information.
+
 ## old_passwordHasherKeyLength
 
 In the event you change the default [passwordHasherKeyLength](#passwordhasherkeylength), this value can be set as the previous value for `passwordHasherKeyLength`. This will enable the system to verify against the previous setting and migrate to the new setting without forcing a password reset. This option is hidden if not in use. If the new `passwordHasherKeyLength` is less than the original value, this option is not required.
 
 **Default Value**: none
+
+Check [Password Hasher](DGLux-Server---Password-Hasher) for more information.
 
 ## enableIPv6
 
