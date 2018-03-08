@@ -165,7 +165,7 @@ A quarantined DSLink can only work as a responder. Use the `/sys/quarantine/auth
 
 ## isAlwaysOffline
 
-Indicates that a server is expected to never have a full internet connection.
+Indicates that a server is expected to never have a full internet connection. This will prevent the server from trying to download the list of DSLinks available in the remote repository.
 
 **Default Value**: false
 
