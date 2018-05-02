@@ -1,8 +1,6 @@
-A token is necessary to create a new handshake when the broker is configured to not allow unknown DSLinks.
+Token is necessary to create a new handshake when the broker is configured to not allow unknown DSLinks.
 
-## When a Token Is Required
-
-A token is not required for DSLinks that are managed by this broker's DSLink manager. If a DSLink is installed using the broker's `/sys/links` node, that DSLink is maintained by the broker and uses an automatically generated token.
+Token is not required for DSLinks that are managed by this broker's DSLink manager. If a DSLink is installed using the broker's `/sys/links` node, that DSLink is maintained by the broker and uses an automatically generated token.
 
 ##Changing Whether a Token Is Required
 To change whether tokens are required:
