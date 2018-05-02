@@ -7,7 +7,8 @@ To change whether tokens are required:
  1. Open `server.json`.
  1. Change the value of `allowAllLinks`.
 
-When `allowAllLinks` is TRUE, any DSLink can connect to the broker without a token.
+When `allowAllLinks` is true, any DSLink can connect to the broker without a token.
+When `allowAllLinks` is false, dslinks installed with the broker and dslinks that are previous connected and still registered in downstream can connect without a token, but new dslink will need token.
 
 ## Creating a Token
 
