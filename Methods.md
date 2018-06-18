@@ -49,7 +49,7 @@ The response of list will update on any node change available to the current req
         - children node should include **$invokable** if user is allowed to invoke it 
         - children node should include **$type** if node support subscription
         - other properties of children nodes shouldn't appear in the list response.
-   - Names must not be blank or contain these characters: ```. / \ ? * : | “ < >```
+   - Names must not be blank or contain these characters: ```/ \ ? * : | “ < >```
    - When % is used in name, it must be used only for UTF-8 based percent encode, not for other purpose. 
 
  - value
