@@ -97,7 +97,10 @@ When the client connects to the server's connection endpoint, the server must re
  - path
      - The full path where the DSLink is located on the broker
  - format
-     - the format for the client link to use. 
+     - the format for the client link to use.
+ - version
+     - Version of DSA protocol
+     - If this is absent, connections may assume that it is communicating with a version prior to 1.0.4 (when versions were first introduced).
  - updateInterval
     - **Do not implement, only for backwards compatibility.**
     - Only affects the responder
