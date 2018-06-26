@@ -29,4 +29,5 @@
 ### behavior of broker
 * broker must cache the token for at least 30 seconds to make sure same token can not be used twice
 * broker must allow same userId or permission group to have multiple connection (as long as their token are different)
+* asb clients are always requester only and broker must not create downstream nodes for them
 * broker should not allow dglux client to have qos 2 or qos 3. they should be downgraded to qos 1
