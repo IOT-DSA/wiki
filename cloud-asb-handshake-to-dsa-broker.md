@@ -6,7 +6,7 @@
 ### step of handshake
 * browser asb client connect to https://cloudbroker/dsa-token
   * cloud broker return the token as plain text in response
-* asb client connect to the broker's /ws endpoint with the url query parameter `&userToken=`
+* asb client connect to the broker's /ws endpoint with the url query parameter `&asbToken=`
   * the client would skip /conn step and only connect to /ws
   * the client wont send `auth` or `dsId` in the url query when connecting to /ws
 
