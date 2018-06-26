@@ -6,7 +6,9 @@
 ### step of handshake
 * browser asb client connect to https://cloudbroker/dsa-token
   * cloud broker return the token as plain text in response
-* asb client connect to the broker with the url query parameter `&userToken=`
+* asb client connect to the broker's /ws endpoint with the url query parameter `&userToken=`
+  * the client would skip /conn step and only connect to /ws
+  * the client wont send `auth` or `dsId` in the url query when connecting to /ws
 
 ### format of token 
 `permission_group;userid;timestamp;randomchars;signature`
@@ -21,5 +23,10 @@
   * any implementation is ok, as long as it's not fixed characters
   * recommend 8 bytes of 0-9 a-z characters 
 * **signature** signature of the token
-  * a hmac hash on everything before the signature
-  * url_base64(sha256_hmac(requester_auth_key).hash( UTF8("$permission_group;$userid;$timestamp;$randomchars")))
+  * a hash on everything before the signature
+  * `url_base64(SHA256 ("$permission_group;$userid;$timestamp;$randomchars;$requester_auth_key" ))`
+
+### behavior of broker
+* broker must cache the token for at least 30 seconds to make sure same token can not be used twice
+* broker must allow same userId or permission group to have multiple connection (as long as their token are different)
+* broker should not allow dglux client to have qos 2 or qos 3. they should be downgraded to qos 1
