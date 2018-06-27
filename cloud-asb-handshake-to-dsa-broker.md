@@ -4,8 +4,13 @@
   * dsa broker use it to validate the token
 
 ### step of handshake
-* browser asb client connect to https://cloudbroker/dsa-token
-  * cloud broker return the token as plain text in response
+* browser asb client connect to https://cloudbroker/dsa-conn
+  * cloud broker return the token and ws url in json format
+```json
+{
+  "wsUrl":"ws://192.168.100.1/ws",
+  "asbToken":"user;rick;2018-06-26T20:32:26.823Z;9dn19bt7f;FEuG-dsvoy3Mfh-DY4ZLqxWdcjA9mky2MyCd0DmqTMw"
+```
 * asb client connect to the broker's /ws endpoint with the url query parameter `&asbToken=`
   * the client would skip /conn step and only connect to /ws
   * the client wont send `auth` or `dsId` in the url query when connecting to /ws
