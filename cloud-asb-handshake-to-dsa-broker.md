@@ -8,7 +8,7 @@
   * cloud broker return the token and ws url in json format
 ```json
 {
-  "wsUrl":"wss://192.168.100.1/ws",
+  "wsUrl":"wss://192.168.100.104/ws",
   "asbToken":"user;rick;2018-06-26T20:32:26.823Z;9dn19bt7f;FEuG-dsvoy3Mfh-DY4ZLqxWdcjA9mky2MyCd0DmqTMw"
 }
 ```
