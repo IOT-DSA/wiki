@@ -1,4 +1,4 @@
-This documentation is now available on the main [Authentication](../Authentication#ldap) page.
+This documentation is now available on the main [Authentication](Authentication#ldap) page.
 <!--
 Setting up LDAP authentication in DGLux Server is simple.
 
