@@ -21,10 +21,9 @@
 
 * **permission group** : any string that's valid permission group name 
 * **userid** : any string that's a valid user name
-  * userid is used only for logging purpose
 * **timestamp** : the timestamp when this token is generated
   * format : 2018-06-26T20:32:26.823Z
-  * broker should reject the token if it's more than 30 seconds older or more than 30 seconds in the future
+  * broker should reject the token if it's more than 30 seconds old or more than 30 seconds in the future
 * **randomchars** random characters to make sure every token is unique
   * any implementation is ok, as long as it's not fixed characters
   * recommend 8 bytes of 0-9 a-z characters 
