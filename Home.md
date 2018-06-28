@@ -23,6 +23,5 @@ Welcome to the DSA Wiki!
 &emsp;◌ [DSA Permission Model](DSA-Permission-Model)<br/>
 &emsp;&emsp;◌ [Permission List for the Root](Permission-List-for-the-Root)<br/>
 &emsp;◌ [Authentication](Authentication)<br/>
-&emsp;&emsp;◌ [LDAP Authentication](DGLux-Server---LDAP-Authentication)<br/>
 &emsp;◌ [SSL Setup](DGLux-Server---SSL)<br/>
 &emsp;◌ [Docker](Docker)<br/>
