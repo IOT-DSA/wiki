@@ -42,7 +42,7 @@ You can specify the following LDAP server settings in “servers.json” as key/
 * `superuserGroup`: (Optional) An integer or string that specifies the groupAttribute that must match the corresponding entry in the LDAP server in order for the user to be granted superuser privileges. This value defaults to “superuser,” which will generally fail to match any groupAttribute values.
 * `usernameAttribute`: (Optional) The usernameAttribute name as configured in the LDAP server. This setting is used as a filter when searching the LDAP server for a username. Default is `uid` if not specified.
 * `allowListUsers`: (Optional) Specifies whether the user can view and query the list of users in DGLux5. Default: false (cannot view or query)
-* `searchFilter`: (Optional) And additional search filter applied to the LDAP queries particularly when searching for users or authenticating. Filters are implemented as defined in [RFC2254](https://tools.ietf.org/html/rfc2254) with the exception of extensible matching which is currently not supported.
+* `searchFilter`: (Optional) An additional search filter applied to the LDAP queries particularly when searching for users or authenticating. Filters are implemented as defined in [RFC2254](https://tools.ietf.org/html/rfc2254) with the exception of extensible matching which is currently not supported.
 * `metadata`: (Optional) Additional data about the user to be requested from the LDAP server, specified as key/value pairs. 
 
 Example LDAP configuration:
