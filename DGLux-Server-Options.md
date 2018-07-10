@@ -156,7 +156,7 @@ When the value is false, an incoming DSLink without proper authentication will b
 
 ## quarantine
 
-** This setting has no effect when allowAllLinks is true **
+**WARNING: This setting has _no_ effect when allowAllLinks is true**
 
 When the value is true, a new incoming DSLink without a token will be put in `/sys/quarantine`.
 A quarantined DSLink can only work as a responder. Use the `/sys/quarantine/authorize` to move a quarantined DSlink to `/downstream`.
