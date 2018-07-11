@@ -40,7 +40,7 @@ Query Parameters:
      - A unique string of 43-128 characters, the last 43 characters are an URL-safe Base64-encoded SHA256 hash of the public-key binary
      - example: "link-dataflow-s-R9RKdvC2VNkfRwpNDMMpmT_YWVbhPLfbIc-7g4cpc"
  - token
-     - [Optional token for client to access predefined authorization](https://github.com/IOT-DSA/docs/wiki/Tokens)
+     - [Optional token for client to access predefined authorization](Tokens)
 
 JSON parameters:
  - publicKey
@@ -126,7 +126,7 @@ The client must send the following URL parameters:
     - SHA256 (UTF8Bytes (salt) + SharedSecret ) *("+" here means concatenating of byte buffer)*
     - SharedSecret is the result of a standard ECDH with client's private key and server's one-time public key: tempKey
  - token
-     - [Optional token for client to access predefined authorization](https://github.com/IOT-DSA/docs/wiki/Token-Based-Handshake)
+     - [Optional token for client to access predefined authorization](Tokens)
  - format
      - format string for the websocket data, can be either "json" or "msgpack"
 
