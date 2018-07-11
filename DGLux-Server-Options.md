@@ -150,7 +150,7 @@ Check [Permission List for the Root](Permission-List-for-the-Root) for details.
 ## allowAllLinks
 
 When the value is true, all incoming DSLink connections will be accepted to `/downstream`.
-When the value is false, an incoming DSLink without proper authentication will be rejected unless quarantine is enabled.
+When the value is false, an incoming DSLink without the proper authentication [Token](Tokens) will be rejected, and the connection dropped, unless quarantine is enabled.
 
 **Default Value**: true
 
