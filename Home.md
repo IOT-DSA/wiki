@@ -8,7 +8,7 @@ Welcome to the DSA Wiki!
 &emsp;&emsp;◌ [Broker](Broker)<br/>
 &emsp;&emsp;◌ [Configs](Configs)<br/>
 &emsp;&emsp;◌ [Value Types](Value-Types)<br/>
-&emsp;◌ [Tokens](Token-Based-Handshake)<br/>
+&emsp;◌ [Tokens](Tokens)<br/>
 &emsp;◌ [Quality of Service](Quality-of-Service)<br/>
 
 ## DSLink Manager
