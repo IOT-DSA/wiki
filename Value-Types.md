@@ -5,12 +5,12 @@ Number can be either a single or double. When a number type is used in the actio
 * editor
   * color
     * Opens a color editor
-  * min
-    * Requires a minimum bound.
-    * Note: Does not work in color editor.
-  * max
-    * Requires a maximum bound.
-    * Note: Does not work in color editor.
+* min
+  * Requires a minimum bound.
+  * Note: Does not work in color editor.
+* max
+  * Requires a maximum bound.
+  * Note: Does not work in color editor.
 
 ### Examples
 * 1
