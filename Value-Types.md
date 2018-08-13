@@ -5,6 +5,8 @@ Number can be either a single or double. When a number type is used in the actio
 * editor
   * color
     * Opens a color editor
+  * int
+    * only allow integer values
 * min
   * Requires a minimum bound.
   * Note: Does not work in color editor.
