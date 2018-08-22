@@ -14,6 +14,27 @@ An example server.json is:
   "certKeyName": "key.pem",
   "certPassword": "",
   "enableHSTS": false,
+  "enableCSRFProtection": false,
+  "strictFileUpload": {
+    "enabled": false,
+    "useClamAV": false,
+    "extensions": [
+      "dg5",
+      "dgi",
+      "crt",
+      "key",
+      "woff",
+      "ttf",
+      "gif",
+      "svg",
+      "png",
+      "jpg",
+      "xml",
+      "json",
+      "sql",
+      "csv"
+    ]
+  },
   "disableFileSecurity": false,
   "isAlwaysOffline": false,
   "broadcast": false,
@@ -148,6 +169,12 @@ When this value is true, then any user can access any file. When this is false, 
 
 **Default Value**: false
 
+## isAlwaysOffline
+
+Indicates that a server is expected to never have a full internet connection. This will prevent the server from trying to download the list of DSLinks available in the remote repository.
+
+**Default Value**: false
+
 ## broadcast
 
 When this value is true, the server's broker is broadcast to the local network for discovery by other machines. When this value is false, the broadcast service is not enabled.
@@ -159,6 +186,12 @@ When this value is true, the server's broker is broadcast to the local network f
 Number of Server Workers. For low end devices, this should stay at 1. For large machines, this can be set up to a maximum of 128. It is recommended that you do not exceed the number of logical processors on your machine. 
 
 **Default Value**: For single-core machines, this is 1, for other devices, this is 2.
+
+## updateInterval
+
+This is a legacy parameter that has no significant impact. In prior versions of the DSA protocol this value would limit updates from a Responder DSLink to no faster than this value (in milliseconds). In current versions of the protocol this parameter has no effect, but remains in the event of any legacy DSLinks still connecting to the broker.
+
+**Default Value**: 200
 
 ## static
 
@@ -174,19 +207,41 @@ Example:
 
 **Default Value**: `{"/.well-known": "/path/to/dsa/dglux-server/.well-known"}`
 
-## defaultPermission
+## linkConfig
 
-Default permission setting for the root node. 
-When this value is `null`, permissions are disabled, and everything has the config permission.
+Each DSLink may optionally specify its own configuration parameters to use. These configuration parameters can be see under the `/sys/links/<linkName>/configs` node. If you modify one of those parameters, the value is updated in the server configuration, as opposed to directly modifying the DSLink's configuration file. This value will vary depending on the DSLinks installed, their given names and the configuration parameters they may provide. It should be modified from the DSA node tree rather than by hand.
 
-Check [Permission List for the Root](Permission-List-for-the-Root) for details.
+**Default Value**: `{}`
 
-## allowAllLinks
+## disabledLinks
 
-When the value is true, all incoming DSLink connections will be accepted to `/downstream`.
-When the value is false, an incoming DSLink without the proper authentication [Token](Tokens) will be rejected, and the connection dropped, unless quarantine is enabled.
+This value is a comma separated, string list of DSLink names which are installed but currently disabled (not running on start-up). This list is managed via the `/sys/links/<linkName>/enabled` node and setting it to `false`.
 
-**Default Value**: true
+**Default Value**: `[]`
+
+## uptimeCheckUrl
+
+The server has a built-in checker to verify it is still running, and restart it if it goes offline or drops connections. By default the checker will attempt to connect to localhost. However if the server is bound to a different interface in the [host](#host) parameter, you will need to specify the correct URL for the server. It should end in `/ping`. This only applies when [enableUptimeChecker](#enableuptimechecker) is enabled.
+
+Example:
+
+```"https://169.254.100.100/ping"```
+
+**Default Value**: null
+
+## upstream
+
+This value is a map of upstream broker connections that this broker will try to connect to. This should be managed via the `/sys/upstream` nodes to add or remove existing entries.
+
+**Default Value**: `{}`
+
+<!-- Add to example config above when accepted.
+## strictTls
+
+If this value is set to `true`, then any secure connections to an upstream broker must be passed with a valid/trusted security certificate. If the certificate provided by the upstream broker is invalid the broker will fail to establish a connection and retry (progressively backing off the connection) until a valid certificate is received. If this value is `false`, then insecure certificates are accepted, but a informational message is logged.
+
+**Default Value**: false
+-->
 
 ## quarantine
 
@@ -197,13 +252,31 @@ A quarantined DSLink can only work as a responder. Use the `/sys/quarantine/auth
 
 **Default Value**: false
 
-## isAlwaysOffline
+## allowAllLinks
 
-Indicates that a server is expected to never have a full internet connection. This will prevent the server from trying to download the list of DSLinks available in the remote repository.
+When the value is true, all incoming DSLink connections will be accepted to `/downstream`.
+When the value is false, an incoming DSLink without the proper authentication [Token](Tokens) will be rejected, and the connection dropped, unless quarantine is enabled.
+
+**Default Value**: true
+
+## defaultPermission
+
+Default permission setting for the root node. 
+When this value is `null`, permissions are disabled, and everything has the config permission.
+
+Check [Permission List for the Root](Permission-List-for-the-Root) for details.
+
+## useRuntimeManager
+
+**WARNING: Setting this value has no effect on a Windows based server**
+
+This value enables both the [useDartRuntimeManager](#usedartruntimemanager) and [useJavaRuntimeManager](#usejavaruntimemanager) on the server if applicable.
 
 **Default Value**: false
 
 ## useDartRuntimeManager
+
+**WARNING: Setting this value has no effect on a Windows based server**
 
 When the value is true, the Dart Runtime Manager is used for Dart DSLinks. The Dart runtime manager reduces resource consumption by merging Dart DSLinks into a single process.
 
@@ -211,9 +284,43 @@ When the value is true, the Dart Runtime Manager is used for Dart DSLinks. The D
 
 ## useJavaRuntimeManager
 
+**WARNING: Setting this value has no effect on a Windows based server**
+
 When the value is true, the Java Runtime Manager is used for Java DSLinks. The Java runtime manager reduces resource consumption by merging Java DSLinks into a single process.
 
 **Default Value**: false
+
+## passwordHasherIterations
+
+When using `file` based [authType](#authtype), passwords are encrypted locally using PBKDF2. This value determines the number of iterations of the PBKDF2 algorithm used to encode the password.
+
+**Default Value**: 1000
+
+Check [Password Hasher](DGLux-Server---Password-Hasher) for more information.
+
+## passwordHasherKeyLength
+
+When using `file` based [authType](#authtype), This value determines the number of bytes that the encoded password should store.
+
+**Default Value**: 32
+
+Check [Password Hasher](DGLux-Server---Password-Hasher) for more information.
+
+## old_passwordHasherIterations
+
+In the event you change the default [passwordHasherIterations](#passwordhasheriterations), this value can be set as the previous value for `passwordHasherIterations`. This will enable the system to verify against the previous settings and migrate to the new settings without forcing a password reset. This option is hidden if not in use.
+
+**Default Value**: none
+
+Check [Password Hasher](DGLux-Server---Password-Hasher) for more information.
+
+## old_passwordHasherKeyLength
+
+In the event you change the default [passwordHasherKeyLength](#passwordhasherkeylength), this value can be set as the previous value for `passwordHasherKeyLength`. This will enable the system to verify against the previous setting and migrate to the new setting without forcing a password reset. This option is hidden if not in use. If the new `passwordHasherKeyLength` is less than the original value, this option is not required.
+
+**Default Value**: none
+
+Check [Password Hasher](DGLux-Server---Password-Hasher) for more information.
 
 ## guestLoginRedirectPath
 
@@ -248,38 +355,6 @@ Determines the two factor authentication provider to use.
 - [duo](https://github.com/IOT-DSA/docs/wiki/Using-DUO-Two-Factor-Authentication): Duo Two-Factor Authentication
 
 **Default Value**: none
-
-## passwordHasherIterations
-
-When using `file` based [authType](#authtype), passwords are encrypted locally using PBKDF2. This value determines the number of iterations of the PBKDF2 algorithm used to encode the password.
-
-**Default Value**: 1000
-
-Check [Password Hasher](DGLux-Server---Password-Hasher) for more information.
-
-## passwordHasherKeyLength
-
-When using `file` based [authType](#authtype), This value determines the number of bytes that the encoded password should store.
-
-**Default Value**: 32
-
-Check [Password Hasher](DGLux-Server---Password-Hasher) for more information.
-
-## old_passwordHasherIterations
-
-In the event you change the default [passwordHasherIterations](#passwordhasheriterations), this value can be set as the previous value for `passwordHasherIterations`. This will enable the system to verify against the previous settings and migrate to the new settings without forcing a password reset. This option is hidden if not in use.
-
-**Default Value**: none
-
-Check [Password Hasher](DGLux-Server---Password-Hasher) for more information.
-
-## old_passwordHasherKeyLength
-
-In the event you change the default [passwordHasherKeyLength](#passwordhasherkeylength), this value can be set as the previous value for `passwordHasherKeyLength`. This will enable the system to verify against the previous setting and migrate to the new setting without forcing a password reset. This option is hidden if not in use. If the new `passwordHasherKeyLength` is less than the original value, this option is not required.
-
-**Default Value**: none
-
-Check [Password Hasher](DGLux-Server---Password-Hasher) for more information.
 
 ## enableIPv6
 
