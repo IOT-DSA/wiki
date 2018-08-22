@@ -76,6 +76,12 @@ Enable/Disable Debugging Mode
 
 For production site, this should always be false, debug:true may result in memory leak and bugs.
 
+## host
+
+IP address on the host onto which to bind the server. Using "127.0.0.1" (or "localhost") will allow connections only from the current loopback (this computer). Using "0.0.0.0" will allow connections on any interface this computer has (internal/public network, local loopback). If you have multiple adaptors/interfaces and do not want the server to be available on them all, specify the IP address of the connection on which it should be available.
+
+**Default Value**: "0.0.0.0"
+
 ## port
 
 HTTP Port to listen on. If this is less than or equal to 0, then the server does not listen on any port for HTTP.
@@ -96,17 +102,45 @@ _At least one of `port` or `httpsPort` must have a valid port number assigned._
 
 SSL certificate file name. Leave blank to disable HTTPS.
 
-## certPassword
-
-SSL certificate password. Set to `null` to disable HTTPS.
-
 ## certKeyName
 
 SSL private key file name. Leave blank to disable HTTPS.
 
+## certPassword
+
+SSL certificate password. Set to `null` to disable HTTPS.
+
 ## enableHSTS
 
 When this value is true, the HTTP server will always redirect to the HTTPS server, and the HTTPS server will have HSTS enabled to route requests automatically to the HTTPS server.
+
+## enableCSRFProtection
+
+When this value is true, the HTTP server will add specific headers and cookies to help mitigate [Cross-Site Request Forgery attacks](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
+
+**Default Value**: false
+
+## strictFileUpload
+
+`strictFileUpload` is a configuration map that contains 3 fields. When this option is enabled, it will affect various file upload capabilities. Notably, it prevents guest users from being able to upload a file; It will limit uploads to only explicitly permitted file extensions; and possibly scan uploaded files for viruses. The configuration options are:
+
+### enabled
+
+When set to true, strictFileUpload is enabled. If false, it will disable to strictFileUpload checks.
+
+**Default Value**: false
+
+### useClamAV
+
+When set to true, the server will attempt to find [Clam Antivirus](https://www.clamav.net/) on the system and if located, it will try to utilize this to scan any file uploads the server receives from a user. If this value is false, or the ClamAV was not found on the system, antivirus scans will be skipped, but other strictFileUpload conditions still apply if enabled.
+
+**Default Value**: false
+
+### extensions
+
+An allow list of permissible file extensions (omitting the leading `.`) When strictFileUpload is enabled, the filename must end in one of these extensions or the upload will be rejected.
+
+**Default Value**: ["dg5","dgi","crt","key","woff","ttf","gif","svg","png","jpg","xml","json","sql","csv"]
 
 ## disableFileSecurity
 
