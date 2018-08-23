@@ -14,8 +14,8 @@
 &emsp;◌ [Startup Command](Startup-Command)<br/>
 **SDK Development**<br/>
 &emsp;◌ [Implementation Guide](SDK-Implementation-Guide)<br/>
-**DGLux Server**<br/>
-&emsp;◌ [Server Configuration](DGLux-Server-Options)<br/>
+**DSA Server**<br/>
+&emsp;◌ [Server Configuration](DSA-Server-Options)<br/>
 &emsp;◌ [DSA Permission Model](DSA-Permission-Model)<br/>
 &emsp;&emsp;◌ [Permission List for the Root](Permission-List-for-the-Root)<br/>
 &emsp;◌ [Authentication](Authentication)<br/>
