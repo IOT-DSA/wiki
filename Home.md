@@ -18,8 +18,8 @@ Welcome to the DSA Wiki!
 ## SDK Development
 &emsp;◌ [Implementation Guide](SDK-Implementation-Guide)<br/>
 
-## DGLux Server
-&emsp;◌ [Server Configuration](DGLux-Server-Options)<br/>
+## DSA Server
+&emsp;◌ [Server Configuration](DSA-Server-Options)<br/>
 &emsp;◌ [DSA Permission Model](DSA-Permission-Model)<br/>
 &emsp;&emsp;◌ [Permission List for the Root](Permission-List-for-the-Root)<br/>
 &emsp;◌ [Authentication](Authentication)<br/>
