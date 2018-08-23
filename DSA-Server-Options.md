@@ -1,4 +1,4 @@
-The DGLux Server has many options that allow you to tweak how the server works and customize it for your own use.
+The DSA Server has many options that allow you to tweak how the server works and customize it for your own use.
 
 Options are defined in the server.json
 
@@ -322,17 +322,17 @@ In the event you change the default [passwordHasherKeyLength](#passwordhasherkey
 
 Check [Password Hasher](DGLux-Server---Password-Hasher) for more information.
 
-## guestLoginRedirectPath
-
-Determines the URI that a guest user is redirected to when visiting the root of the server.
-
-**Default Value**: null (Redirects to /login)
-
 ## loginRedirectPath
 
 Determines the URI that a user is redirected to when login is complete.
 
 **Default Value**: /
+
+## guestLoginRedirectPath
+
+Determines the URI that a guest user is redirected to when visiting the root of the server.
+
+**Default Value**: null (Redirects to /login)
 
 ## authType
 
@@ -356,6 +356,30 @@ Determines the two factor authentication provider to use.
 
 **Default Value**: none
 
+## runPortChecks
+
+When set to true, this option will verify that the configured ports for the server (HTTP and HTTPS) are valid and available for use prior to actually starting the server.
+
+**Default Value**: true
+
+## storageDriver
+
+This option is available for future expansion for how data is persisted at various QOS levels. Currently only `simple` is supported.
+
+** Default Value**: simple
+
+## downstreamName
+
+This value is the name of the downstream connections node. Previously releases used a downstream name of `conns`. However it is recommended to leave this as the default value, as other Requester DSLinks may make assumptions of the correct path.
+
+**Default Value**: downstream
+
+## enableUptimeChecker
+
+The server also comes with a checker which will periodically check to verify that the server is still up and running and responsive. Setting this value to false will disable the uptime checker.
+
+**Default Value**: true
+
 ## enableIPv6
 
 Toggles support for IPv6 connections. When enabled server is listening on IPv6 interface only. In order to support both IPv4 and IPv6 in the mixed environment two copies of server needs to be installed and configured.
@@ -367,7 +391,6 @@ Toggles support for IPv6 connections. When enabled server is listening on IPv6 i
 When the value is true, custom assets in www/assets are kept upon updating DGLux Server.
 
 **Default Value**: false
-
 
 ## formatDg5
 
