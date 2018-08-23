@@ -380,6 +380,50 @@ The server also comes with a checker which will periodically check to verify tha
 
 **Default Value**: true
 
+## loggers
+
+The server contains a number of specialized loggers, particularly for debugging, which may be added here to retrieve verbose logging information. Some examples include "File Service" and "Execute". These would normally be advised to be enabled at the request of support.
+
+**Default Value**: []
+
+## proxies
+
+This value is a Map of path (key) and URI (value) pairs. Requests to the path will be forwarded to the URI
+
+**Default Value**: {}
+
+## hooks
+
+This value is designed to execute a specific command line program at various server states. Currently the only supported state is `ready` which executes when the server has finished loading. The Map contains keys of state (eg ready) and value of a list of command line programs to execute.
+
+**Default Value**: {}
+
+## distributionUrl
+
+This value is the url used to check for updates of the dsa server. This value can be managed in the `/sys/config` nodes (generally should not change from default).
+
+## linkRepositoryUrl
+
+This value is the url used to check for updates for any of the DSA Links installed via repository. This value can be managed in the `/sys/config` nodes (generally should not change from default).
+
+## serverVmFlags
+
+This value is a list of flags to add to the server when being started. They only apply to the DSA server and not any managed links.
+
+**Default Value**: []
+
+## userTimeout
+
+Number of minutes of user inactivity (nothing being loaded from the server) after which session times out. This is a general setting, cannot be set per user.
+
+**Default Value**: 525600m (1 year)
+
+## allowBrowserCaching
+
+When enabled, this value will add Cache-Control headers
+
+**Default Value**: false
+
 ## enableIPv6
 
 Toggles support for IPv6 connections. When enabled server is listening on IPv6 interface only. In order to support both IPv4 and IPv6 in the mixed environment two copies of server needs to be installed and configured.
@@ -397,9 +441,3 @@ When the value is true, custom assets in www/assets are kept upon updating DGLux
 When this value is true, dglux client will save dg5 in a formatted and json with key sorted, makes it easy to track changes.
 
 **Default Value**: false
-
-## userTimeout
-
-Number of minutes of user inactivity (nothing being loaded from the server) after which session times out. This is a general setting, cannot be set per user.
-
-**Default Value**: 525600m (1 year)
