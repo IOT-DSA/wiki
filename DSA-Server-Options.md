@@ -82,12 +82,19 @@ An example server.json is:
   "keepCustomAssets": false,
   "linkManagerEnvironment": {},
   "timeHttpRequests": false,
-  "generatedCertificateSubject": "/C=US/ST=California/L=Oakland/O=DGLogik Inc./OU=Customers/CN=*",
+  "generatedCertificateSubject": "/C=US/ST=California/L=Oakland/O=Acuity Brands Inc./OU=Customers/CN=*",
   "enableCertificateGeneration": true,
   "alternativeBrokerUrl": null,
   "httpPathClassification": {},
-  "brokerName": "broker-",
-  "runBrokerInMain": false
+  "corsProxyRules": "",
+  "enableGit": false,
+  "enableSingleSignOnServer": false,
+  "maxQueueSize": 256,
+  "ssoProviderUrl": null,
+  "formatDg5": false,
+  "allowedCorsRegexString": null,
+  "blockOutsideGuests": false,
+  "customLogo": null
 }
 ```
 
@@ -462,14 +469,112 @@ When the [useRuntimeManager](#useruntimemanager) or [useJavaRuntimeManager](#use
 
 **Default Value**: []
 
+## allowPasswordChanges
+
+When true, this value will enable passwords to be updated via the `/change_password` URL (after the user has logged in). This is only work if supported by the current (authType)[#authtype]
+
+**Default Value**: true
+
+<!-- TODO: Add to top example when ready to be deployed
+## passwordExpireAfterDays
+
+This value is the number of days after which a password will expire. After logging in, the last modified date for the password is checked. If the password is past the expiry, then the user will be redirected to the password reset page.
+
+**Default Value**: 0
+-->
+
 ## keepCustomAssets
 
 When the value is true, custom assets in www/assets are kept upon updating DGLux Server.
 
 **Default Value**: false
 
+## linkManagerEnvironment
+
+This value is a map of environment variables to set when the DSLink manager is started.
+
+**Default Value**: {}
+
+## timeHttpRequests
+
+If enabled, this value will cause all HTTP requests to the DSA Server to be timed and the log will be updated with the request and elapsed duration.
+
+**Default Value**: false
+
+## generatedCertificateSubject
+
+If the option [enableCertificateGeneration](#enablecertificategeneration) is enabled, this is the subject used when generating the self-signed certificate.
+
+**Default Value**: /C=US/ST=California/L=Oakland/O=Acuity Brands Inc./OU=Customers/CN=*
+
+## enableCertificateGeneration
+
+When this option is set to true, the server will attempt to generate self-signed SSL certificates prior to launching the server. This will set the appropriate [certName](#certname), [certKeyName](#certkeyname). If these values are not empty, then certificate generation will be skipped.
+
+**Default Value**: true
+
+## alternativeBrokerUrl
+
+If you wish for all DSLink connections to be forwarded to a separate broker rather than the default broker, you would specify the URI of the alternative broker here. This was primarily used for legacy installations.
+
+**Default Value**: null
+
+## httpPathClassification
+
+This value is a map of paths which may match a specific classification string. The key is the classification and the value is a list of paths which match that classification. If enabled and a requested path to the server matches a path in that classification, then that request will be treated as that type of classification request even if not matching the original hardcoded path. Currently the only supported classification is `session`. 
+
+**Default Value**: {}
+
+## corsProxyRules
+
+The DSA server may also be used to proxy requests to external servers. To limit the locations which the proxy can access, a list of addresses, separated by new lines, may be added to the string.
+
+**Default Value**: ""
+
+## enableGit
+
+This value will enable git version control over your project directory. When enabled, modifications to files in the project will be committed to a git repository at the same file path, and can be used in project management to see a history of changes and even revert changes.
+
+**Default Value**: false
+
+## enableSingleSignOnServer
+
+In an environment where there are multiple instances of the DSA Server installed on the network, it is possible to allow all instances to refer to one primary server for authentication. When this option is enabled, this server will act as a primary server and allow other DSA Server instances to query this server for a user session on this server and if found, share it with the other instance. This requires the [ssoProviderUrl](#ssoproviderurl) be supplied to the other DSA Server instances.
+
+**Default Value**: false
+
+## maxQueueSize
+
+This value is the maximum number of items stored in the queue to be sent, if the queue reaches a volume greater the behaviour will vary depending on the QOS settings (merged, dropped etc).
+
+**Default Value**: 256
+
+## ssoProviderUrl
+
+When this value is supplied, it must be the URI of another DSA server instance. This server will request an existing session from the supplied server and if found grant access via that session. If no session is found, the user will be prompted to log into that server and will be redirected to this instance once successfully authenticated.
+
+**Default Value**: null
+
 ## formatDg5
 
 When this value is true, dglux client will save dg5 in a formatted and json with key sorted, makes it easy to track changes.
 
 **Default Value**: false
+
+## allowedCorsRegexString
+
+If you wish to allow, but restrict, the access of external sites to interface with your DSA server, you can set a Regular Expression string here which much match for the external server requests to be completed.
+
+**Default Value**: null
+
+## blockOutsideGuests
+
+Enable this value if you wish to require a valid user login to view all projects.
+
+**Default Value**: false
+
+## customLogo
+
+When the server has been configured to use a customized branded login page, this is the path to the logo image.
+
+**Default Value**: null
