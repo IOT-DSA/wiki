@@ -73,6 +73,8 @@ An example server.json is:
   "userTimeout": 525600,
   "allowBrowserCaching": false,
   "serverLogLevel": "INFO",
+  "enableLogCompression": true,
+  "logRotationInterval": 0,
   "enableIPv6": false,
   "dartRuntimeManagerVmFlags": [],
   "javaRuntimeManagerVmFlags": [],
@@ -420,15 +422,45 @@ Number of minutes of user inactivity (nothing being loaded from the server) afte
 
 ## allowBrowserCaching
 
-When enabled, this value will add Cache-Control headers
+When enabled, this value will add Cache-Control headers for 300 seconds on static files such as .dg5, images, etc.
 
 **Default Value**: false
+
+## serverLogLevel
+
+Sets the log level verbosity. Levels are: `NONE`; `SEVERE`; `WARNING`; `INFO`; `FINE`; `FINEST`; `ALL`; `DEBUG`. Each level will report its level and all prior to it. (Example: INFO will log all INFO, WARNING and SEVERE messages).
+
+**Default Value**: INFO
+
+## enableLogCompression
+
+If this value is true, then when log files reach approximately 5MB in size, they will be rotated and compressed. Log files will be renamed to <logfile>.<millisecondTimeStamp>.gz
+
+**Default Value**: true
+
+## logRotationInterval
+
+This value is the number of seconds to wait before rotating log files. When this option is enabled (anything greater than 0) [enableLogCompression](#enablelogcompression) will not be used. After the specified period, a log file will be renamed to <filename>.<number> the higher the number the older the log file. Any files greater than 2 will be removed.
+
+**Default Value**: 0
 
 ## enableIPv6
 
 Toggles support for IPv6 connections. When enabled server is listening on IPv6 interface only. In order to support both IPv4 and IPv6 in the mixed environment two copies of server needs to be installed and configured.
 
 **Default Value**: false
+
+## dartRuntimeManagerVmFlags
+
+When the [useRuntimeManager](#useruntimemanager) or [useDartRuntimeManager](#usedartruntimemanager) options are enabled and the platform supports the use of a runtime manager, then the flags provided here are passed to the Dart VM prior to starting the DSLink manager.
+
+**Default Value**: []
+
+## javaRuntimeManagerVmFlags
+
+When the [useRuntimeManager](#useruntimemanager) or [useJavaRuntimeManager](#usejavaruntimemanager) options are enabled and the platform supports the use of a runtime manager, then the flags provided here are passed to the Java VM prior to starting the DSLink manager.
+
+**Default Value**: []
 
 ## keepCustomAssets
 
