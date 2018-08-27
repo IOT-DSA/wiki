@@ -1,8 +1,8 @@
 The DSA Server has many options that allow you to tweak how the server works and customize it for your own use.
 
-Options are defined in the server.json
+Options are defined in the `server.json`
 
-An example server.json is:
+An example `server.json` is:
 
 ```json
 {
@@ -45,6 +45,7 @@ An example server.json is:
   },
   "linkConfig": {},
   "disabledLinks": [],
+  "enableUptimeChecker": true,
   "uptimeCheckUrl": null,
   "upstream": {},
   "quarantine": false,
@@ -62,7 +63,6 @@ An example server.json is:
   "runPortChecks": true,
   "storageDriver": "simple",
   "downstreamName": "downstream",
-  "enableUptimeChecker": true,
   "observe": false,
   "loggers": [],
   "proxies": {},
@@ -228,6 +228,12 @@ This value is a comma separated, string list of DSLink names which are installed
 
 **Default Value**: `[]`
 
+## enableUptimeChecker
+
+The server also comes with a checker which will periodically check to verify that the server is still up and running and responsive. Setting this value to false will disable the uptime checker.
+
+**Default Value**: true
+
 ## uptimeCheckUrl
 
 The server has a built-in checker to verify it is still running, and restart it if it goes offline or drops connections. By default the checker will attempt to connect to localhost. However if the server is bound to a different interface in the [host](#host) parameter, you will need to specify the correct URL for the server. It should end in `/ping`. This only applies when [enableUptimeChecker](#enableuptimechecker) is enabled.
@@ -244,13 +250,11 @@ This value is a map of upstream broker connections that this broker will try to 
 
 **Default Value**: `{}`
 
-<!-- Add to example config above when accepted.
 ## strictTls
 
 If this value is set to `true`, then any secure connections to an upstream broker must be passed with a valid/trusted security certificate. If the certificate provided by the upstream broker is invalid the broker will fail to establish a connection and retry (progressively backing off the connection) until a valid certificate is received. If this value is `false`, then insecure certificates are accepted, but a informational message is logged.
 
 **Default Value**: false
--->
 
 ## quarantine
 
@@ -375,19 +379,13 @@ When set to true, this option will verify that the configured ports for the serv
 
 This option is available for future expansion for how data is persisted at various QOS levels. Currently only `simple` is supported.
 
-** Default Value**: simple
+**Default Value**: simple
 
 ## downstreamName
 
 This value is the name of the downstream connections node. Previously releases used a downstream name of `conns`. However it is recommended to leave this as the default value, as other Requester DSLinks may make assumptions of the correct path.
 
 **Default Value**: downstream
-
-## enableUptimeChecker
-
-The server also comes with a checker which will periodically check to verify that the server is still up and running and responsive. Setting this value to false will disable the uptime checker.
-
-**Default Value**: true
 
 ## loggers
 
@@ -425,7 +423,7 @@ This value is a list of flags to add to the server when being started. They only
 
 Number of minutes of user inactivity (nothing being loaded from the server) after which session times out. This is a general setting, cannot be set per user.
 
-**Default Value**: 525600m (1 year)
+**Default Value**: 525600 (1 year)
 
 ## allowBrowserCaching
 
@@ -441,13 +439,13 @@ Sets the log level verbosity. Levels are: `NONE`; `SEVERE`; `WARNING`; `INFO`; `
 
 ## enableLogCompression
 
-If this value is true, then when log files reach approximately 5MB in size, they will be rotated and compressed. Log files will be renamed to <logfile>.<millisecondTimeStamp>.gz
+If this value is true, then when log files reach approximately 5MB in size, they will be rotated and compressed. Log files will be renamed to `<logfile>.<millisecondTimeStamp>.gz`
 
 **Default Value**: true
 
 ## logRotationInterval
 
-This value is the number of seconds to wait before rotating log files. When this option is enabled (anything greater than 0) [enableLogCompression](#enablelogcompression) will not be used. After the specified period, a log file will be renamed to <filename>.<number> the higher the number the older the log file. Any files greater than 2 will be removed.
+This value is the number of seconds to wait before rotating log files. When this option is enabled (anything greater than 0) [enableLogCompression](#enablelogcompression) will not be used. After the specified period, a log file will be renamed to `<filename>.<number>` the higher the number the older the log file. Any files greater than 2 will be removed.
 
 **Default Value**: 0
 
