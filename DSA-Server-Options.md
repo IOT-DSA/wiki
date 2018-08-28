@@ -93,6 +93,8 @@ An example `server.json` is:
   "ssoProviderUrl": null,
   "formatDg5": false,
   "allowedCorsRegexString": null,
+  "loginAuditFileName": "audit.log",
+  "loginAudit": false,
   "blockOutsideGuests": false,
   "customLogo": null
 }
@@ -564,6 +566,18 @@ When this value is true, dglux client will save dg5 in a formatted and json with
 If you wish to allow, but restrict, the access of external sites to interface with your DSA server, you can set a Regular Expression string here which much match for the external server requests to be completed.
 
 **Default Value**: null
+
+## loginAuditFileName
+
+This value only applies when [loginAudit](#loginaudit) is enabled. This will be the filename, within the `/logs` directory, in which the login audits are recorded.
+
+**Default Value**: audit.log
+
+## loginAudit
+
+When enabled, this option will log to the [loginAuditFileName](#loginauditfilename) any user logins, it will record the DateTime, username,  and the IP address from which the request originated. It will also log any time a user's IP address changes during an active session.
+
+**Default Value**: false
 
 ## blockOutsideGuests
 
