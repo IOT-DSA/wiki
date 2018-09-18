@@ -368,6 +368,7 @@ Determines the two factor authentication provider to use.
 
 - none: Don't enable two factor authentication.
 - [duo](https://github.com/IOT-DSA/docs/wiki/Using-DUO-Two-Factor-Authentication): Duo Two-Factor Authentication
+- [totp](https://en.wikipedia.org/wiki/Google_Authenticator): Time based One Time Password using Google Authenticator
 
 **Default Value**: none
 
