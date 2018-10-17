@@ -20,7 +20,7 @@ How permission groups are assigned:
 
 Users are added using `sys > users`.
 
-##Permission Values
+## Permission Values
 A permission value defines the capabilities of the permission group that it is assigned to.
 
 Valid permission values are:
