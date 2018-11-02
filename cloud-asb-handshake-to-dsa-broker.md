@@ -1,18 +1,18 @@
 ### deploy
 * a requester_auth_key string/binary is used in both cloud asb server and dsa broker
-  * cloud asb server use it to generate the token
+  * cloud dgsb server use it to generate the token
   * dsa broker use it to validate the token
 
 ### step of handshake
-* browser asb client connect to https://cloudbroker/dsa-conn
+* browser dgsb client connect to https://cloudbroker/dsa-conn
   * cloud broker return the token and ws url in json format
 ```json
 {
   "wsUrl":"wss://192.168.100.104/ws",
-  "asbToken":"user;rick;2018-06-26T20:32:26.823Z;9dn19bt7f;FEuG-dsvoy3Mfh-DY4ZLqxWdcjA9mky2MyCd0DmqTMw"
+  "dgsb Token":"user;rick;2018-06-26T20:32:26.823Z;9dn19bt7f;FEuG-dsvoy3Mfh-DY4ZLqxWdcjA9mky2MyCd0DmqTMw"
 }
 ```
-* asb client connect to the broker's /ws endpoint with the url query parameter `&asbToken=`
+* dgsb client connect to the broker's /ws endpoint with the url query parameter `&dgsbToken=`
   * the client would skip /conn step and only connect to /ws
   * the client wont send `auth` or `dsId` in the url query when connecting to /ws
 
@@ -34,5 +34,5 @@
 ### behavior of broker
 * broker must cache the token for at least 30 seconds to make sure same token can not be used twice
 * broker must allow same userId or permission group to have multiple connection (as long as their token are different)
-* asb clients are always requester only and broker must not create downstream nodes for them
+* dgsb clients are always requester only and broker must not create downstream nodes for them
 * broker should not allow dglux client to have qos 2 or qos 3. they should be downgraded to qos 1
