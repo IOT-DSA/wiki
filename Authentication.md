@@ -4,6 +4,7 @@ To configure authentication for DGLux servers, edit the “server.json” file a
 * [ldap](#ldap) 
 * [ldap-with-fallback](#ldap)
 * [ldap-with-fallback-and-file](#ldap)
+* [openId connect](#openId)
 * [open](#open)
 * [composite](#composite)
 
@@ -56,6 +57,31 @@ Example LDAP configuration:
       "groupAttribute": "users",
       "searchFilter": "(&(objectClass=Person)(|(sn=Jensen)(cn=Babs J*)))"
     },
+
+## openId
+
+For authentication against an OpenID Connect Provider. This authentication type required configuration both locally and on the remote OpenID Connect authorization provider.
+
+You must configure the OpenID Connect authentication provider server settings in "servers.json" as key/value pairs:
+
+* `issuer`: (Required) Full URI to the OpenID Connect Provider. This must match the issuer (`iss`) returned by the provider for tokens.
+* `clientId`: (Required) The unique client id provided by the OpenID Connect Provider. See your provider for more information.
+* `secret`: (Required) The matching secret for the client ID as provided by the OpenID Connect Provider.
+* `usernameKey`: (Optional) Some Open ID Connect Providers will use a non-standard key to associate the desired DSA Server username. You may optionally specify this parameter to indicate that this is the key you want the DSA Server to associate with a username when mapping a response from the Open ID Connect Provider to a DSA Server user account. By default the DSA Server will try using `preferred_username` and `sub` as usernames, in that order, from the OpenID Connect Provider.
+* `scope`: (Optional) This value is a list of strings. By default the DSA Server will request the scopes: `["openid", "profile"]` The `openid` scope will always be requested as defined in the OpenID Connect standard. If you wish a different or additional scope(s) to be returned, you may specify a list of strings to use. *Note:* If you specify this, it will replace the `profile` scope, so that must be added manually if you still wish to retrieve profile scope as well as any additional scopes.
+
+Configuration of remote Open ID Connect Providers is beyond the scope of this document. However in most cases the process is similar to the following:
+
+* Add a new Open ID application.
+* Locate the `clientId` and `secret` associated with that application for use in the above settings.
+* Add (login) callback URL. Once the authentication provider has authorized a user, it will only permit callbacks to URLs that you specify with them. There, you must specify the DSA Server address with an additional path of `/sso/openId`. For example if your DSA Server is running on localhost:8443 you must specify: `https://localhost:8443/sso/openId` in their allowed callbacks.
+* (Optionally) Add logout callback URL. When logging out, a redirect to the OpenID Connect Provider will terminate the session with them. You may then allow them to redirect back to the DSA Server page (eg: `https://localhost:8443/').
+
+### Additional configuration some OpenID Connect Providers will allow you to send additional properties within a scope. There are three of particular value with DSA Server.
+
+* `superuser`: If an authorized user's information from the OpenID Connect Provider contains the key superuser, with the value set to `true` (boolean, not string), then the user will have Superuser rights within DSA Server.
+* `rootUrl`: If the authorized user's information from the OpenID Connect Provider contains the key rootUrl with a string path as a value, the user will be redirected to that path by default when logged in.
+* `allowDesigner`: If an authorized user's information from the OpenID Connect Provider contains the key allowDesigner, with the value set to `false` (boolean, not string), then the user will be prevented from accessing the designer when logged in to the DSA Server.
 
 ## open
 This authentication type will allow any username/password combination to log in. Superuser privileges are never granted.
