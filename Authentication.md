@@ -77,7 +77,9 @@ Configuration of remote Open ID Connect Providers is beyond the scope of this do
 * Add (login) callback URL. Once the authentication provider has authorized a user, it will only permit callbacks to URLs that you specify with them. There, you must specify the DSA Server address with an additional path of `/sso/openId`. For example if your DSA Server is running on localhost:8443 you must specify: `https://localhost:8443/sso/openId` in their allowed callbacks.
 * (Optionally) Add logout callback URL. When logging out, a redirect to the OpenID Connect Provider will terminate the session with them. You may then allow them to redirect back to the DSA Server page (eg: `https://localhost:8443/').
 
-### Additional configuration some OpenID Connect Providers will allow you to send additional properties within a scope. There are three of particular value with DSA Server.
+### Additional configuration
+
+Some OpenID Connect Providers will allow you to send additional properties within a scope. There are three of particular value with DSA Server.
 
 * `superuser`: If an authorized user's information from the OpenID Connect Provider contains the key superuser, with the value set to `true` (boolean, not string), then the user will have Superuser rights within DSA Server.
 * `rootUrl`: If the authorized user's information from the OpenID Connect Provider contains the key rootUrl with a string path as a value, the user will be redirected to that path by default when logged in.
