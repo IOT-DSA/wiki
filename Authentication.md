@@ -4,7 +4,7 @@ To configure authentication for DGLux servers, edit the “server.json” file a
 * [ldap](#ldap) 
 * [ldap-with-fallback](#ldap)
 * [ldap-with-fallback-and-file](#ldap)
-* [openId connect](#openId)
+* [openId](#openId)
 * [open](#open)
 * [composite](#composite)
 
@@ -48,15 +48,17 @@ You can specify the following LDAP server settings in “servers.json” as key/
 
 Example LDAP configuration:
 
-    "authType": "ldap",
-    "ldap": {
-      "url": "ldap://myldap.host",
-      "dn": "cn=root,dc=myhost,dc=org",
-      "password": "myPassword",
-      "searchBase": "dc=myHost,dc=org",
-      "groupAttribute": "users",
-      "searchFilter": "(&(objectClass=Person)(|(sn=Jensen)(cn=Babs J*)))"
-    },
+```json
+"authType": "ldap",
+"ldap": {
+  "url": "ldap://myldap.host",
+  "dn": "cn=root,dc=myhost,dc=org",
+  "password": "myPassword",
+  "searchBase": "dc=myHost,dc=org",
+  "groupAttribute": "users",
+  "searchFilter": "(&(objectClass=Person)(|(sn=Jensen)(cn=Babs J*)))"
+}
+```
 
 ## openId
 
@@ -69,6 +71,19 @@ You must configure the OpenID Connect authentication provider server settings in
 * `secret`: (Required) The matching secret for the client ID as provided by the OpenID Connect Provider.
 * `usernameKey`: (Optional) Some Open ID Connect Providers will use a non-standard key to associate the desired DSA Server username. You may optionally specify this parameter to indicate that this is the key you want the DSA Server to associate with a username when mapping a response from the Open ID Connect Provider to a DSA Server user account. By default the DSA Server will try using `preferred_username` and `sub` as usernames, in that order, from the OpenID Connect Provider.
 * `scope`: (Optional) This value is a list of strings. By default the DSA Server will request the scopes: `["openid", "profile"]` The `openid` scope will always be requested as defined in the OpenID Connect standard. If you wish a different or additional scope(s) to be returned, you may specify a list of strings to use. *Note:* If you specify this, it will replace the `profile` scope, so that must be added manually if you still wish to retrieve profile scope as well as any additional scopes.
+
+Example OpenID Connect configuration:
+
+```json
+"authType": "openId",
+"openId": {
+  "issuer": "https://dsa-server.auth0.com",
+  "clientId": "Aliew8232_weli9os0baz",
+  "secret": "LvIwnw0238seaAKJboWP023scBEapesDewabwewp323sSeBweaPwea",
+  "usernameKey": "email",
+  "scopes": ["profile", "email", "read:contacts"]
+}
+```
 
 Configuration of remote Open ID Connect Providers is beyond the scope of this document. However in most cases the process is similar to the following:
 
