@@ -77,7 +77,7 @@ Example OpenID Connect configuration:
 ```json
 "authType": "openId",
 "openId": {
-  "issuer": "https://dsa-server.auth0.com",
+  "issuer": "https://dsa-server.okta.com",
   "clientId": "Aliew8232_weli9os0baz",
   "secret": "LvIwnw0238seaAKJboWP023scBEapesDewabwewp323sSeBweaPwea",
   "usernameKey": "email",
