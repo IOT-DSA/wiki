@@ -351,12 +351,13 @@ Determines the URI that a guest user is redirected to when visiting the root of 
 
 ## authType
 
-Determines the authentication provider to use.
+Determines the [authentication provider](./Authentication) to use.
 
 ### Supported Authentication Providers
 
 - file: Securely store usernames, passwords, and metadata in the users.json file
-- [ldap](https://github.com/IOT-DSA/docs/wiki/DGLux-Server---LDAP-Authentication): Use LDAP authentication.
+- ldap: Use LDAP authentication.
+- openId: Use Open ID Connect authentication.
 
 **Default Value**: file
 
