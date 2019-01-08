@@ -22,7 +22,7 @@ example of input
 ```
 
 * path: a list of paths to be audited
-* auditConnect: audit every dsa connection
+* auditConnect: audit every dsa (dslink/browser user) connection
 * auditDisconnect: audit every dsa disconnection
 * auditAttributes: a list of attribute names to be audited
   * by default set or remove attributes are not audited
