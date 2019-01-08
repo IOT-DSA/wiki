@@ -96,7 +96,8 @@ An example `server.json` is:
   "loginAuditFileName": "audit.log",
   "loginAudit": false,
   "blockOutsideGuests": false,
-  "customLogo": null
+  "customLogo": null,
+  "passwordExpireAfterDays" : 0
 }
 ```
 
@@ -592,3 +593,11 @@ Enable this value if you wish to require a valid user login to view all projects
 When the server has been configured to use a customized branded login page, this is the path to the logo image.
 
 **Default Value**: null
+
+## passwordExpireAfterDays
+
+Numbe of days before user's password expire. After that user will be forced to change password upon login.
+
+0 means the password will not expire
+
+**Default Value**: 0
