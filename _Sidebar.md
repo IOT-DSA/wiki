@@ -21,4 +21,5 @@
 &emsp;◌ [Authentication](Authentication)<br/>
 &emsp;&emsp;◌ [Password Hasher](DGLux-Server---Password-Hasher)<br/>
 &emsp;◌ [SSL Setup](DGLux-Server---SSL)<br/>
-&emsp;◌ [Docker](Docker)
+&emsp;◌ [Docker](Docker)<br/>
+&emsp;◌ [Audit Feature](Audit-Feature)
