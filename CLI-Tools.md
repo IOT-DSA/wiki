@@ -52,3 +52,37 @@ Usage: users remove [options]
 ```
 
 Example: `bin/users.sh remove -u newUser` will remove the with the username "newUser".
+
+### change-password
+
+Change the password of the specified user to the supplied password.
+
+```
+Usage: users change-password [options]
+-u, --username=<username>    Username
+-p, --password=<password>    Password
+```
+
+Example: `bin/users.sh change-password -u testUser -p newPassword` will change the password of "testUser" to be "newPassword". Once logged in it is still recommended the user change their password to one of their choosing.
+
+### grant-superuser
+
+Enable the superuser flag on the specified account.
+
+```
+Usage: users grant-superuser [options]
+-u, --username=<username>    Username
+```
+
+Example: `bin/users.sh grant-superuser -u admin` will enable the superuser flag on the "admin" account.
+
+### deny-superuser
+
+Disable the superuser flag on the specified account.
+
+```
+Usage: users deny-superuser [options]
+-u, --username=<username>    Username
+```
+
+Example: `bin/users.sh deny-superuser -u admin` will remove the superuser flag from the "admin" account.
