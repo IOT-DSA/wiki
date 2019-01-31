@@ -97,7 +97,14 @@ An example `server.json` is:
   "loginAudit": false,
   "blockOutsideGuests": false,
   "customLogo": null,
-  "passwordExpireAfterDays" : 0
+  "passwordExpireAfterDays" : 0,
+  "smtp": {
+    "server": "smtp.somedomain.com:465",
+    "username": "smtpUser@somedomain.com",
+    "password": "smtpUserPassword",
+    "from": "no-reply@somedomain.com",
+    "fromName": "DG Solution Builder",
+  }
 }
 ```
 
@@ -596,8 +603,43 @@ When the server has been configured to use a customized branded login page, this
 
 ## passwordExpireAfterDays
 
-Numbe of days before user's password expire. After that user will be forced to change password upon login.
+Number of days before a user's password expires. After that user will be forced to change password upon login.
 
 0 means the password will not expire
 
 **Default Value**: 0
+
+## smtp
+
+This value will enable password reset requests for a forgotten password to be handled via e-mail associated with the account. When this configuration value is absent or `null` then the "forgot password" functionality is disabled. The value is a configuration map of parameters. A description of the possible parameters follow:
+
+### server
+
+**Required** This will be the full domain name of the SMTP server, optionally specifying the port with the colon syntax. Alternatively, if you are using Google gmail as an SMTP server, you may simply specify `"gmail"` as the server name.
+
+### username
+
+**Optional** The username of the SMTP account if required by the SMTP server, this may either be a simple username, or a full e-mail address. Please refer to your SMTP server provider for more information.
+
+### password
+
+**Optional** Password for the associated username. 
+
+### from
+
+**Optional** E-mail address as it should appear in the `from` field. Some SMTP server's will automatically use the username in the from field.
+
+### fromName
+
+**Optional** The name which should be associated with the e-mail address in the `from` field. If this is omitted, the server will default to `"DG Solution Builder"` for the fromName.
+
+Example:
+```"smtp": {
+    "server": "smtp.somedomain.com:465",
+    "username": "smtpUser@somedomain.com",
+    "password": "smtpUserPassword",
+    "from": "no-reply@somedomain.com",
+    "fromName": "DG Solution Builder",
+  }
+```
+**Default Value**: null
