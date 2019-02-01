@@ -95,6 +95,8 @@ An example `server.json` is:
   "allowedCorsRegexString": null,
   "loginAuditFileName": "audit.log",
   "loginAudit": false,
+  "loginThrottleDuration": 60,
+  "loginThrottleAttempts": 5,
   "blockOutsideGuests": false,
   "customLogo": null,
   "passwordExpireAfterDays" : 0,
@@ -588,6 +590,18 @@ This value only applies when [loginAudit](#loginaudit) is enabled. This will be 
 When enabled, this option will log to the [loginAuditFileName](#loginauditfilename) any user logins, it will record the DateTime, username,  and the IP address from which the request originated. It will also log any time a user's IP address changes during an active session.
 
 **Default Value**: false
+
+## loginThrottleDuration
+
+The period of time, in seconds, that the login will be delayed for a user who has exceeded the maximum number of login attempts (next value). Set this value to 0 to disable login throttling.
+
+**Default Value**: 60
+
+## loginThrottleAttempts
+
+The number of failed attempts to log into DG Solution Builder before the following request is throttled for the specified period of time. Set this value to 0 to disable login throttling.
+
+**Default Value**: 5
 
 ## blockOutsideGuests
 
