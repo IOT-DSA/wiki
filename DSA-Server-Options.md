@@ -634,7 +634,8 @@ This value will enable password reset requests for a forgotten password to be ha
 **Optional** The name which should be associated with the e-mail address in the `from` field. If this is omitted, the server will default to `"DG Solution Builder"` for the fromName.
 
 Example:
-```"smtp": {
+```
+"smtp": {
     "server": "smtp.somedomain.com:465",
     "username": "smtpUser@somedomain.com",
     "password": "smtpUserPassword",
