@@ -105,7 +105,7 @@ An example `server.json` is:
     "username": "smtpUser@somedomain.com",
     "password": "smtpUserPassword",
     "from": "no-reply@somedomain.com",
-    "fromName": "DG Solution Builder",
+    "fromName": "DG Solution Builder"
   }
 }
 ```
