@@ -4,7 +4,7 @@ There is a dedicated `audit` node located under `/sys`.
 It has two child action nodes and `enabled` boolean property.
 
 ### Config Action
-This action configures the audit feature. To invoke this action automatically set `enabled` property to true.
+This action configures the audit feature. Invoking this action automatically set `enabled` property to true.
 
 Input example:
 ```
