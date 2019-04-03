@@ -1,14 +1,17 @@
-Token is necessary to create a new handshake when the broker is configured to not allow unknown DSLinks.
+A token is necessary to create a new handshake when the broker is configured to disallow unknown DSLinks.
 
-Token is not required for DSLinks that are managed by this broker's DSLink manager. If a DSLink is installed using the broker's `/sys/links` node, that DSLink is maintained by the broker and uses an automatically generated token.
+A token is not required for DSLinks that broker manages by its DSLink manager. If a DSLink is installed using the broker's `/sys/links` node, that DSLink is maintained by the broker and uses an automatically generated token.
 
 ## Changing Whether a Token Is Required
 To change whether tokens are required:
  1. Open `server.json`.
- 1. Change the value of `allowAllLinks`.
+ 1. Change the `allowAllLinks` value.
 
 * When `allowAllLinks` is true, any DSLink can connect to the broker without a token.
-* When `allowAllLinks` is false, dslinks installed with the broker and dslinks that are previous connected and still registered in downstream can connect without a token, but new dslink will need token.
+* When `allowAllLinks` is false, dslinks installed with the broker and dslinks that are previous connected and still registered in downstream can connect without a token, but new dslink will need a token.
+
+## Using Quarantine
+When `allowAllLinks` is set to false, there is a way to manually approve incoming DSLink connections using `quarantine` parameter in the configuration file. Set `quarantine` to true to enable this mode. When new dslink is establishing a connection, it is locked under `/sys/quarantine`. Superuser can approve connection using right-click actions on the quarantine node.
 
 ## Creating a Token
 
@@ -16,7 +19,7 @@ These entities can add tokens:
  - A broker user with config permissions
  - A DSLink with config permissions
 
-To create a token, access the `/sys/tokens/{username}/` node and use the **add** action.
+To create a token, access the `/sys/tokens/{username}/` node and use the **Add Token** action.
 
 When creating a token, use these parameters:
 
@@ -25,20 +28,20 @@ When creating a token, use these parameters:
  - **Managed**: A boolean value. When TRUE, the token is managed, meaning that token expiration or removal causes all DSLinks connected via this token to be disconnected and removed from the broker.
 
 ## Using a Token
-On the first use, a token can be specified in the command line.
+On the first use, specify a token in the command line.
 
 Dart example:
 ```
 dart run.dart --broker http://server/conn --token RMtO6mEJmUlJfoWfofiLgjguUEpuIzWP3sXeoBNSbLIVumlw
 ```
 
-When a DSLink successfully connects to the broker via the token, the dslink's dsId is stored on the broker. On subsequent uses, that DSLink can connect without any token.
+When a DSLink successfully connects to the broker via the token, the broker stores dslink's `dsId`. On subsequent uses, that DSLink can connect without any token.
 
 ## Implementation of the Token in the SDK
 These features need to be implemented in a DSLink SDK to enable token:
 
 #### Parameters for /conn and /ws
-A tokenHash needs to be sent to /conn and /ws endpoints.
+A tokenHash needs to be sent to `/conn` and `/ws` endpoints.
 
 ```
 http://server/conn?dsId=test-wjN6iQTk7TOXZbHHkQDH1T2zfrPcphTxchiPvTgzbww&token=RMtO6mEJmUlJfoWfegkDI-jCG-4J2Ke1L26hX_63vHlq9zsRJbFUWWIgE8U
