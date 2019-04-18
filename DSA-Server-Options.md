@@ -252,7 +252,7 @@ The server has a built-in checker to verify it is still running, and restart it 
 
 Example:
 
-```"https://169.254.100.100/ping"```
+`"https://169.254.100.100/ping"`
 
 **Default Value**: null
 
